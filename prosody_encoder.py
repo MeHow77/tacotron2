@@ -216,10 +216,11 @@ def train():
             optimizer.step()
             print("{}:\t{:.9f}".format(iteration, reduced_loss))
 
-            iteration += 1
             if (iteration % 10 == 0):
                 print(output.detach().numpy())
                 print(c.cpu().numpy())
+
+            iteration += 1
 
 if __name__ == "__main__":
     train()
