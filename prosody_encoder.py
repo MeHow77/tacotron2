@@ -217,7 +217,7 @@ def train():
             print("{}:\t{:.9f}".format(iteration, reduced_loss))
 
             if (iteration % 10 == 0):
-                print(output.detach().numpy())
+                print(output.cpu().numpy())
                 print(c.cpu().numpy())
 
             iteration += 1
