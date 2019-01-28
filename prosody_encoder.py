@@ -176,7 +176,8 @@ class loss_fn(torch.nn.Module):
 def train():
     meta_path = 'prosody_embedding_test/metadata.txt'
     perfix = 'prosody_embedding_test'
-    batch_size = 10
+    batch_size = 40
+    max_epoch = 1000
 
     model = prosody_encoder()
     learning_rate = hparams.learning_rate
@@ -198,7 +199,7 @@ def train():
     model.train().cuda()
     epoch_offset = max(0, int(iteration / len(train_loader)))
 
-    for epoch in range(epoch_offset, 100):
+    for epoch in range(epoch_offset, max_epoch):
         print("Epoch: {}".format(epoch))
         for i, batch in enumerate(train_loader):
             model.zero_grad()
@@ -216,7 +217,7 @@ def train():
             print("{}:\t{:.9f}".format(iteration, reduced_loss))
 
             iteration += 1
-            if (iteration % 40 == 0):
+            if (iteration % 10 == 0):
                 print(output.cpu().numpy())
                 print(c.cpu().numpy())
 
