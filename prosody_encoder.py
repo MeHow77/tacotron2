@@ -179,7 +179,7 @@ def train():
     batch_size = 40
     max_epoch = 1000
 
-    model = prosody_encoder()
+    model = prosody_encoder().cuda()
     learning_rate = hparams.learning_rate
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate,
                                  weight_decay=hparams.weight_decay)
@@ -196,7 +196,7 @@ def train():
                               pin_memory=False,
                               drop_last=True)
 
-    model.train().cuda()
+    model.train()
     epoch_offset = max(0, int(iteration / len(train_loader)))
 
     for epoch in range(epoch_offset, max_epoch):
