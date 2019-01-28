@@ -195,7 +195,7 @@ def train():
                               pin_memory=False,
                               drop_last=True)
 
-    model.train()
+    model.train().cuda()
     epoch_offset = max(0, int(iteration / len(train_loader)))
 
     for epoch in range(epoch_offset, 100):
@@ -204,6 +204,8 @@ def train():
             model.zero_grad()
 
             mel, c = batch
+            mel = torch.autograd.Variable(mel.cuda())
+            c = torch.autograd.Variable(c.cuda())
             output = model(mel)
 
             loss = criterion(output, c)
