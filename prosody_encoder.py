@@ -218,7 +218,7 @@ def train():
 
             iteration += 1
             if (iteration % 10 == 0):
-                print(output.cpu().numpy())
+                print(output.detach().numpy())
                 print(c.cpu().numpy())
 
 if __name__ == "__main__":
