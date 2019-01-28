@@ -210,8 +210,8 @@ def train():
             output = model(mel)
 
             if (iteration % 10 == 0):
-                print(output.cpu().detach().numpy())
-                print(c.cpu().detach().numpy())
+                print(output.cpu().detach().numpy()[0])
+                print(c.cpu().detach().numpy()[0])
 
             loss = criterion(output, c)
             reduced_loss = loss.item()
