@@ -209,6 +209,10 @@ def train():
             c = torch.autograd.Variable(c.cuda())
             output = model(mel)
 
+            if (iteration % 10 == 0):
+                print(output.cpu().detach().numpy())
+                print(c.cpu().detach().numpy())
+
             loss = criterion(output, c)
             reduced_loss = loss.item()
             loss.backward()
@@ -216,9 +220,7 @@ def train():
             optimizer.step()
             print("{}:\t{:.9f}".format(iteration, reduced_loss))
 
-            if (iteration % 10 == 0):
-                print(output.cpu().numpy())
-                print(c.cpu().numpy())
+
 
             iteration += 1
 
