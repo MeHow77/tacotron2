@@ -32,7 +32,7 @@ def preprocess_audio(file_list, silence_audio_size):
 if __name__ == "__main__":
     """
     usage
-    python preprocess_audio.py -f=filelists/nam-h_test_filelist.txt,filelists/nam-h_train_filelist.txt,filelists/nam-h_val_filelist.txt -s=3
+    python preprocess_audio.py -f=filelists/nam-h_test_filelist.txt,filelists/nam-h_train_filelist.txt,filelists/nam-h_val_filelist.txt -s=0
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', '--file_list', type=str,
