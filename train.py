@@ -79,8 +79,7 @@ def prepare_directories_and_logger(output_directory, log_directory, rank):
 
 
 def load_model(hparams):
-    print('loading old_model:',hparams.text_cleaners == ['korean_cleaners'])
-    model =Tacotron2_old(hparams).cuda() if hparams.text_cleaners == ['korean_cleaners']  else Tacotron2(hparams).cuda()
+    model = Tacotron2(hparams).cuda()
     if hparams.fp16_run:
         model = batchnorm_to_float(model.half())
         model.decoder.attention_layer.score_mask_value = float(finfo('float16').min)
