@@ -56,8 +56,8 @@ def create_hparams(hparams_string=None, verbose=False):
         prosody_conv_dim_in = [1, 32, 32, 64, 64, 128],
         prosody_conv_dim_out = [32, 32, 64, 64, 128, 128],
         prosody_conv_kernel = 3,
-        prosody_conv_stride =2,
-
+        prosody_conv_stride = 2,
+        prosody_embedding_dim = 128,
 
         # Decoder parameters
         n_frames_per_step=1,  # currently only 1 is supported

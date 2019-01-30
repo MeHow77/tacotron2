@@ -1,4 +1,4 @@
-from math import sqrt
+from math import sqrt, ceil
 import torch
 from torch.autograd import Variable
 from torch import nn
@@ -201,7 +201,7 @@ class Encoder(nn.Module):
 
         return outputs
 
-class prosody_encoder(torch.nn.Module):
+class Prosody(torch.nn.Module):
     '''
     Args:
       inputs: A 3d tensor with shape of (N, n_mels, Ty), with dtype of float32.
@@ -214,11 +214,17 @@ class prosody_encoder(torch.nn.Module):
       Prosody vectors. Has the shape of (N, 128).
     '''
     def __init__(self, hparams):
-        super(prosody_encoder, self).__init__()
+        super(Prosody, self).__init__()
 
+        #[N, ceil(T / 64), 128 * ceil(n_mel / 64)]
         self.kernel = hparams.prosody_conv_kernel
         self.stride = hparams.prosody_conv_stride
         self.padding = max(self.kernel - self.stride, 0)
+
+        self.n_mel_channels = hparams.n_mel_channels
+        self.ceil_n_mel_64 = int(ceil(hparams.n_mel_channels/64))
+        self.prosody_embedding_dim = hparams.prosody_embedding_dim
+        self.batch_size = hparams.batch_size
 
         convolutions = []
         for i in range(hparams.prosody_n_convolutions):
@@ -234,10 +240,10 @@ class prosody_encoder(torch.nn.Module):
         self.convolutions = nn.ModuleList(convolutions)
 
         # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, ceil(T/64), 128]
-        self.gru = torch.nn.GRU(input_size=128*2, hidden_size=128, num_layers=1)
+        self.gru = torch.nn.GRU(input_size=self.prosody_embedding_dim*int(hparams.n_mel_channels), hidden_size=self.prosody_embedding_dim, num_layers=1)
 
         # FC in [N, 128], out [N, 128]
-        self.fc = torch.nn.Linear(in_features=128, out_features=128)
+        self.fc = torch.nn.Linear(in_features=self.prosody_embedding_dim, out_features=self.prosody_embedding_dim)
 
     def forward(self, x):
         """
@@ -253,9 +259,9 @@ class prosody_encoder(torch.nn.Module):
             x = F.dropout(F.relu(conv(x)), 0.5, self.training)
 
         # unrolling in [N, 128, ceil(n_mel / 64), ceil(T / 64)] out [N, ceil(T/64), 128*ceil(n_mel/64)]
-        N, C, ceil_nmel_64, ceil_T_64 = list(x.size())
+        #N, C, ceil_nmel_64, ceil_T_64 = list(x.size())
         c2d_output_permute= x.permute(0, 3, 1, 2) # [N, 128, ceil(n_mel / 64), ceil(T / 64)] to [N, ceil(n_mel / 64), 128, ceil(T / 64)]
-        unrooling_output = c2d_output_permute.view(N, ceil_T_64, C*ceil_nmel_64)
+        unrooling_output = c2d_output_permute.view(self.batch_size, -1, self.prosody_embedding_dim*self.ceil_n_mel_64)
 
         # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, 128]
         gru_output, _ = self.gru(unrooling_output)
@@ -271,7 +277,7 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
         self.n_mel_channels = hparams.n_mel_channels
         self.n_frames_per_step = hparams.n_frames_per_step
-        self.encoder_embedding_dim = hparams.encoder_embedding_dim
+        self.encoder_embedding_dim = hparams.encoder_embedding_dim + hparams.prosody_embedding_dim
         self.attention_rnn_dim = hparams.attention_rnn_dim
         self.decoder_rnn_dim = hparams.decoder_rnn_dim
         self.prenet_dim = hparams.prenet_dim
@@ -536,6 +542,7 @@ class Tacotron2(nn.Module):
         val = sqrt(3.0) * std  # uniform bounds for std
         self.embedding.weight.data.uniform_(-val, val)
         self.encoder = Encoder(hparams)
+        self.prosody = Prosody(hparams)
         self.decoder = Decoder(hparams)
         self.postnet = Postnet(hparams)
 
@@ -577,7 +584,13 @@ class Tacotron2(nn.Module):
 
         embedded_inputs = self.embedding(inputs).transpose(1, 2)
 
-        encoder_outputs = self.encoder(embedded_inputs, input_lengths)
+        # [N, Mel_T, int(encoder_dim/2)]
+        # [self.batch_size, output_lengths, int(encoder_dim/2)]
+        transcript_outputs = self.encoder(embedded_inputs, input_lengths)
+        # [self.batch_size, prosody_dim] -> [self.batch_size, output_lengths, prosody_dim]
+        prosody_outputs = self.prosody(targets)
+        prosody_outputs = prosody_outputs.unsqueeze(1).repeat(1, output_lengths, 1)
+        encoder_outputs = torch.cat((transcript_outputs, prosody_outputs), dim = 2)
 
         mel_outputs, gate_outputs, alignments = self.decoder(
             encoder_outputs, targets, memory_lengths=input_lengths)
@@ -589,10 +602,15 @@ class Tacotron2(nn.Module):
             [mel_outputs, mel_outputs_postnet, gate_outputs, alignments],
             output_lengths)
 
-    def inference(self, inputs):
+    def inference(self, inputs, ref_mels):
         inputs = self.parse_input(inputs)
         embedded_inputs = self.embedding(inputs).transpose(1, 2)
-        encoder_outputs = self.encoder.inference(embedded_inputs)
+        transcript_outputs = self.encoder.inference(embedded_inputs)
+        _, T, _ = list(transcript_outputs.shape)
+        prosody_outputs = self.prosody(ref_mels)
+        prosody_outputs = prosody_outputs.unsqueeze(1).repeat(1, T, 1)
+        encoder_outputs = torch.cat((transcript_outputs, prosody_outputs), dim = 2)
+
         mel_outputs, gate_outputs, alignments = self.decoder.inference(
             encoder_outputs)
 
