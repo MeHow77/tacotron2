@@ -42,7 +42,7 @@ class ConvNorm2D(torch.nn.Module):
         super(ConvNorm2D, self).__init__()
         self.conv = torch.nn.Conv2d(in_channels=in_channels, out_channels=out_channels,
                                     kernel_size=kernel_size, stride=stride,
-                                    padding=self.padding, dilation=dilation,
+                                    padding=padding, dilation=dilation,
                                     groups=1, bias=bias)
         torch.nn.init.xavier_uniform_(
             self.conv.weight, gain=torch.nn.init.calculate_gain(w_init_gain))
