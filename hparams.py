@@ -46,10 +46,18 @@ def create_hparams(hparams_string=None, verbose=False):
         n_symbols = 80, # set 80 if u use korean_cleaners. set 149 if u use english_cleaners
         symbols_embedding_dim=512,
 
-        # Encoder parameters
-        encoder_kernel_size=5,
-        encoder_n_convolutions=3,
-        encoder_embedding_dim=512,
+        # Transcript encoder parameters
+        encoder_kernel_size = 5,
+        encoder_n_convolutions = 3,
+        encoder_embedding_dim = 512,
+
+        # Prosody encoder parameters
+        prosody_n_convolution = 6,
+        prosody_conv_dim_in = [1, 32, 32, 64, 64, 128],
+        prosody_conv_dim_out = [32, 32, 64, 64, 128, 128],
+        prosody_conv_kernel = 3,
+        prosody_conv_stride =2,
+
 
         # Decoder parameters
         n_frames_per_step=1,  # currently only 1 is supported

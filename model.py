@@ -3,7 +3,7 @@ import torch
 from torch.autograd import Variable
 from torch import nn
 from torch.nn import functional as F
-from layers import ConvNorm, LinearNorm
+from layers import ConvNorm, ConvNorm2D, LinearNorm
 from utils import to_gpu, get_mask_from_lengths
 from fp16_optimizer import fp32_to_fp16, fp16_to_fp32
 
@@ -201,6 +201,71 @@ class Encoder(nn.Module):
 
         return outputs
 
+class prosody_encoder(torch.nn.Module):
+    '''
+    Args:
+      inputs: A 3d tensor with shape of (N, n_mels, Ty), with dtype of float32.
+                Melspectrogram of reference audio.
+      is_training: Whether or not the layer is in training mode.
+      scope: Optional scope for `variable_scope`
+      reuse: Boolean, whether to reuse the weights of a previous layer
+        by the same name.
+    Returns:
+      Prosody vectors. Has the shape of (N, 128).
+    '''
+    def __init__(self, hparams):
+        super(prosody_encoder, self).__init__()
+
+        self.kernel = hparams.prosody_conv_kernel
+        self.stride = hparams.prosody_conv_stride
+        self.prosody_n_convolutions = hparams.prosody_n_convolution
+        self.padding = max(self.kernel - self.stride, 0)
+
+        convolutions = []
+        for i in range(hparams.prosody_n_convolutions):
+            conv_layer = nn.Sequential(
+                ConvNorm2D(hparams.prosody_conv_dim_in[i],
+                        hparams.prosody_conv_dim_out[i],
+                        kernel_size=hparams.encoder_kernel_size, stride=1,
+                        padding=self.padding,
+                        dilation=1, w_init_gain='relu'),
+                nn.BatchNorm2d(hparams.prosody_conv_dim_out[i])
+            )
+            convolutions.append(conv_layer)
+        self.convolutions = nn.ModuleList(convolutions)
+
+        # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, ceil(T/64), 128]
+        self.gru = torch.nn.GRU(input_size=128*2, hidden_size=128, num_layers=1)
+
+        # FC in [N, 128], out [N, 128]
+        self.fc = torch.nn.Linear(in_features=128, out_features=128)
+
+    def forward(self, x):
+        """
+        in [N, 1, n_mel, Ty], out [N, 128]
+        out -> [N, n_class] for test
+        """
+        # check if Ty % stride == 0
+        x_size = list(x.size())
+        assert x_size[3] % self.stride == 0
+
+        # 2c CNN in [N, 1, 80, Ty] out [N, 128, ceil(80/64), ceil(Ty/64)]
+        for conv in self.convolutions:
+            x = F.dropout(F.relu(conv(x)), 0.5, self.training)
+
+        # unrolling in [N, 128, ceil(n_mel / 64), ceil(T / 64)] out [N, ceil(T/64), 128*ceil(n_mel/64)]
+        N, C, ceil_nmel_64, ceil_T_64 = list(x.size())
+        c2d_output_permute= x.permute(0, 3, 1, 2) # [N, 128, ceil(n_mel / 64), ceil(T / 64)] to [N, ceil(n_mel / 64), 128, ceil(T / 64)]
+        unrooling_output = c2d_output_permute.view(N, ceil_T_64, C*ceil_nmel_64)
+
+        # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, 128]
+        gru_output, _ = self.gru(unrooling_output)
+        gru_output = gru_output[:, -1, :] # take last value
+
+        # FC [N, 128]
+        fc_output = torch.tanh(self.fc(gru_output))
+
+        return fc_output
 
 class Decoder(nn.Module):
     def __init__(self, hparams):
