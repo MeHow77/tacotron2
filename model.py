@@ -218,7 +218,6 @@ class prosody_encoder(torch.nn.Module):
 
         self.kernel = hparams.prosody_conv_kernel
         self.stride = hparams.prosody_conv_stride
-        self.prosody_n_convolutions = hparams.prosody_n_convolution
         self.padding = max(self.kernel - self.stride, 0)
 
         convolutions = []
@@ -226,7 +225,7 @@ class prosody_encoder(torch.nn.Module):
             conv_layer = nn.Sequential(
                 ConvNorm2D(hparams.prosody_conv_dim_in[i],
                         hparams.prosody_conv_dim_out[i],
-                        kernel_size=hparams.encoder_kernel_size, stride=1,
+                        kernel_size=self.kernel, stride=self.stride,
                         padding=self.padding,
                         dilation=1, w_init_gain='relu'),
                 nn.BatchNorm2d(hparams.prosody_conv_dim_out[i])
