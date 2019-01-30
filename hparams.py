@@ -52,7 +52,7 @@ def create_hparams(hparams_string=None, verbose=False):
         encoder_embedding_dim = 512,
 
         # Prosody encoder parameters
-        prosody_n_convolution = 6,
+        prosody_n_convolutions = 6,
         prosody_conv_dim_in = [1, 32, 32, 64, 64, 128],
         prosody_conv_dim_out = [32, 32, 64, 64, 128, 128],
         prosody_conv_kernel = 3,
