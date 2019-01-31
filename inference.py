@@ -83,8 +83,8 @@ def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir=""):
 
 def run(hparams, checkpoint_path, sentence_path, clenaer, silence_mel_padding, output_dir):
     f = open(sentence_path, 'r')
-    audio_paths = [x.strip()[0] for x in f.readlines()]
-    sentences = [x.strip()[1] for x in f.readlines()]
+    audio_paths = [x.strip().split("|")[0] for x in f.readlines()]
+    sentences = [x.strip().split("|")[1] for x in f.readlines()]
     print('All sentences to infer:',sentences)
     f.close()
 
