@@ -252,13 +252,8 @@ class Prosody(torch.nn.Module):
         """
         # check if Ty % stride == 0
         x = x.unsqueeze(1) # [N, n_mel, Ty] -> [N, 1, n_mel, Ty]
-        # if(x_size[3] % self.stride != 0): #
-        #     x_last = torch.zeros_like(x[:,:,:,-1].unsqueeze(3))
-        #     x = torch.cat((x,x_last),dim=3)
-        # x_size = list(x.size())
-        # assert x_size[3] % self.stride == 0
 
-        # 2c CNN in [N, 1, 80, Ty] out [N, 128, ceil(80/64), ceil(Ty/64)]
+        # 2d CNN in [N, 1, 80, Ty] out [N, 128, ceil(80/64), ceil(Ty/64)]
         for conv in self.convolutions:
             x = F.dropout(F.relu(conv(x)), 0.5, self.training)
 
@@ -267,6 +262,32 @@ class Prosody(torch.nn.Module):
         c2d_output_permute= x.permute(0, 3, 1, 2) # [N, 128, ceil(n_mel / 64), ceil(T / 64)] to [N, ceil(n_mel / 64), 128, ceil(T / 64)]
         #N = list(c2d_output_permute.shape)[0]
         unrooling_output = c2d_output_permute.view(self.batch_size, -1, self.prosody_embedding_dim*self.ceil_n_mel_64)
+
+        # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, 128]
+        gru_output, _ = self.gru(unrooling_output)
+        gru_output = gru_output[:, -1, :] # take last value
+
+        # FC [N, 128]
+        fc_output = torch.tanh(self.fc(gru_output))
+
+        return fc_output
+
+    def inference(self, x):
+        """
+        in [N, 1, n_mel, Ty], out [N, 128]
+        out -> [N, n_class] for test
+        """
+        x = x.unsqueeze(1) # [N, n_mel, Ty] -> [N, 1, n_mel, Ty]
+        # 2d CNN in [N, 1, 80, Ty] out [N, 128, ceil(80/64), ceil(Ty/64)]
+        for conv in self.convolutions:
+            x = F.dropout(F.relu(conv(x)), 0.5, self.training)
+
+        # unrolling in [N, 128, ceil(n_mel / 64), ceil(T / 64)] out [N, ceil(T/64), 128*ceil(n_mel/64)]
+        #N, C, ceil_nmel_64, ceil_T_64 = list(x.size())
+        c2d_output_permute = x.permute(0, 3, 1, 2) # [N, 128, ceil(n_mel / 64), ceil(T / 64)] to [N, ceil(n_mel / 64), 128, ceil(T / 64)]
+        premute_size = list(c2d_output_permute.shape)
+        #N = list(c2d_output_permute.shape)[0]
+        unrooling_output = c2d_output_permute.view(premute_size[0], -1, premute_size[2]*premute_size[3])
 
         # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, 128]
         gru_output, _ = self.gru(unrooling_output)
@@ -612,7 +633,7 @@ class Tacotron2(nn.Module):
         embedded_inputs = self.embedding(inputs).transpose(1, 2)
         transcript_outputs = self.encoder.inference(embedded_inputs)
         _, T, _ = list(transcript_outputs.shape)
-        prosody_outputs = self.prosody(ref_mels)
+        prosody_outputs = self.prosody.inference(ref_mels)
         prosody_outputs = prosody_outputs.unsqueeze(1).repeat(1, T, 1)
         encoder_outputs = torch.cat((transcript_outputs, prosody_outputs), dim = 2)
 

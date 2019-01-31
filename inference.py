@@ -32,7 +32,6 @@ def get_mel(stft, filename, hparams):
     audio_norm = audio_norm.unsqueeze(0)
     audio_norm = torch.autograd.Variable(audio_norm, requires_grad=False)
     melspec = stft.mel_spectrogram(audio_norm)
-    melspec = torch.squeeze(melspec, 0)
     return melspec
 
 def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, silence_mel_padding, stft, output_dir=""):
@@ -48,7 +47,7 @@ def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, sil
     for i, s in enumerate(sentences):
         sequence = np.array(text_to_sequence(s, cleaner))[None, :]
         sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
-        ref_mel = get_mel(stft, audio_paths, hparams)
+        ref_mel = get_mel(stft, audio_paths[i], hparams).cuda()
 
         stime = time.time()
         _, mel_outputs_postnet, _, alignments = model.inference(sequence, ref_mel)
@@ -83,8 +82,13 @@ def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir=""):
 
 def run(hparams, checkpoint_path, sentence_path, clenaer, silence_mel_padding, output_dir):
     f = open(sentence_path, 'r')
-    audio_paths = [x.strip().split("|")[0] for x in f.readlines()]
-    sentences = [x.strip().split("|")[1] for x in f.readlines()]
+    metas = [x.strip() for x in f.readlines()]
+    sentences = []
+    audio_paths = []
+    for m in metas:
+        audio_path, sentence  = m.split('|')
+        sentences.append(sentence)
+        audio_paths.append(audio_path)
     print('All sentences to infer:',sentences)
     f.close()
 
