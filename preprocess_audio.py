@@ -7,7 +7,7 @@ sr = 22050
 max_wav_value=32768.0
 trim_fft_size = 1024
 trim_hop_size = 256
-trim_top_db = 23
+trim_top_db = 40
 
 def preprocess_audio(file_list, silence_audio_size):
     for F in file_list:
