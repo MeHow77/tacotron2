@@ -240,7 +240,7 @@ class Prosody(torch.nn.Module):
         self.convolutions = nn.ModuleList(convolutions)
 
         # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, ceil(T/64), 128]
-        self.gru = torch.nn.GRU(input_size=self.prosody_embedding_dim*int(hparams.n_mel_channels), hidden_size=self.prosody_embedding_dim, num_layers=1)
+        self.gru = torch.nn.GRU(input_size=self.prosody_embedding_dim*self.ceil_n_mel_64, hidden_size=self.prosody_embedding_dim, num_layers=1)
 
         # FC in [N, 128], out [N, 128]
         self.fc = torch.nn.Linear(in_features=self.prosody_embedding_dim, out_features=self.prosody_embedding_dim)
@@ -251,8 +251,12 @@ class Prosody(torch.nn.Module):
         out -> [N, n_class] for test
         """
         # check if Ty % stride == 0
-        x_size = list(x.size())
-        assert x_size[3] % self.stride == 0
+        x = x.unsqueeze(1) # [N, n_mel, Ty] -> [N, 1, n_mel, Ty]
+        # if(x_size[3] % self.stride != 0): #
+        #     x_last = torch.zeros_like(x[:,:,:,-1].unsqueeze(3))
+        #     x = torch.cat((x,x_last),dim=3)
+        # x_size = list(x.size())
+        # assert x_size[3] % self.stride == 0
 
         # 2c CNN in [N, 1, 80, Ty] out [N, 128, ceil(80/64), ceil(Ty/64)]
         for conv in self.convolutions:
@@ -261,6 +265,7 @@ class Prosody(torch.nn.Module):
         # unrolling in [N, 128, ceil(n_mel / 64), ceil(T / 64)] out [N, ceil(T/64), 128*ceil(n_mel/64)]
         #N, C, ceil_nmel_64, ceil_T_64 = list(x.size())
         c2d_output_permute= x.permute(0, 3, 1, 2) # [N, 128, ceil(n_mel / 64), ceil(T / 64)] to [N, ceil(n_mel / 64), 128, ceil(T / 64)]
+        #N = list(c2d_output_permute.shape)[0]
         unrooling_output = c2d_output_permute.view(self.batch_size, -1, self.prosody_embedding_dim*self.ceil_n_mel_64)
 
         # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, 128]
@@ -291,24 +296,24 @@ class Decoder(nn.Module):
             [hparams.prenet_dim, hparams.prenet_dim])
 
         self.attention_rnn = nn.LSTMCell(
-            hparams.prenet_dim + hparams.encoder_embedding_dim,
+            hparams.prenet_dim + self.encoder_embedding_dim,
             hparams.attention_rnn_dim)
 
         self.attention_layer = Attention(
-            hparams.attention_rnn_dim, hparams.encoder_embedding_dim,
+            hparams.attention_rnn_dim, self.encoder_embedding_dim,
             hparams.attention_dim, hparams.attention_location_n_filters,
             hparams.attention_location_kernel_size)
 
         self.decoder_rnn = nn.LSTMCell(
-            hparams.attention_rnn_dim + hparams.encoder_embedding_dim,
+            hparams.attention_rnn_dim + self.encoder_embedding_dim,
             hparams.decoder_rnn_dim, 1)
 
         self.linear_projection = LinearNorm(
-            hparams.decoder_rnn_dim + hparams.encoder_embedding_dim,
+            hparams.decoder_rnn_dim + self.encoder_embedding_dim,
             hparams.n_mel_channels * hparams.n_frames_per_step)
 
         self.gate_layer = LinearNorm(
-            hparams.decoder_rnn_dim + hparams.encoder_embedding_dim, 1,
+            hparams.decoder_rnn_dim + self.encoder_embedding_dim, 1,
             bias=True, w_init_gain='sigmoid')
 
     def get_go_frame(self, memory):
@@ -581,15 +586,15 @@ class Tacotron2(nn.Module):
         inputs, input_lengths, targets, max_len, \
             output_lengths = self.parse_input(inputs)
         input_lengths, output_lengths = input_lengths.data, output_lengths.data
-
         embedded_inputs = self.embedding(inputs).transpose(1, 2)
 
-        # [N, Mel_T, int(encoder_dim/2)]
-        # [self.batch_size, output_lengths, int(encoder_dim/2)]
+        # [N, transcript_T, int(encoder_dim/2)]
         transcript_outputs = self.encoder(embedded_inputs, input_lengths)
+        transcript_outputs_size = list(transcript_outputs.shape)
         # [self.batch_size, prosody_dim] -> [self.batch_size, output_lengths, prosody_dim]
         prosody_outputs = self.prosody(targets)
-        prosody_outputs = prosody_outputs.unsqueeze(1).repeat(1, output_lengths, 1)
+        prosody_outputs = prosody_outputs.unsqueeze(1).repeat(1, transcript_outputs_size[1], 1)
+        # concat
         encoder_outputs = torch.cat((transcript_outputs, prosody_outputs), dim = 2)
 
         mel_outputs, gate_outputs, alignments = self.decoder(
