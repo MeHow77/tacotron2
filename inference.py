@@ -22,7 +22,19 @@ def plot_data(data, index, output_dir="", figsize=(16, 4)):
                         interpolation='none')
     plt.savefig(os.path.join(output_dir, 'sentence_{}.png'.format(index)))
 
-def generate_mels(hparams, checkpoint_path, sentences, cleaner, silence_mel_padding, output_dir=""):
+def get_mel(stft, filename, hparams):
+    audio, sampling_rate = load_wav_to_torch(filename)
+    if sampling_rate != hparams.sampling_rate:
+        raise ValueError("{} {} SR doesn't match target {} SR".format(
+            sampling_rate, hparams.sampling_rate))
+    audio_norm = audio / hparams.max_wav_value
+    audio_norm = audio_norm.unsqueeze(0)
+    audio_norm = torch.autograd.Variable(audio_norm, requires_grad=False)
+    melspec = stft.mel_spectrogram(audio_norm)
+    melspec = torch.squeeze(melspec, 0)
+    return melspec
+
+def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, silence_mel_padding, stft, output_dir=""):
     model = load_model(hparams)
     try:
         model = model.module
@@ -35,9 +47,10 @@ def generate_mels(hparams, checkpoint_path, sentences, cleaner, silence_mel_padd
     for i, s in enumerate(sentences):
         sequence = np.array(text_to_sequence(s, cleaner))[None, :]
         sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
+        ref_mel = get_mel(stft, audio_paths, hparams)
 
         stime = time.time()
-        _, mel_outputs_postnet, _, alignments = model.inference(sequence)
+        _, mel_outputs_postnet, _, alignments = model.inference(sequence, ref_mel)
         plot_data((mel_outputs_postnet.data.cpu().numpy()[0],
                    alignments.data.cpu().numpy()[0].T), i, output_dir)
         inf_time = time.time() - stime
@@ -46,10 +59,7 @@ def generate_mels(hparams, checkpoint_path, sentences, cleaner, silence_mel_padd
 
     return output_mels
 
-def mels_to_wavs_GL(hparams, mels, output_dir=""):
-    taco_stft = TacotronSTFT(
-        hparams.filter_length, hparams.hop_length, hparams.win_length,
-        sampling_rate=hparams.sampling_rate)
+def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir=""):
 
     for i, mel in enumerate(mels):
         stime = time.time()
@@ -72,12 +82,18 @@ def mels_to_wavs_GL(hparams, mels, output_dir=""):
 
 def run(hparams, checkpoint_path, sentence_path, clenaer, silence_mel_padding, output_dir):
     f = open(sentence_path, 'r')
-    sentences = [x.strip() for x in f.readlines()]
+    metas = [x.strip() for x in f.readlines()]
+    audio_paths, sentences = metas.split('|')
     print('All sentences to infer:',sentences)
     f.close()
 
-    mels = generate_mels(hparams, checkpoint_path, sentences, clenaer, silence_mel_padding, output_dir)
-    mels_to_wavs_GL(hparams, mels, output_dir)
+    stft = TacotronSTFT(
+        hparams.filter_length, hparams.hop_length, hparams.win_length,
+        hparams.n_mel_channels, hparams.sampling_rate, hparams.mel_fmin,
+        hparams.mel_fmax)
+
+    mels = generate_mels(hparams, checkpoint_path, sentences, audio_paths, clenaer, silence_mel_padding, stft, output_dir)
+    mels_to_wavs_GL(hparams, mels, stft, output_dir)
     pass
 
 if __name__ == '__main__':
