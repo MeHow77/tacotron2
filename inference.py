@@ -59,12 +59,12 @@ def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, sil
 
     return output_mels
 
-def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir="", ref_level_db = 20):
+def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir="", ref_level_db = 20, magnitude_power=1.5):
 
     for i, mel in enumerate(mels):
         stime = time.time()
         mel_decompress = mel_denormalize(mel)
-        mel_decompress = taco_stft.spectral_de_normalize(mel_decompress + ref_level_db) ** (1/1.5)
+        mel_decompress = taco_stft.spectral_de_normalize(mel_decompress + ref_level_db) ** (1/magnitude_power)
         mel_decompress = mel_decompress.transpose(1, 2).data.cpu()
         spec_from_mel_scaling = 1000
         spec_from_mel = torch.mm(mel_decompress[0], taco_stft.mel_basis)

@@ -69,10 +69,10 @@ class TacotronSTFT(torch.nn.Module):
         return output
 
     def spectral_de_normalize(self, magnitudes):
-        output = dynamic_range_decompression(output)
+        output = dynamic_range_decompression(magnitudes)
         return output
 
-    def mel_spectrogram(self, y, ref_level_db = 20):
+    def mel_spectrogram(self, y, ref_level_db = 20, magnitude_power=1.5):
         """Computes mel-spectrograms from a batch of waves
         PARAMS
         ------
@@ -87,17 +87,9 @@ class TacotronSTFT(torch.nn.Module):
 
         magnitudes, phases = self.stft_fn.transform(y)
         magnitudes = magnitudes.data
-        print(magnitudes.max(), magnitudes.min())
-        magnitudes = torch.pow(torch.abs(magnitudes), 1.5)
-        print(magnitudes.max(), magnitudes.min())
-        mel_output = torch.matmul(self.mel_basis, magnitudes) - ref_level_db
-        print(mel_output.max(), mel_output.min())
+        mel_output = torch.matmul(self.mel_basis, torch.abs(magnitudes)**magnitude_power) - ref_level_db
         mel_output = self.spectral_normalize(mel_output)
-        print(mel_output.max(), mel_output.min())
         mel_output = mel_normalize(mel_output)
-        print(mel_output.max(), mel_output.min())
-        sepc = mel_normalize(mel_output)
-        print(spec.max(), spec.min())
-        spec = self.spectral_de_normalize(sepc+ref_level_db)**(1/1.5)
-        print(spec.max(), spec.min())
+        # spec = mel_denormalize(mel_output)
+        # spec = self.spectral_de_normalize(spec + ref_level_db)**(1/magnitude_power)
         return mel_output
