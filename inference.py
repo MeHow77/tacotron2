@@ -63,7 +63,7 @@ def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir=""):
 
     for i, mel in enumerate(mels):
         stime = time.time()
-        mel_decompress = taco_stft.spectral_de_normalize(mel)
+        mel_decompress = taco_stft.spectral_de_normalize(mel**(1/1.5))
         mel_decompress = mel_decompress.transpose(1, 2).data.cpu()
         spec_from_mel_scaling = 1000
         spec_from_mel = torch.mm(mel_decompress[0], taco_stft.mel_basis)
