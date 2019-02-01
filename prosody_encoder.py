@@ -6,6 +6,7 @@ import os
 import torch
 from torch.utils import data
 from torch.utils.data import DataLoader
+from scipy.io.wavfile import read
 
 # inner packages
 import stft
@@ -24,11 +25,11 @@ stft = layers.TacotronSTFT(
 
 def load_wav_to_torch(full_path):
     data, sampling_rate = librosa.load(full_path, sr)
+    data = data / np.abs(data).max() * 0.999
     return torch.FloatTensor(data.astype(np.float32)), sampling_rate
 
 def get_mel(audio):
-    audio_norm = audio / max_wav_value
-    audio_norm = audio_norm.unsqueeze(0)
+    audio_norm = audio.unsqueeze(0)
     audio_norm = torch.autograd.Variable(audio_norm, requires_grad=False)
     melspec = stft.mel_spectrogram(audio_norm)
     melspec = torch.squeeze(melspec, 0)
@@ -77,90 +78,90 @@ class Dataset(data.Dataset):
 
         return mel, label
 
-# class prosody_encoder(torch.nn.Module):
-#     '''
-#     Args:
-#       inputs: A 3d tensor with shape of (N, n_mels, Ty), with dtype of float32.
-#                 Melspectrogram of reference audio.
-#       is_training: Whether or not the layer is in training mode.
-#       scope: Optional scope for `variable_scope`
-#       reuse: Boolean, whether to reuse the weights of a previous layer
-#         by the same name.
-#     Returns:
-#       Prosody vectors. Has the shape of (N, 128).
-#     '''
-#     def __init__(self):
-#         super(prosody_encoder, self).__init__()
-#
-#         self.kernel = 3
-#         self.stride = 2
-#         self.pad = max(self.kernel - self.stride, 0)
-#
-#         # 6-Layer Strided Conv2D -> (N, 128, ceil(n_mels/64), ceil(T/64))
-#         self.conv2d_1 = torch.nn.Conv2d(in_channels=1, out_channels=32, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
-#         self.conv2d_1_bn = torch.nn.BatchNorm2d(num_features=32)
-#         self.conv2d_2 = torch.nn.Conv2d(in_channels=32, out_channels=32, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
-#         self.conv2d_2_bn = torch.nn.BatchNorm2d(num_features=32)
-#         self.conv2d_3 = torch.nn.Conv2d(in_channels=32, out_channels=64, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
-#         self.conv2d_3_bn = torch.nn.BatchNorm2d(num_features=64)
-#         self.conv2d_4 = torch.nn.Conv2d(in_channels=64, out_channels=64, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
-#         self.conv2d_4_bn = torch.nn.BatchNorm2d(num_features=64)
-#         self.conv2d_5 = torch.nn.Conv2d(in_channels=64, out_channels=128, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
-#         self.conv2d_5_bn = torch.nn.BatchNorm2d(num_features=128)
-#         self.conv2d_6 = torch.nn.Conv2d(in_channels=128, out_channels=128, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
-#         self.conv2d_6_bn = torch.nn.BatchNorm2d(num_features=128)
-#
-#         # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, ceil(T/64), 128]
-#         self.gru = torch.nn.GRU(input_size=128*2, hidden_size=128, num_layers=1)
-#
-#         # FC in [N, 128], out [N, 128]
-#         self.fc = torch.nn.Linear(in_features=128, out_features=128)
-#         self.tanh = torch.nn.Tanh()
-#
-#         # for test classification
-#         self.fc2 = torch.nn.Linear(in_features=128, out_features=n_class)
-#         self.softmax = torch.nn.Softmax()
-#
-#
-#     def forward(self, x):
-#         """
-#         in [N, 1, 80, Ty], out [N, 128]
-#         out -> [N, n_class] for test
-#         """
-#         # check if Ty % stride == 0
-#         x_size = list(x.size())
-#         assert x_size[3] % self.stride == 0
-#
-#         # 2c CNN in [N, 1, 80, Ty] out [N, 128, ceil(80/64), ceil(Ty/64)]
-#         c1 = self.conv2d_1(x)
-#         cb1 = self.conv2d_1_bn(c1)
-#         c2 = self.conv2d_2(cb1)
-#         cb2 = self.conv2d_2_bn(c2)
-#         c3 = self.conv2d_3(cb2)
-#         cb3 = self.conv2d_3_bn(c3)
-#         c4 = self.conv2d_4(cb3)
-#         cb4 = self.conv2d_4_bn(c4)
-#         c5 = self.conv2d_5(cb4)
-#         cb5 = self.conv2d_5_bn(c5)
-#         c6 = self.conv2d_6(cb5)
-#         c2d_output = self.conv2d_6_bn(c6)
-#
-#         # unrolling in [N, 128, ceil(n_mel / 64), ceil(T / 64)] out [N, ceil(T/64), 128*ceil(n_mel/64)]
-#         N, C, ceil_nmel_64, ceil_T_64 = list(c2d_output.size())
-#         c2d_output_permute= c2d_output.permute(0, 3, 1, 2) # [N, 128, ceil(n_mel / 64), ceil(T / 64)] to [N, ceil(n_mel / 64), 128, ceil(T / 64)]
-#         unrooling_output = c2d_output_permute.view(N, ceil_T_64, C*ceil_nmel_64)
-#
-#         # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, 128]
-#         gru_output, _ = self.gru(unrooling_output)
-#         gru_output = gru_output[:, -1, :] # take last value
-#
-#         # FC [N, 128]
-#         fc_output = self.tanh(self.fc(gru_output))
-#
-#         # Fc [N, n_class]
-#         last_fc_output = self.softmax(self.fc2(fc_output))
-#
-#         return last_fc_output
+class prosody_encoder(torch.nn.Module):
+    '''
+    Args:
+      inputs: A 3d tensor with shape of (N, n_mels, Ty), with dtype of float32.
+                Melspectrogram of reference audio.
+      is_training: Whether or not the layer is in training mode.
+      scope: Optional scope for `variable_scope`
+      reuse: Boolean, whether to reuse the weights of a previous layer
+        by the same name.
+    Returns:
+      Prosody vectors. Has the shape of (N, 128).
+    '''
+    def __init__(self):
+        super(prosody_encoder, self).__init__()
+
+        self.kernel = 3
+        self.stride = 2
+        self.pad = max(self.kernel - self.stride, 0)
+
+        # 6-Layer Strided Conv2D -> (N, 128, ceil(n_mels/64), ceil(T/64))
+        self.conv2d_1 = torch.nn.Conv2d(in_channels=1, out_channels=32, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
+        self.conv2d_1_bn = torch.nn.BatchNorm2d(num_features=32)
+        self.conv2d_2 = torch.nn.Conv2d(in_channels=32, out_channels=32, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
+        self.conv2d_2_bn = torch.nn.BatchNorm2d(num_features=32)
+        self.conv2d_3 = torch.nn.Conv2d(in_channels=32, out_channels=64, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
+        self.conv2d_3_bn = torch.nn.BatchNorm2d(num_features=64)
+        self.conv2d_4 = torch.nn.Conv2d(in_channels=64, out_channels=64, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
+        self.conv2d_4_bn = torch.nn.BatchNorm2d(num_features=64)
+        self.conv2d_5 = torch.nn.Conv2d(in_channels=64, out_channels=128, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
+        self.conv2d_5_bn = torch.nn.BatchNorm2d(num_features=128)
+        self.conv2d_6 = torch.nn.Conv2d(in_channels=128, out_channels=128, kernel_size=self.kernel, stride=self.stride, padding=self.pad, dilation=1, groups=1, bias=True)
+        self.conv2d_6_bn = torch.nn.BatchNorm2d(num_features=128)
+
+        # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, ceil(T/64), 128]
+        self.gru = torch.nn.GRU(input_size=128*2, hidden_size=128, num_layers=1)
+
+        # FC in [N, 128], out [N, 128]
+        self.fc = torch.nn.Linear(in_features=128, out_features=128)
+        self.tanh = torch.nn.Tanh()
+
+        # for test classification
+        self.fc2 = torch.nn.Linear(in_features=128, out_features=n_class)
+        self.softmax = torch.nn.Softmax()
+
+
+    def forward(self, x):
+        """
+        in [N, 1, 80, Ty], out [N, 128]
+        out -> [N, n_class] for test
+        """
+        # check if Ty % stride == 0
+        x_size = list(x.size())
+        assert x_size[3] % self.stride == 0
+
+        # 2c CNN in [N, 1, 80, Ty] out [N, 128, ceil(80/64), ceil(Ty/64)]
+        c1 = self.conv2d_1(x)
+        cb1 = self.conv2d_1_bn(c1)
+        c2 = self.conv2d_2(cb1)
+        cb2 = self.conv2d_2_bn(c2)
+        c3 = self.conv2d_3(cb2)
+        cb3 = self.conv2d_3_bn(c3)
+        c4 = self.conv2d_4(cb3)
+        cb4 = self.conv2d_4_bn(c4)
+        c5 = self.conv2d_5(cb4)
+        cb5 = self.conv2d_5_bn(c5)
+        c6 = self.conv2d_6(cb5)
+        c2d_output = self.conv2d_6_bn(c6)
+
+        # unrolling in [N, 128, ceil(n_mel / 64), ceil(T / 64)] out [N, ceil(T/64), 128*ceil(n_mel/64)]
+        N, C, ceil_nmel_64, ceil_T_64 = list(c2d_output.size())
+        c2d_output_permute= c2d_output.permute(0, 3, 1, 2) # [N, 128, ceil(n_mel / 64), ceil(T / 64)] to [N, ceil(n_mel / 64), 128, ceil(T / 64)]
+        unrooling_output = c2d_output_permute.view(N, ceil_T_64, C*ceil_nmel_64)
+
+        # GRU in [N, ceil(T/64), 128*ceil(n_mel/64)], out [N, 128]
+        gru_output, _ = self.gru(unrooling_output)
+        gru_output = gru_output[:, -1, :] # take last value
+
+        # FC [N, 128]
+        fc_output = self.tanh(self.fc(gru_output))
+
+        # Fc [N, n_class]
+        last_fc_output = self.softmax(self.fc2(fc_output))
+
+        return last_fc_output
 
 class loss_fn(torch.nn.Module):
     def __init__(self):
@@ -174,15 +175,8 @@ class loss_fn(torch.nn.Module):
 def test_mel_range():
     meta_path = 'prosody_embedding_test/metadata.txt'
     perfix = 'prosody_embedding_test'
-    batch_size = 40
+    batch_size = 1
     max_epoch = 1
-
-    model = prosody_encoder(hparams).cuda()
-    learning_rate = hparams.learning_rate
-    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate,
-                                 weight_decay=hparams.weight_decay)
-
-    criterion = loss_fn()
 
     iteration = 0
     epoch_offset = 40
@@ -193,21 +187,14 @@ def test_mel_range():
                               batch_size=batch_size,
                               pin_memory=False,
                               drop_last=True)
-    test_loader = DataLoader(trainset, num_workers=1, shuffle=False,
-                             sampler=None,
-                             batch_size=batch_size,
-                             pin_memory=False,
-                             drop_last=True)
 
-    model.train()
     epoch_offset = max(0, int(iteration / len(train_loader)))
 
     for epoch in range(epoch_offset, max_epoch):
         print("Epoch: {}".format(epoch))
         for i, batch in enumerate(train_loader):
-            model.zero_grad()
-
             mel, c = batch
+            break
 
 
 def train():
