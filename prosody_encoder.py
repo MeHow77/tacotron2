@@ -172,6 +172,44 @@ class loss_fn(torch.nn.Module):
         mel_loss = self.mseloss(output, target)
         return mel_loss
 
+def test_mel_range():
+    meta_path = 'prosody_embedding_test/metadata.txt'
+    perfix = 'prosody_embedding_test'
+    batch_size = 40
+    max_epoch = 1
+
+    model = prosody_encoder(hparams).cuda()
+    learning_rate = hparams.learning_rate
+    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate,
+                                 weight_decay=hparams.weight_decay)
+
+    criterion = loss_fn()
+
+    iteration = 0
+    epoch_offset = 40
+
+    trainset = Dataset(meta_path, perfix)
+    train_loader = DataLoader(trainset, num_workers=1, shuffle=False,
+                              sampler=None,
+                              batch_size=batch_size,
+                              pin_memory=False,
+                              drop_last=True)
+    test_loader = DataLoader(trainset, num_workers=1, shuffle=False,
+                             sampler=None,
+                             batch_size=batch_size,
+                             pin_memory=False,
+                             drop_last=True)
+
+    model.train()
+    epoch_offset = max(0, int(iteration / len(train_loader)))
+
+    for epoch in range(epoch_offset, max_epoch):
+        print("Epoch: {}".format(epoch))
+        for i, batch in enumerate(train_loader):
+            model.zero_grad()
+
+            mel, c = batch
+
 
 def train():
     meta_path = 'prosody_embedding_test/metadata.txt'
@@ -241,4 +279,5 @@ def train():
     #         100 * correct / total))
 
 if __name__ == "__main__":
-    train()
+    test_mel_range()
+    #train()
