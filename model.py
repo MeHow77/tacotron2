@@ -7,7 +7,7 @@ from layers import ConvNorm, ConvNorm2D, LinearNorm
 from utils import to_gpu, get_mask_from_lengths
 from fp16_optimizer import fp32_to_fp16, fp16_to_fp32
 
-
+drop_rate = 0.0
 class LocationLayer(nn.Module):
     def __init__(self, attention_n_filters, attention_kernel_size,
                  attention_dim):
@@ -97,7 +97,7 @@ class Prenet(nn.Module):
 
     def forward(self, x):
         for linear in self.layers:
-            x = F.dropout(F.relu(linear(x)), p=0.5, training=True)
+            x = F.dropout(F.relu(linear(x)), p=drop_rate, training=True)
         return x
 
 
@@ -141,8 +141,8 @@ class Postnet(nn.Module):
 
     def forward(self, x):
         for i in range(len(self.convolutions) - 1):
-            x = F.dropout(torch.tanh(self.convolutions[i](x)), 0.5, self.training)
-        x = F.dropout(self.convolutions[-1](x), 0.5, self.training)
+            x = F.dropout(torch.tanh(self.convolutions[i](x)), drop_rate, self.training)
+        x = F.dropout(self.convolutions[-1](x), drop_rate, self.training)
 
         return x
 
@@ -173,7 +173,7 @@ class Encoder(nn.Module):
 
     def forward(self, x, input_lengths):
         for conv in self.convolutions:
-            x = F.dropout(F.relu(conv(x)), 0.5, self.training)
+            x = F.dropout(F.relu(conv(x)), drop_rate, self.training)
 
         x = x.transpose(1, 2)
 
@@ -192,7 +192,7 @@ class Encoder(nn.Module):
 
     def inference(self, x):
         for conv in self.convolutions:
-            x = F.dropout(F.relu(conv(x)), 0.5, self.training)
+            x = F.dropout(F.relu(conv(x)), drop_rate, self.training)
 
         x = x.transpose(1, 2)
 
@@ -255,7 +255,7 @@ class Prosody(torch.nn.Module):
 
         # 2d CNN in [N, 1, 80, Ty] out [N, 128, ceil(80/64), ceil(Ty/64)]
         for conv in self.convolutions:
-            x = F.dropout(F.relu(conv(x)), 0.5, self.training)
+            x = F.dropout(F.relu(conv(x)), drop_rate, self.training)
 
         # unrolling in [N, 128, ceil(n_mel / 64), ceil(T / 64)] out [N, ceil(T/64), 128*ceil(n_mel/64)]
         #N, C, ceil_nmel_64, ceil_T_64 = list(x.size())
@@ -280,7 +280,7 @@ class Prosody(torch.nn.Module):
         x = x.unsqueeze(1) # [N, n_mel, Ty] -> [N, 1, n_mel, Ty]
         # 2d CNN in [N, 1, 80, Ty] out [N, 128, ceil(80/64), ceil(Ty/64)]
         for conv in self.convolutions:
-            x = F.dropout(F.relu(conv(x)), 0.5, self.training)
+            x = F.dropout(F.relu(conv(x)), drop_rate, self.training)
 
         # unrolling in [N, 128, ceil(n_mel / 64), ceil(T / 64)] out [N, ceil(T/64), 128*ceil(n_mel/64)]
         #N, C, ceil_nmel_64, ceil_T_64 = list(x.size())
