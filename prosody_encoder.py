@@ -11,7 +11,6 @@ from torch.utils.data import DataLoader
 import stft
 import layers
 from hparams import create_hparams
-from model import prosody_encoder
 
 sr = 22050
 n_class = 4
