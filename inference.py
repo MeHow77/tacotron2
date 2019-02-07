@@ -42,13 +42,11 @@ def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, sil
         pass
     model.load_state_dict({k.replace('module.', ''): v for k, v in torch.load(checkpoint_path)['state_dict'].items()})
     _ = model.eval()
-
     output_mels = []
     for i, s in enumerate(sentences):
         sequence = np.array(text_to_sequence(s, cleaner))[None, :]
         sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
         ref_mel = get_mel(stft, audio_paths[i], hparams).cuda()
-
         stime = time.time()
         _, mel_outputs_postnet, _, alignments = model.inference(sequence, ref_mel)
         plot_data((mel_outputs_postnet.data.cpu().numpy()[0],
@@ -56,11 +54,9 @@ def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, sil
         inf_time = time.time() - stime
         print("{}th sentence, Infenrece time: {:.2f}s, len_mel: {}".format(i, inf_time, mel_outputs_postnet.size(2)))
         output_mels.append(mel_outputs_postnet[:,:,:-silence_mel_padding])
-
     return output_mels
 
-def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir="", ref_level_db = 20, magnitude_power=1.5):
-
+def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir="", ref_level_db = 0, magnitude_power=1.5):
     for i, mel in enumerate(mels):
         stime = time.time()
         mel_decompress = mel_denormalize(mel)
@@ -70,12 +66,10 @@ def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir="", ref_level_db = 20, 
         spec_from_mel = torch.mm(mel_decompress[0], taco_stft.mel_basis)
         spec_from_mel = spec_from_mel.transpose(0, 1).unsqueeze(0)
         spec_from_mel = spec_from_mel * spec_from_mel_scaling
-
         waveform = griffin_lim(torch.autograd.Variable(spec_from_mel[:, :, :]),
                                taco_stft.stft_fn, 60)
         waveform = waveform[0].data.cpu().numpy()
         dec_time = time.time() - stime
-
         len_audio = float(len(waveform)) / float(hparams.sampling_rate)
         str = "{}th sentence, audio length: {:.2f} sec,  mel_to_wave time: {:.2f}".format(i, len_audio, dec_time)
         print(str)
@@ -131,5 +125,21 @@ if __name__ == '__main__':
     torch.backends.cudnn.benchmark = hparams.cudnn_benchmark
 
     run(hparams, args.checkpoint_path, args.sentence_path, hparams.text_cleaners, args.silence_mel_padding ,args.output_directory)
+
+# def normalize_test():
+#     path = 'ref.wav'
+#     hparams = create_hparams()
+#     stft = TacotronSTFT(
+#         hparams.filter_length, hparams.hop_length, hparams.win_length,
+#         hparams.n_mel_channels, hparams.sampling_rate, hparams.mel_fmin,
+#         hparams.mel_fmax)
+#
+#     mel = get_mel(stft, path, hparams)
+#     mels_to_wavs_GL(hparams,[mel],stft)
+#
+# if __name__ == '__main__':
+#     normalize_test()
+
+
 
 
