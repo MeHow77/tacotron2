@@ -207,9 +207,6 @@ class Prosody(torch.nn.Module):
       inputs: A 3d tensor with shape of (N, n_mels, Ty), with dtype of float32.
                 Melspectrogram of reference audio.
       is_training: Whether or not the layer is in training mode.
-      scope: Optional scope for `variable_scope`
-      reuse: Boolean, whether to reuse the weights of a previous layer
-        by the same name.
     Returns:
       Prosody vectors. Has the shape of (N, 128).
     '''
@@ -303,7 +300,7 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
         self.n_mel_channels = hparams.n_mel_channels
         self.n_frames_per_step = hparams.n_frames_per_step
-        self.encoder_embedding_dim = hparams.encoder_embedding_dim + hparams.prosody_embedding_dim
+        self.encoder_embedding_dim = hparams.encoder_embedding_dim + hparams.prosody_embedding_dim + hparams.speaker_embedding_dim
         self.attention_rnn_dim = hparams.attention_rnn_dim
         self.decoder_rnn_dim = hparams.decoder_rnn_dim
         self.prenet_dim = hparams.prenet_dim
@@ -562,11 +559,13 @@ class Tacotron2(nn.Module):
         self.fp16_run = hparams.fp16_run
         self.n_mel_channels = hparams.n_mel_channels
         self.n_frames_per_step = hparams.n_frames_per_step
-        self.embedding = nn.Embedding(
+        self.transcript_embedding = nn.Embedding(
             hparams.n_symbols, hparams.symbols_embedding_dim)
+        self.speaker_embedding = LinearNorm(
+            hparams.n_speaker, hparams.speaker_embedding_dim, bias=True, w_init_gain='tanh')
         std = sqrt(2.0 / (hparams.n_symbols + hparams.symbols_embedding_dim))
         val = sqrt(3.0) * std  # uniform bounds for std
-        self.embedding.weight.data.uniform_(-val, val)
+        self.transcript_embedding.weight.data.uniform_(-val, val)
         self.encoder = Encoder(hparams)
         self.prosody = Prosody(hparams)
         self.decoder = Decoder(hparams)
@@ -574,8 +573,9 @@ class Tacotron2(nn.Module):
 
     def parse_batch(self, batch):
         text_padded, input_lengths, mel_padded, gate_padded, \
-            output_lengths = batch
+            output_lengths, speakers = batch
         text_padded = to_gpu(text_padded).long()
+        speakers = to_gpu(speakers).long()
         input_lengths = to_gpu(input_lengths).long()
         max_len = torch.max(input_lengths.data).item()
         mel_padded = to_gpu(mel_padded).float()
@@ -583,7 +583,7 @@ class Tacotron2(nn.Module):
         output_lengths = to_gpu(output_lengths).long()
 
         return (
-            (text_padded, input_lengths, mel_padded, max_len, output_lengths),
+            (text_padded, input_lengths, mel_padded, max_len, output_lengths, speakers),
             (mel_padded, gate_padded))
 
     def parse_input(self, inputs):
@@ -605,18 +605,20 @@ class Tacotron2(nn.Module):
 
     def forward(self, inputs):
         inputs, input_lengths, targets, max_len, \
-            output_lengths = self.parse_input(inputs)
+            output_lengths, speakers = self.parse_input(inputs)
         input_lengths, output_lengths = input_lengths.data, output_lengths.data
-        embedded_inputs = self.embedding(inputs).transpose(1, 2)
+        transcript_embedded_inputs = self.transcript_embedding(inputs).transpose(1, 2)
 
         # [N, transcript_T, int(encoder_dim/2)]
-        transcript_outputs = self.encoder(embedded_inputs, input_lengths)
+        transcript_outputs = self.encoder(transcript_embedded_inputs, input_lengths)
         transcript_outputs_size = list(transcript_outputs.shape)
         # [self.batch_size, prosody_dim] -> [self.batch_size, output_lengths, prosody_dim]
+        speaker_output = self.speaker_embedding(speakers)
+        speaker_output = speaker_output.unsqueeze(1).repeat(1, transcript_outputs_size[1], 1)
         prosody_outputs = self.prosody(targets)
         prosody_outputs = prosody_outputs.unsqueeze(1).repeat(1, transcript_outputs_size[1], 1)
         # concat
-        encoder_outputs = torch.cat((transcript_outputs, prosody_outputs), dim = 2)
+        encoder_outputs = torch.cat((transcript_outputs, prosody_outputs, speaker_output), dim = 2)
 
         mel_outputs, gate_outputs, alignments = self.decoder(
             encoder_outputs, targets, memory_lengths=input_lengths)
@@ -628,14 +630,16 @@ class Tacotron2(nn.Module):
             [mel_outputs, mel_outputs_postnet, gate_outputs, alignments],
             output_lengths)
 
-    def inference(self, inputs, ref_mels):
+    def inference(self, inputs, ref_mels, speakers):
         inputs = self.parse_input(inputs)
-        embedded_inputs = self.embedding(inputs).transpose(1, 2)
-        transcript_outputs = self.encoder.inference(embedded_inputs)
+        transcript_embedded_inputs = self.transcript_embedding(inputs).transpose(1, 2)
+        transcript_outputs = self.encoder.inference(transcript_embedded_inputs)
         _, T, _ = list(transcript_outputs.shape)
+        speaker_output = self.speaker_embedding(speakers)
+        speaker_output = speaker_output.unsqueeze(1).repeat(1, T, 1)
         prosody_outputs = self.prosody.inference(ref_mels)
         prosody_outputs = prosody_outputs.unsqueeze(1).repeat(1, T, 1)
-        encoder_outputs = torch.cat((transcript_outputs, prosody_outputs), dim = 2)
+        encoder_outputs = torch.cat((transcript_outputs, prosody_outputs, speaker_output), dim = 2)
 
         mel_outputs, gate_outputs, alignments = self.decoder.inference(
             encoder_outputs)

@@ -20,6 +20,7 @@ class TextMelLoader(torch.utils.data.Dataset):
         self.max_wav_value = hparams.max_wav_value
         self.sampling_rate = hparams.sampling_rate
         self.load_mel_from_disk = hparams.load_mel_from_disk
+        self.n_speakers = hparams.n_speakers
         self.stft = layers.TacotronSTFT(
             hparams.filter_length, hparams.hop_length, hparams.win_length,
             hparams.n_mel_channels, hparams.sampling_rate, hparams.mel_fmin,
@@ -29,10 +30,11 @@ class TextMelLoader(torch.utils.data.Dataset):
 
     def get_mel_text_pair(self, audiopath_and_text):
         # separate filename and text
-        audiopath, text = audiopath_and_text[0], audiopath_and_text[1]
+        audiopath, text, speaker = audiopath_and_text[0], audiopath_and_text[1], audiopath_and_text[2]
         text = self.get_text(text) # int_tensor[char_index, ....]
         mel = self.get_mel(audiopath) # []
-        return (text, mel)
+        speaker = self.get_speaker(speaker)
+        return (text, mel, speaker)
 
     def get_mel(self, filename):
         if not self.load_mel_from_disk:
@@ -56,6 +58,11 @@ class TextMelLoader(torch.utils.data.Dataset):
     def get_text(self, text):
         text_norm = torch.IntTensor(text_to_sequence(text, self.text_cleaners))
         return text_norm
+
+    def get_speaker(self, speaker):
+        speaker_vector = np.zeros(self.n_speakers)
+        speaker_vector[int(speaker)] = 1
+        return torch.IntTensor(speaker_vector)
 
     def __getitem__(self, index):
         return self.get_mel_text_pair(self.audiopaths_and_text[index])
@@ -88,6 +95,11 @@ class TextMelCollate():
             text = batch[ids_sorted_decreasing[i]][0]
             text_padded[i, :text.size(0)] = text
 
+        speakers = torch.LongTensor(len(batch), len(batch[0][2]))
+        for i in range(len(ids_sorted_decreasing)):
+            speaker = batch[ids_sorted_decreasing[i]][2]
+            speakers[i, :] = speaker
+
         # Right zero-pad mel-spec
         num_mels = batch[0][1].size(0)
         max_target_len = max([x[1].size(1) for x in batch])
@@ -108,4 +120,4 @@ class TextMelCollate():
             output_lengths[i] = mel.size(1)
 
         return text_padded, input_lengths, mel_padded, gate_padded, \
-            output_lengths
+            output_lengths, speakers

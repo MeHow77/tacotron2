@@ -34,7 +34,12 @@ def get_mel(stft, filename, hparams):
     melspec = stft.mel_spectrogram(audio_norm)
     return melspec
 
-def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, silence_mel_padding, stft, output_dir=""):
+def get_speaker(speaker, hparams):
+    speaker_vector = np.zeros(hparams.n_speakers)
+    speaker_vector[int(speaker)] = 1
+    return torch.IntTensor(speaker_vector)
+
+def generate_mels(hparams, checkpoint_path, sentences, audio_paths, speakers, cleaner, silence_mel_padding, stft, output_dir=""):
     model = load_model(hparams)
     try:
         model = model.module
@@ -47,8 +52,9 @@ def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, sil
         sequence = np.array(text_to_sequence(s, cleaner))[None, :]
         sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
         ref_mel = get_mel(stft, audio_paths[i], hparams).cuda()
+        speakers = get_speaker(speakers, hparams).cuda().long()
         stime = time.time()
-        _, mel_outputs_postnet, _, alignments = model.inference(sequence, ref_mel)
+        _, mel_outputs_postnet, _, alignments = model.inference(sequence, ref_mel, speakers)
         plot_data((mel_outputs_postnet.data.cpu().numpy()[0],
                    alignments.data.cpu().numpy()[0].T), i, output_dir)
         inf_time = time.time() - stime
