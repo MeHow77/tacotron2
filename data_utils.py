@@ -62,7 +62,7 @@ class TextMelLoader(torch.utils.data.Dataset):
     def get_speaker(self, speaker):
         speaker_vector = np.zeros(self.n_speakers)
         speaker_vector[int(speaker)] = 1
-        return torch.IntTensor(speaker_vector)
+        return torch.Tensor(speaker_vector.astype(dtype=np.float32))
 
     def __getitem__(self, index):
         return self.get_mel_text_pair(self.audiopaths_and_text[index])

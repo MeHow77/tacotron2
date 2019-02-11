@@ -37,7 +37,7 @@ def get_mel(stft, filename, hparams):
 def get_speaker(speaker, hparams):
     speaker_vector = np.zeros(hparams.n_speakers)
     speaker_vector[int(speaker)] = 1
-    return torch.IntTensor(speaker_vector)
+    return torch.Tensor(speaker_vector.astype(dtype=np.float32))
 
 def generate_mels(hparams, checkpoint_path, sentences, audio_paths, speakers, cleaner, silence_mel_padding, stft, output_dir=""):
     model = load_model(hparams)
@@ -52,7 +52,7 @@ def generate_mels(hparams, checkpoint_path, sentences, audio_paths, speakers, cl
         sequence = np.array(text_to_sequence(s, cleaner))[None, :]
         sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
         ref_mel = get_mel(stft, audio_paths[i], hparams).cuda()
-        speaker = get_speaker(speakers[i], hparams).cuda().long()
+        speaker = get_speaker(speakers[i], hparams).unsqueeze(0).cuda()
         stime = time.time()
         _, mel_outputs_postnet, _, alignments = model.inference(sequence, ref_mel, speaker)
         plot_data((mel_outputs_postnet.data.cpu().numpy()[0],
@@ -100,7 +100,7 @@ def run(hparams, checkpoint_path, sentence_path, clenaer, silence_mel_padding, o
         hparams.n_mel_channels, hparams.sampling_rate, hparams.mel_fmin,
         hparams.mel_fmax)
 
-    mels = generate_mels(hparams, checkpoint_path, sentences, speakers, audio_paths, clenaer, silence_mel_padding, stft, output_dir)
+    mels = generate_mels(hparams, checkpoint_path, sentences, audio_paths, speakers, clenaer, silence_mel_padding, stft, output_dir)
     mels_to_wavs_GL(hparams, mels, stft, output_dir)
     pass
 

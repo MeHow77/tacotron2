@@ -562,7 +562,7 @@ class Tacotron2(nn.Module):
         self.transcript_embedding = nn.Embedding(
             hparams.n_symbols, hparams.symbols_embedding_dim)
         self.speaker_embedding = LinearNorm(
-            hparams.n_speaker, hparams.speaker_embedding_dim, bias=True, w_init_gain='tanh')
+            hparams.n_speakers, hparams.speaker_embedding_dim, bias=True, w_init_gain='tanh')
         std = sqrt(2.0 / (hparams.n_symbols + hparams.symbols_embedding_dim))
         val = sqrt(3.0) * std  # uniform bounds for std
         self.transcript_embedding.weight.data.uniform_(-val, val)
@@ -575,7 +575,7 @@ class Tacotron2(nn.Module):
         text_padded, input_lengths, mel_padded, gate_padded, \
             output_lengths, speakers = batch
         text_padded = to_gpu(text_padded).long()
-        speakers = to_gpu(speakers).long()
+        speakers = to_gpu(speakers).float()
         input_lengths = to_gpu(input_lengths).long()
         max_len = torch.max(input_lengths.data).item()
         mel_padded = to_gpu(mel_padded).float()
