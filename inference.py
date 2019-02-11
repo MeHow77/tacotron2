@@ -34,7 +34,12 @@ def get_mel(stft, filename, hparams):
     melspec = stft.mel_spectrogram(audio_norm)
     return melspec
 
-def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, silence_mel_padding, stft, output_dir=""):
+def get_speaker(speaker, hparams):
+    speaker_vector = np.zeros(hparams.n_speakers)
+    speaker_vector[int(speaker)] = 1
+    return torch.IntTensor(speaker_vector)
+
+def generate_mels(hparams, checkpoint_path, sentences, audio_paths, speakers, cleaner, silence_mel_padding, stft, output_dir=""):
     model = load_model(hparams)
     try:
         model = model.module
@@ -47,8 +52,9 @@ def generate_mels(hparams, checkpoint_path, sentences, audio_paths, cleaner, sil
         sequence = np.array(text_to_sequence(s, cleaner))[None, :]
         sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
         ref_mel = get_mel(stft, audio_paths[i], hparams).cuda()
+        speaker = get_speaker(speakers[i], hparams).cuda().long()
         stime = time.time()
-        _, mel_outputs_postnet, _, alignments = model.inference(sequence, ref_mel)
+        _, mel_outputs_postnet, _, alignments = model.inference(sequence, ref_mel, speaker)
         plot_data((mel_outputs_postnet.data.cpu().numpy()[0],
                    alignments.data.cpu().numpy()[0].T), i, output_dir)
         inf_time = time.time() - stime
@@ -80,10 +86,12 @@ def run(hparams, checkpoint_path, sentence_path, clenaer, silence_mel_padding, o
     metas = [x.strip() for x in f.readlines()]
     sentences = []
     audio_paths = []
+    speakers = []
     for m in metas:
-        audio_path, sentence  = m.split('|')
+        audio_path, sentence, speaker  = m.split('|')
         sentences.append(sentence)
         audio_paths.append(audio_path)
+        speakers.append(speaker)
     print('All sentences to infer:',sentences)
     f.close()
 
@@ -92,7 +100,7 @@ def run(hparams, checkpoint_path, sentence_path, clenaer, silence_mel_padding, o
         hparams.n_mel_channels, hparams.sampling_rate, hparams.mel_fmin,
         hparams.mel_fmax)
 
-    mels = generate_mels(hparams, checkpoint_path, sentences, audio_paths, clenaer, silence_mel_padding, stft, output_dir)
+    mels = generate_mels(hparams, checkpoint_path, sentences, speakers, audio_paths, clenaer, silence_mel_padding, stft, output_dir)
     mels_to_wavs_GL(hparams, mels, stft, output_dir)
     pass
 

@@ -23,8 +23,8 @@ def create_hparams(hparams_string=None, verbose=False):
         # Data Parameters             #
         ################################
         load_mel_from_disk=False,
-        training_files='filelists/nam-h_train_filelist.txt',
-        validation_files='filelists/nam-h_val_filelist.txt',
+        training_files='filelists/ms_kor_train.txt',
+        validation_files='filelists/ms_kor_val.txt',
         text_cleaners=['korean_cleaners'], # english_cleaners, korean_cleaners
         sort_by_length=False,
 
@@ -51,7 +51,11 @@ def create_hparams(hparams_string=None, verbose=False):
         encoder_n_convolutions = 3,
         encoder_embedding_dim = 512,
 
-        # Prosody encoder parameters
+        # Speaker embedding parameters
+        n_speaker = 3,
+        speaker_embedding_dim=12,
+
+        # Prosody embedding parameters
         prosody_n_convolutions = 6,
         prosody_conv_dim_in = [1, 32, 32, 64, 64, 128],
         prosody_conv_dim_out = [32, 32, 64, 64, 128, 128],
