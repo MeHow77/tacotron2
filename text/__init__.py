@@ -56,7 +56,7 @@ def text_to_sequence(text, cleaner_names):
       print(text)
       exit()
   # Append EOS token
-  if cleaner_names == ["korean_cleaners"]: sequence.append(_symbol_to_id['~'])
+  sequence.append(_symbol_to_id['~'])
   return sequence
 
 
@@ -95,11 +95,13 @@ def _should_keep_symbol(s):
 
 if __name__ == "__main__":
   print(text_to_sequence('this is test sentence.? ', ['english_cleaners']))
-  print(text_to_sequence('테스트 문장입니다.? ', ['korean_cleaners']))
-  print(_clean_text('AB테스트 문장입니다.? ', ['korean_cleaners']))
-  print(_clean_text('mp3 파일을 홈페이지에서 다운로드 받으시기 바랍니다.',['korean_cleaners']))
-  print(_clean_text("마가렛 대처의 별명은 '철의 여인'이었다.", ['korean_cleaners']))
-  print(_clean_text("제 전화번호는 01012345678이에요.", ['korean_cleaners']))
-  print(_clean_text("‘아줌마’는 결혼한 여자를 뜻한다.", ['korean_cleaners']))
-  print(text_to_sequence("‘아줌마’는 결혼한 여자를 뜻한다.", ['korean_cleaners']))
+  print(text_to_sequence('Chapter one of Jane eyre. This is there librivox recording. All librivox recordings are in the public domain. For more information or to volunteer please visit librivox dot org.', ['english_cleaners']))
+  print(text_to_sequence('Recording by Elisabeth Klett.', ['english_cleaners']))
+  # print(text_to_sequence('테스트 문장입니다.? ', ['korean_cleaners']))
+  # print(_clean_text('AB테스트 문장입니다.? ', ['korean_cleaners']))
+  # print(_clean_text('mp3 파일을 홈페이지에서 다운로드 받으시기 바랍니다.',['korean_cleaners']))
+  # print(_clean_text("마가렛 대처의 별명은 '철의 여인'이었다.", ['korean_cleaners']))
+  # print(_clean_text("제 전화번호는 01012345678이에요.", ['korean_cleaners']))
+  # print(_clean_text("‘아줌마’는 결혼한 여자를 뜻한다.", ['korean_cleaners']))
+  # print(text_to_sequence("‘아줌마’는 결혼한 여자를 뜻한다.", ['korean_cleaners']))
 

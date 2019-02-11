@@ -43,7 +43,7 @@ def create_hparams(hparams_string=None, verbose=False):
         ################################
         # Model Parameters             #
         ################################
-        n_symbols = 80, # set 80 if u use korean_cleaners. set 149 if u use english_cleaners
+        n_symbols = 65, # set 80 if u use korean_cleaners. set 65 if u use english_cleaners
         symbols_embedding_dim=512,
 
         # Transcript encoder parameters
