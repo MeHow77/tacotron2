@@ -6907,7 +6907,6 @@ eng_uk/wavs/jane_eyre_27_f000436.wav|Another long silence.
 eng_uk/wavs/jane_eyre_27_f000437.wav|Jane! recommenced he, with a gentleness that broke me down with grief, and turned me stone-cold with ominous terror - for this still voice was the pant of a lion rising - Jane,
 eng_uk/wavs/jane_eyre_27_f000438.wav|do you mean to go one way in the world, and to let me go another?
 eng_uk/wavs/jane_eyre_27_f000440.wav|Jane bending towards and embracing me, do you mean it now?
-eng_uk/wavs/jane_eyre_27_f000441.wav|I do.
 eng_uk/wavs/jane_eyre_27_f000442.wav|And now? softly kissing my forehead and cheek.
 eng_uk/wavs/jane_eyre_27_f000443.wav|I do, extricating myself from restraint rapidly and completely.
 eng_uk/wavs/jane_eyre_27_f000444.wav|Oh, Jane, this is bitter! This - this is wicked. It would not be wicked to love me.
