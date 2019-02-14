@@ -1,512 +1,512 @@
-kakao_nam/wavs/nam_h/12/wavs/0001009.wav|고개를 움직여 봐.|2
-kakao_nam/wavs/nam_h/12/wavs/0001010.wav|팔이 안 움직여.|2
-kakao_nam/wavs/nam_h/12/wavs/0001011.wav|오늘은 운동하기에 아주 좋은 날씨였다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001012.wav|저는 매일 운동하러 헬스 클럽에 다녀요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001013.wav|버스를 운전할 수 있으세요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001014.wav|비 오는 날 빨리 운전하면 매우 위험하다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001015.wav|그는 엉뚱한 질문으로 사람들을 곧잘 웃겼다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001016.wav|그 사람 정말 웃겨.|2
-kakao_nam/wavs/nam_h/12/wavs/0001017.wav|그는 머리를 뒤로 젖히고 웃었다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001018.wav|아기가 나를 보고 웃었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001019.wav|그들은 도시 전체를 보기 위해 산꼭대기로 올라갔다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001020.wav|그 사람은 자기 부모를 끔찍이 위해요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001021.wav|누구나 오래 살길 원한다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001022.wav|뭘 원해?|2
-kakao_nam/wavs/nam_h/12/wavs/0001023.wav|나는 새해에는 담배를 끊겠다고 아들 녀석과 약속했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001024.wav|시험을 잘 보면 아빠가 새 컴퓨터를 사 주시겠다고 나한테 약속하셨어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001025.wav|그는 전국 방방곡곡을 여행했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001026.wav|기차를 타고 유럽 전역을 여행했어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001027.wav|창문 열어도 될까요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001028.wav|첨부하신 파일을 못 열겠어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001029.wav|두드려라, 그러면 열릴 것이다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001030.wav|2002년 월드컵이 한국과 일본에서 열렸다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001031.wav|아버지는 한국어를 연구하는 데 평생을 바치셨다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001032.wav|제 일은 고대 문자에 대해 연구하는 거예요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001033.wav|내일은 제일 중요한 장면을 연습할 거야.|2
-kakao_nam/wavs/nam_h/12/wavs/0001034.wav|그 선수가 연습하는 걸 보려고 사람들이 모여 들었어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001035.wav|우리 부모님은 저한테 너무 많은 것을 요구하세요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001036.wav|내가 환불을 요구하자 그들은 영수증을 보여 달라고 했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001037.wav|김치찌개 요리하다 손가락을 베었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001038.wav|제 아내는 요리하는 걸 좋아해요.|2
-kakao_nam/wavs/kakao/4/4_5598.wav|법률 용어를 보면 머리가 아파요.|0
-kakao_nam/wavs/kakao/4/4_5599.wav|걔 보기보다 용감하던데.|0
-kakao_nam/wavs/kakao/4/4_5600.wav|그 애에게 데이트 신청할 용기가 없어요.|0
-kakao_nam/wavs/kakao/4/4_5601.wav|제발 이번 한 번만 용서해 주세요.|0
-kakao_nam/wavs/kakao/4/4_5602.wav|엄마, 저 용돈 좀 올려 주시면 안 돼요?|0
-kakao_nam/wavs/kakao/4/4_5603.wav|저는 중국 요리가 좋아요.|0
-kakao_nam/wavs/kakao/4/4_5604.wav|미안하지만 지금은 요리하느라 너무 바빠요.|0
-kakao_nam/wavs/kakao/4/4_5605.wav|저희 부모님은 두 분 다 요리사세요.|0
-kakao_nam/wavs/kakao/4/4_5606.wav|요새 스트레스를 많이 받아요.|0
-kakao_nam/wavs/kakao/4/4_5607.wav|상황을 요약해서 설명해 줄래?|0
-kakao_nam/wavs/kakao/4/4_5608.wav|저는 유치원에서 한글을 배웠어요.|0
-kakao_nam/wavs/kakao/4/4_5609.wav|한국 사회는 유교에 바탕을 두고 있다.|0
-kakao_nam/wavs/kakao/4/4_5610.wav|올 여름은 칠십 년대 패션이 다시 유행하고 있어요.|0
-kakao_nam/wavs/kakao/4/4_5611.wav|한국에서의 유학 생활은 어때요?|0
-kakao_nam/wavs/kakao/4/4_5612.wav|우리 대학에는 외국인 유학생을 위한 한국어 강좌가 마련되어 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5613.wav|이 문제는 많은 학생들이 틀리는 유형입니다.|0
-kakao_nam/wavs/kakao/4/4_5614.wav|떨어뜨리지 않게 유의하세요.|0
-kakao_nam/wavs/kakao/4/4_5615.wav|몸매를 유지하는 비결이 뭔가요?|0
-kakao_nam/wavs/kakao/4/4_5616.wav|의사 말로는 저한테 남은 시간이 육 개월이래요.|0
-kakao_nam/wavs/kakao/4/4_5617.wav|사람의 육체는 언젠가 죽지만, 정신은 영원한 거예요.|0
-kakao_nam/wavs/kakao/4/4_5618.wav|육체적 고통은 얼마든지 이겨 낼 수 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5619.wav|군대는 육군과 공군, 해군으로 이루어진다.|0
-kakao_nam/wavs/kakao/4/4_5620.wav|마라톤은 육상의 꽃이다.|0
-kakao_nam/wavs/kakao/4/4_5621.wav|일 분은 왜 백 초가 아니고 육십 초일까?|0
-kakao_nam/wavs/kakao/4/4_5622.wav|유머는 스트레스를 해소하는 좋은 방법입니다.|0
-kakao_nam/wavs/kakao/4/4_5623.wav|부산은 국제 영화 축제로 유명해요.|0
-kakao_nam/wavs/kakao/4/4_5624.wav|올해는 유난히 봄이 늦어요.|0
-kakao_nam/wavs/kakao/4/4_5625.wav|유능한 인재를 뽑는 것보다 더 중요한 일은 없어요.|0
-kakao_nam/wavs/kakao/4/4_5626.wav|우리는 유럽 시장에 진출할 계획입니다.|0
-kakao_nam/wavs/kakao/4/4_5627.wav|깨진 유리 조각에 손가락을 벴어요.|0
-kakao_nam/wavs/kakao/4/4_5628.wav|아드님이 친구들과 야구를 하다 유리창을 깼어요.|0
-kakao_nam/wavs/kakao/4/4_5629.wav|일찍 신청하는 사람이 유리할 거야.|0
-kakao_nam/wavs/kakao/4/4_5630.wav|이 두 소설은 줄거리가 유사해요.|0
-kakao_nam/wavs/kakao/4/4_5631.wav|올해 유월은 유난히 쌀쌀해요.|0
-kakao_nam/wavs/nam_h/12/wavs/0001009.wav|고개를 움직여 봐.|2
-kakao_nam/wavs/nam_h/12/wavs/0001010.wav|팔이 안 움직여.|2
-kakao_nam/wavs/nam_h/12/wavs/0001011.wav|오늘은 운동하기에 아주 좋은 날씨였다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001012.wav|저는 매일 운동하러 헬스 클럽에 다녀요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001013.wav|버스를 운전할 수 있으세요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001014.wav|비 오는 날 빨리 운전하면 매우 위험하다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001015.wav|그는 엉뚱한 질문으로 사람들을 곧잘 웃겼다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001016.wav|그 사람 정말 웃겨.|2
-kakao_nam/wavs/nam_h/12/wavs/0001017.wav|그는 머리를 뒤로 젖히고 웃었다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001018.wav|아기가 나를 보고 웃었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001019.wav|그들은 도시 전체를 보기 위해 산꼭대기로 올라갔다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001020.wav|그 사람은 자기 부모를 끔찍이 위해요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001021.wav|누구나 오래 살길 원한다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001022.wav|뭘 원해?|2
-kakao_nam/wavs/nam_h/12/wavs/0001023.wav|나는 새해에는 담배를 끊겠다고 아들 녀석과 약속했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001024.wav|시험을 잘 보면 아빠가 새 컴퓨터를 사 주시겠다고 나한테 약속하셨어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001025.wav|그는 전국 방방곡곡을 여행했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001026.wav|기차를 타고 유럽 전역을 여행했어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001027.wav|창문 열어도 될까요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001028.wav|첨부하신 파일을 못 열겠어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001029.wav|두드려라, 그러면 열릴 것이다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001030.wav|2002년 월드컵이 한국과 일본에서 열렸다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001031.wav|아버지는 한국어를 연구하는 데 평생을 바치셨다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001032.wav|제 일은 고대 문자에 대해 연구하는 거예요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001033.wav|내일은 제일 중요한 장면을 연습할 거야.|2
-kakao_nam/wavs/nam_h/12/wavs/0001034.wav|그 선수가 연습하는 걸 보려고 사람들이 모여 들었어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001035.wav|우리 부모님은 저한테 너무 많은 것을 요구하세요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001036.wav|내가 환불을 요구하자 그들은 영수증을 보여 달라고 했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001037.wav|김치찌개 요리하다 손가락을 베었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001038.wav|제 아내는 요리하는 걸 좋아해요.|2
-kakao_nam/wavs/kakao/4/4_5598.wav|법률 용어를 보면 머리가 아파요.|0
-kakao_nam/wavs/kakao/4/4_5599.wav|걔 보기보다 용감하던데.|0
-kakao_nam/wavs/kakao/4/4_5600.wav|그 애에게 데이트 신청할 용기가 없어요.|0
-kakao_nam/wavs/kakao/4/4_5601.wav|제발 이번 한 번만 용서해 주세요.|0
-kakao_nam/wavs/kakao/4/4_5602.wav|엄마, 저 용돈 좀 올려 주시면 안 돼요?|0
-kakao_nam/wavs/kakao/4/4_5603.wav|저는 중국 요리가 좋아요.|0
-kakao_nam/wavs/kakao/4/4_5604.wav|미안하지만 지금은 요리하느라 너무 바빠요.|0
-kakao_nam/wavs/kakao/4/4_5605.wav|저희 부모님은 두 분 다 요리사세요.|0
-kakao_nam/wavs/kakao/4/4_5606.wav|요새 스트레스를 많이 받아요.|0
-kakao_nam/wavs/kakao/4/4_5607.wav|상황을 요약해서 설명해 줄래?|0
-kakao_nam/wavs/kakao/4/4_5608.wav|저는 유치원에서 한글을 배웠어요.|0
-kakao_nam/wavs/kakao/4/4_5609.wav|한국 사회는 유교에 바탕을 두고 있다.|0
-kakao_nam/wavs/kakao/4/4_5610.wav|올 여름은 칠십 년대 패션이 다시 유행하고 있어요.|0
-kakao_nam/wavs/kakao/4/4_5611.wav|한국에서의 유학 생활은 어때요?|0
-kakao_nam/wavs/kakao/4/4_5612.wav|우리 대학에는 외국인 유학생을 위한 한국어 강좌가 마련되어 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5613.wav|이 문제는 많은 학생들이 틀리는 유형입니다.|0
-kakao_nam/wavs/kakao/4/4_5614.wav|떨어뜨리지 않게 유의하세요.|0
-kakao_nam/wavs/kakao/4/4_5615.wav|몸매를 유지하는 비결이 뭔가요?|0
-kakao_nam/wavs/kakao/4/4_5616.wav|의사 말로는 저한테 남은 시간이 육 개월이래요.|0
-kakao_nam/wavs/kakao/4/4_5617.wav|사람의 육체는 언젠가 죽지만, 정신은 영원한 거예요.|0
-kakao_nam/wavs/kakao/4/4_5618.wav|육체적 고통은 얼마든지 이겨 낼 수 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5619.wav|군대는 육군과 공군, 해군으로 이루어진다.|0
-kakao_nam/wavs/kakao/4/4_5620.wav|마라톤은 육상의 꽃이다.|0
-kakao_nam/wavs/kakao/4/4_5621.wav|일 분은 왜 백 초가 아니고 육십 초일까?|0
-kakao_nam/wavs/kakao/4/4_5622.wav|유머는 스트레스를 해소하는 좋은 방법입니다.|0
-kakao_nam/wavs/kakao/4/4_5623.wav|부산은 국제 영화 축제로 유명해요.|0
-kakao_nam/wavs/kakao/4/4_5624.wav|올해는 유난히 봄이 늦어요.|0
-kakao_nam/wavs/kakao/4/4_5625.wav|유능한 인재를 뽑는 것보다 더 중요한 일은 없어요.|0
-kakao_nam/wavs/kakao/4/4_5626.wav|우리는 유럽 시장에 진출할 계획입니다.|0
-kakao_nam/wavs/kakao/4/4_5627.wav|깨진 유리 조각에 손가락을 벴어요.|0
-kakao_nam/wavs/kakao/4/4_5628.wav|아드님이 친구들과 야구를 하다 유리창을 깼어요.|0
-kakao_nam/wavs/kakao/4/4_5629.wav|일찍 신청하는 사람이 유리할 거야.|0
-kakao_nam/wavs/kakao/4/4_5630.wav|이 두 소설은 줄거리가 유사해요.|0
-kakao_nam/wavs/kakao/4/4_5631.wav|올해 유월은 유난히 쌀쌀해요.|0
-kakao_nam/wavs/nam_h/12/wavs/0001009.wav|고개를 움직여 봐.|2
-kakao_nam/wavs/nam_h/12/wavs/0001010.wav|팔이 안 움직여.|2
-kakao_nam/wavs/nam_h/12/wavs/0001011.wav|오늘은 운동하기에 아주 좋은 날씨였다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001012.wav|저는 매일 운동하러 헬스 클럽에 다녀요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001013.wav|버스를 운전할 수 있으세요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001014.wav|비 오는 날 빨리 운전하면 매우 위험하다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001015.wav|그는 엉뚱한 질문으로 사람들을 곧잘 웃겼다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001016.wav|그 사람 정말 웃겨.|2
-kakao_nam/wavs/nam_h/12/wavs/0001017.wav|그는 머리를 뒤로 젖히고 웃었다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001018.wav|아기가 나를 보고 웃었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001019.wav|그들은 도시 전체를 보기 위해 산꼭대기로 올라갔다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001020.wav|그 사람은 자기 부모를 끔찍이 위해요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001021.wav|누구나 오래 살길 원한다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001022.wav|뭘 원해?|2
-kakao_nam/wavs/nam_h/12/wavs/0001023.wav|나는 새해에는 담배를 끊겠다고 아들 녀석과 약속했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001024.wav|시험을 잘 보면 아빠가 새 컴퓨터를 사 주시겠다고 나한테 약속하셨어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001025.wav|그는 전국 방방곡곡을 여행했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001026.wav|기차를 타고 유럽 전역을 여행했어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001027.wav|창문 열어도 될까요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001028.wav|첨부하신 파일을 못 열겠어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001029.wav|두드려라, 그러면 열릴 것이다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001030.wav|2002년 월드컵이 한국과 일본에서 열렸다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001031.wav|아버지는 한국어를 연구하는 데 평생을 바치셨다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001032.wav|제 일은 고대 문자에 대해 연구하는 거예요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001033.wav|내일은 제일 중요한 장면을 연습할 거야.|2
-kakao_nam/wavs/nam_h/12/wavs/0001034.wav|그 선수가 연습하는 걸 보려고 사람들이 모여 들었어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001035.wav|우리 부모님은 저한테 너무 많은 것을 요구하세요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001036.wav|내가 환불을 요구하자 그들은 영수증을 보여 달라고 했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001037.wav|김치찌개 요리하다 손가락을 베었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001038.wav|제 아내는 요리하는 걸 좋아해요.|2
-kakao_nam/wavs/kakao/4/4_5598.wav|법률 용어를 보면 머리가 아파요.|0
-kakao_nam/wavs/kakao/4/4_5599.wav|걔 보기보다 용감하던데.|0
-kakao_nam/wavs/kakao/4/4_5600.wav|그 애에게 데이트 신청할 용기가 없어요.|0
-kakao_nam/wavs/kakao/4/4_5601.wav|제발 이번 한 번만 용서해 주세요.|0
-kakao_nam/wavs/kakao/4/4_5602.wav|엄마, 저 용돈 좀 올려 주시면 안 돼요?|0
-kakao_nam/wavs/kakao/4/4_5603.wav|저는 중국 요리가 좋아요.|0
-kakao_nam/wavs/kakao/4/4_5604.wav|미안하지만 지금은 요리하느라 너무 바빠요.|0
-kakao_nam/wavs/kakao/4/4_5605.wav|저희 부모님은 두 분 다 요리사세요.|0
-kakao_nam/wavs/kakao/4/4_5606.wav|요새 스트레스를 많이 받아요.|0
-kakao_nam/wavs/kakao/4/4_5607.wav|상황을 요약해서 설명해 줄래?|0
-kakao_nam/wavs/kakao/4/4_5608.wav|저는 유치원에서 한글을 배웠어요.|0
-kakao_nam/wavs/kakao/4/4_5609.wav|한국 사회는 유교에 바탕을 두고 있다.|0
-kakao_nam/wavs/kakao/4/4_5610.wav|올 여름은 칠십 년대 패션이 다시 유행하고 있어요.|0
-kakao_nam/wavs/kakao/4/4_5611.wav|한국에서의 유학 생활은 어때요?|0
-kakao_nam/wavs/kakao/4/4_5612.wav|우리 대학에는 외국인 유학생을 위한 한국어 강좌가 마련되어 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5613.wav|이 문제는 많은 학생들이 틀리는 유형입니다.|0
-kakao_nam/wavs/kakao/4/4_5614.wav|떨어뜨리지 않게 유의하세요.|0
-kakao_nam/wavs/kakao/4/4_5615.wav|몸매를 유지하는 비결이 뭔가요?|0
-kakao_nam/wavs/kakao/4/4_5616.wav|의사 말로는 저한테 남은 시간이 육 개월이래요.|0
-kakao_nam/wavs/kakao/4/4_5617.wav|사람의 육체는 언젠가 죽지만, 정신은 영원한 거예요.|0
-kakao_nam/wavs/kakao/4/4_5618.wav|육체적 고통은 얼마든지 이겨 낼 수 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5619.wav|군대는 육군과 공군, 해군으로 이루어진다.|0
-kakao_nam/wavs/kakao/4/4_5620.wav|마라톤은 육상의 꽃이다.|0
-kakao_nam/wavs/kakao/4/4_5621.wav|일 분은 왜 백 초가 아니고 육십 초일까?|0
-kakao_nam/wavs/kakao/4/4_5622.wav|유머는 스트레스를 해소하는 좋은 방법입니다.|0
-kakao_nam/wavs/kakao/4/4_5623.wav|부산은 국제 영화 축제로 유명해요.|0
-kakao_nam/wavs/kakao/4/4_5624.wav|올해는 유난히 봄이 늦어요.|0
-kakao_nam/wavs/kakao/4/4_5625.wav|유능한 인재를 뽑는 것보다 더 중요한 일은 없어요.|0
-kakao_nam/wavs/kakao/4/4_5626.wav|우리는 유럽 시장에 진출할 계획입니다.|0
-kakao_nam/wavs/kakao/4/4_5627.wav|깨진 유리 조각에 손가락을 벴어요.|0
-kakao_nam/wavs/kakao/4/4_5628.wav|아드님이 친구들과 야구를 하다 유리창을 깼어요.|0
-kakao_nam/wavs/kakao/4/4_5629.wav|일찍 신청하는 사람이 유리할 거야.|0
-kakao_nam/wavs/kakao/4/4_5630.wav|이 두 소설은 줄거리가 유사해요.|0
-kakao_nam/wavs/kakao/4/4_5631.wav|올해 유월은 유난히 쌀쌀해요.|0
-kakao_nam/wavs/nam_h/12/wavs/0001009.wav|고개를 움직여 봐.|2
-kakao_nam/wavs/nam_h/12/wavs/0001010.wav|팔이 안 움직여.|2
-kakao_nam/wavs/nam_h/12/wavs/0001011.wav|오늘은 운동하기에 아주 좋은 날씨였다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001012.wav|저는 매일 운동하러 헬스 클럽에 다녀요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001013.wav|버스를 운전할 수 있으세요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001014.wav|비 오는 날 빨리 운전하면 매우 위험하다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001015.wav|그는 엉뚱한 질문으로 사람들을 곧잘 웃겼다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001016.wav|그 사람 정말 웃겨.|2
-kakao_nam/wavs/nam_h/12/wavs/0001017.wav|그는 머리를 뒤로 젖히고 웃었다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001018.wav|아기가 나를 보고 웃었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001019.wav|그들은 도시 전체를 보기 위해 산꼭대기로 올라갔다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001020.wav|그 사람은 자기 부모를 끔찍이 위해요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001021.wav|누구나 오래 살길 원한다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001022.wav|뭘 원해?|2
-kakao_nam/wavs/nam_h/12/wavs/0001023.wav|나는 새해에는 담배를 끊겠다고 아들 녀석과 약속했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001024.wav|시험을 잘 보면 아빠가 새 컴퓨터를 사 주시겠다고 나한테 약속하셨어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001025.wav|그는 전국 방방곡곡을 여행했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001026.wav|기차를 타고 유럽 전역을 여행했어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001027.wav|창문 열어도 될까요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001028.wav|첨부하신 파일을 못 열겠어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001029.wav|두드려라, 그러면 열릴 것이다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001030.wav|2002년 월드컵이 한국과 일본에서 열렸다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001031.wav|아버지는 한국어를 연구하는 데 평생을 바치셨다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001032.wav|제 일은 고대 문자에 대해 연구하는 거예요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001033.wav|내일은 제일 중요한 장면을 연습할 거야.|2
-kakao_nam/wavs/nam_h/12/wavs/0001034.wav|그 선수가 연습하는 걸 보려고 사람들이 모여 들었어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001035.wav|우리 부모님은 저한테 너무 많은 것을 요구하세요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001036.wav|내가 환불을 요구하자 그들은 영수증을 보여 달라고 했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001037.wav|김치찌개 요리하다 손가락을 베었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001038.wav|제 아내는 요리하는 걸 좋아해요.|2
-kakao_nam/wavs/kakao/4/4_5598.wav|법률 용어를 보면 머리가 아파요.|0
-kakao_nam/wavs/kakao/4/4_5599.wav|걔 보기보다 용감하던데.|0
-kakao_nam/wavs/kakao/4/4_5600.wav|그 애에게 데이트 신청할 용기가 없어요.|0
-kakao_nam/wavs/kakao/4/4_5601.wav|제발 이번 한 번만 용서해 주세요.|0
-kakao_nam/wavs/kakao/4/4_5602.wav|엄마, 저 용돈 좀 올려 주시면 안 돼요?|0
-kakao_nam/wavs/kakao/4/4_5603.wav|저는 중국 요리가 좋아요.|0
-kakao_nam/wavs/kakao/4/4_5604.wav|미안하지만 지금은 요리하느라 너무 바빠요.|0
-kakao_nam/wavs/kakao/4/4_5605.wav|저희 부모님은 두 분 다 요리사세요.|0
-kakao_nam/wavs/kakao/4/4_5606.wav|요새 스트레스를 많이 받아요.|0
-kakao_nam/wavs/kakao/4/4_5607.wav|상황을 요약해서 설명해 줄래?|0
-kakao_nam/wavs/kakao/4/4_5608.wav|저는 유치원에서 한글을 배웠어요.|0
-kakao_nam/wavs/kakao/4/4_5609.wav|한국 사회는 유교에 바탕을 두고 있다.|0
-kakao_nam/wavs/kakao/4/4_5610.wav|올 여름은 칠십 년대 패션이 다시 유행하고 있어요.|0
-kakao_nam/wavs/kakao/4/4_5611.wav|한국에서의 유학 생활은 어때요?|0
-kakao_nam/wavs/kakao/4/4_5612.wav|우리 대학에는 외국인 유학생을 위한 한국어 강좌가 마련되어 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5613.wav|이 문제는 많은 학생들이 틀리는 유형입니다.|0
-kakao_nam/wavs/kakao/4/4_5614.wav|떨어뜨리지 않게 유의하세요.|0
-kakao_nam/wavs/kakao/4/4_5615.wav|몸매를 유지하는 비결이 뭔가요?|0
-kakao_nam/wavs/kakao/4/4_5616.wav|의사 말로는 저한테 남은 시간이 육 개월이래요.|0
-kakao_nam/wavs/kakao/4/4_5617.wav|사람의 육체는 언젠가 죽지만, 정신은 영원한 거예요.|0
-kakao_nam/wavs/kakao/4/4_5618.wav|육체적 고통은 얼마든지 이겨 낼 수 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5619.wav|군대는 육군과 공군, 해군으로 이루어진다.|0
-kakao_nam/wavs/kakao/4/4_5620.wav|마라톤은 육상의 꽃이다.|0
-kakao_nam/wavs/kakao/4/4_5621.wav|일 분은 왜 백 초가 아니고 육십 초일까?|0
-kakao_nam/wavs/kakao/4/4_5622.wav|유머는 스트레스를 해소하는 좋은 방법입니다.|0
-kakao_nam/wavs/kakao/4/4_5623.wav|부산은 국제 영화 축제로 유명해요.|0
-kakao_nam/wavs/kakao/4/4_5624.wav|올해는 유난히 봄이 늦어요.|0
-kakao_nam/wavs/kakao/4/4_5625.wav|유능한 인재를 뽑는 것보다 더 중요한 일은 없어요.|0
-kakao_nam/wavs/kakao/4/4_5626.wav|우리는 유럽 시장에 진출할 계획입니다.|0
-kakao_nam/wavs/kakao/4/4_5627.wav|깨진 유리 조각에 손가락을 벴어요.|0
-kakao_nam/wavs/kakao/4/4_5628.wav|아드님이 친구들과 야구를 하다 유리창을 깼어요.|0
-kakao_nam/wavs/kakao/4/4_5629.wav|일찍 신청하는 사람이 유리할 거야.|0
-kakao_nam/wavs/kakao/4/4_5630.wav|이 두 소설은 줄거리가 유사해요.|0
-kakao_nam/wavs/kakao/4/4_5631.wav|올해 유월은 유난히 쌀쌀해요.|0
-kakao_nam/wavs/nam_h/12/wavs/0001009.wav|고개를 움직여 봐.|2
-kakao_nam/wavs/nam_h/12/wavs/0001010.wav|팔이 안 움직여.|2
-kakao_nam/wavs/nam_h/12/wavs/0001011.wav|오늘은 운동하기에 아주 좋은 날씨였다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001012.wav|저는 매일 운동하러 헬스 클럽에 다녀요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001013.wav|버스를 운전할 수 있으세요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001014.wav|비 오는 날 빨리 운전하면 매우 위험하다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001015.wav|그는 엉뚱한 질문으로 사람들을 곧잘 웃겼다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001016.wav|그 사람 정말 웃겨.|2
-kakao_nam/wavs/nam_h/12/wavs/0001017.wav|그는 머리를 뒤로 젖히고 웃었다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001018.wav|아기가 나를 보고 웃었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001019.wav|그들은 도시 전체를 보기 위해 산꼭대기로 올라갔다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001020.wav|그 사람은 자기 부모를 끔찍이 위해요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001021.wav|누구나 오래 살길 원한다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001022.wav|뭘 원해?|2
-kakao_nam/wavs/nam_h/12/wavs/0001023.wav|나는 새해에는 담배를 끊겠다고 아들 녀석과 약속했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001024.wav|시험을 잘 보면 아빠가 새 컴퓨터를 사 주시겠다고 나한테 약속하셨어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001025.wav|그는 전국 방방곡곡을 여행했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001026.wav|기차를 타고 유럽 전역을 여행했어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001027.wav|창문 열어도 될까요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001028.wav|첨부하신 파일을 못 열겠어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001029.wav|두드려라, 그러면 열릴 것이다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001030.wav|2002년 월드컵이 한국과 일본에서 열렸다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001031.wav|아버지는 한국어를 연구하는 데 평생을 바치셨다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001032.wav|제 일은 고대 문자에 대해 연구하는 거예요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001033.wav|내일은 제일 중요한 장면을 연습할 거야.|2
-kakao_nam/wavs/nam_h/12/wavs/0001034.wav|그 선수가 연습하는 걸 보려고 사람들이 모여 들었어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001035.wav|우리 부모님은 저한테 너무 많은 것을 요구하세요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001036.wav|내가 환불을 요구하자 그들은 영수증을 보여 달라고 했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001037.wav|김치찌개 요리하다 손가락을 베었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001038.wav|제 아내는 요리하는 걸 좋아해요.|2
-kakao_nam/wavs/kakao/4/4_5598.wav|법률 용어를 보면 머리가 아파요.|0
-kakao_nam/wavs/kakao/4/4_5599.wav|걔 보기보다 용감하던데.|0
-kakao_nam/wavs/kakao/4/4_5600.wav|그 애에게 데이트 신청할 용기가 없어요.|0
-kakao_nam/wavs/kakao/4/4_5601.wav|제발 이번 한 번만 용서해 주세요.|0
-kakao_nam/wavs/kakao/4/4_5602.wav|엄마, 저 용돈 좀 올려 주시면 안 돼요?|0
-kakao_nam/wavs/kakao/4/4_5603.wav|저는 중국 요리가 좋아요.|0
-kakao_nam/wavs/kakao/4/4_5604.wav|미안하지만 지금은 요리하느라 너무 바빠요.|0
-kakao_nam/wavs/kakao/4/4_5605.wav|저희 부모님은 두 분 다 요리사세요.|0
-kakao_nam/wavs/kakao/4/4_5606.wav|요새 스트레스를 많이 받아요.|0
-kakao_nam/wavs/kakao/4/4_5607.wav|상황을 요약해서 설명해 줄래?|0
-kakao_nam/wavs/kakao/4/4_5608.wav|저는 유치원에서 한글을 배웠어요.|0
-kakao_nam/wavs/kakao/4/4_5609.wav|한국 사회는 유교에 바탕을 두고 있다.|0
-kakao_nam/wavs/kakao/4/4_5610.wav|올 여름은 칠십 년대 패션이 다시 유행하고 있어요.|0
-kakao_nam/wavs/kakao/4/4_5611.wav|한국에서의 유학 생활은 어때요?|0
-kakao_nam/wavs/kakao/4/4_5612.wav|우리 대학에는 외국인 유학생을 위한 한국어 강좌가 마련되어 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5613.wav|이 문제는 많은 학생들이 틀리는 유형입니다.|0
-kakao_nam/wavs/kakao/4/4_5614.wav|떨어뜨리지 않게 유의하세요.|0
-kakao_nam/wavs/kakao/4/4_5615.wav|몸매를 유지하는 비결이 뭔가요?|0
-kakao_nam/wavs/kakao/4/4_5616.wav|의사 말로는 저한테 남은 시간이 육 개월이래요.|0
-kakao_nam/wavs/kakao/4/4_5617.wav|사람의 육체는 언젠가 죽지만, 정신은 영원한 거예요.|0
-kakao_nam/wavs/kakao/4/4_5618.wav|육체적 고통은 얼마든지 이겨 낼 수 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5619.wav|군대는 육군과 공군, 해군으로 이루어진다.|0
-kakao_nam/wavs/kakao/4/4_5620.wav|마라톤은 육상의 꽃이다.|0
-kakao_nam/wavs/kakao/4/4_5621.wav|일 분은 왜 백 초가 아니고 육십 초일까?|0
-kakao_nam/wavs/kakao/4/4_5622.wav|유머는 스트레스를 해소하는 좋은 방법입니다.|0
-kakao_nam/wavs/kakao/4/4_5623.wav|부산은 국제 영화 축제로 유명해요.|0
-kakao_nam/wavs/kakao/4/4_5624.wav|올해는 유난히 봄이 늦어요.|0
-kakao_nam/wavs/kakao/4/4_5625.wav|유능한 인재를 뽑는 것보다 더 중요한 일은 없어요.|0
-kakao_nam/wavs/kakao/4/4_5626.wav|우리는 유럽 시장에 진출할 계획입니다.|0
-kakao_nam/wavs/kakao/4/4_5627.wav|깨진 유리 조각에 손가락을 벴어요.|0
-kakao_nam/wavs/kakao/4/4_5628.wav|아드님이 친구들과 야구를 하다 유리창을 깼어요.|0
-kakao_nam/wavs/kakao/4/4_5629.wav|일찍 신청하는 사람이 유리할 거야.|0
-kakao_nam/wavs/kakao/4/4_5630.wav|이 두 소설은 줄거리가 유사해요.|0
-kakao_nam/wavs/kakao/4/4_5631.wav|올해 유월은 유난히 쌀쌀해요.|0
-kakao_nam/wavs/nam_h/12/wavs/0001009.wav|고개를 움직여 봐.|2
-kakao_nam/wavs/nam_h/12/wavs/0001010.wav|팔이 안 움직여.|2
-kakao_nam/wavs/nam_h/12/wavs/0001011.wav|오늘은 운동하기에 아주 좋은 날씨였다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001012.wav|저는 매일 운동하러 헬스 클럽에 다녀요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001013.wav|버스를 운전할 수 있으세요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001014.wav|비 오는 날 빨리 운전하면 매우 위험하다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001015.wav|그는 엉뚱한 질문으로 사람들을 곧잘 웃겼다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001016.wav|그 사람 정말 웃겨.|2
-kakao_nam/wavs/nam_h/12/wavs/0001017.wav|그는 머리를 뒤로 젖히고 웃었다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001018.wav|아기가 나를 보고 웃었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001019.wav|그들은 도시 전체를 보기 위해 산꼭대기로 올라갔다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001020.wav|그 사람은 자기 부모를 끔찍이 위해요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001021.wav|누구나 오래 살길 원한다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001022.wav|뭘 원해?|2
-kakao_nam/wavs/nam_h/12/wavs/0001023.wav|나는 새해에는 담배를 끊겠다고 아들 녀석과 약속했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001024.wav|시험을 잘 보면 아빠가 새 컴퓨터를 사 주시겠다고 나한테 약속하셨어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001025.wav|그는 전국 방방곡곡을 여행했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001026.wav|기차를 타고 유럽 전역을 여행했어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001027.wav|창문 열어도 될까요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001028.wav|첨부하신 파일을 못 열겠어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001029.wav|두드려라, 그러면 열릴 것이다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001030.wav|2002년 월드컵이 한국과 일본에서 열렸다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001031.wav|아버지는 한국어를 연구하는 데 평생을 바치셨다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001032.wav|제 일은 고대 문자에 대해 연구하는 거예요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001033.wav|내일은 제일 중요한 장면을 연습할 거야.|2
-kakao_nam/wavs/nam_h/12/wavs/0001034.wav|그 선수가 연습하는 걸 보려고 사람들이 모여 들었어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001035.wav|우리 부모님은 저한테 너무 많은 것을 요구하세요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001036.wav|내가 환불을 요구하자 그들은 영수증을 보여 달라고 했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001037.wav|김치찌개 요리하다 손가락을 베었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001038.wav|제 아내는 요리하는 걸 좋아해요.|2
-kakao_nam/wavs/kakao/4/4_5598.wav|법률 용어를 보면 머리가 아파요.|0
-kakao_nam/wavs/kakao/4/4_5599.wav|걔 보기보다 용감하던데.|0
-kakao_nam/wavs/kakao/4/4_5600.wav|그 애에게 데이트 신청할 용기가 없어요.|0
-kakao_nam/wavs/kakao/4/4_5601.wav|제발 이번 한 번만 용서해 주세요.|0
-kakao_nam/wavs/kakao/4/4_5602.wav|엄마, 저 용돈 좀 올려 주시면 안 돼요?|0
-kakao_nam/wavs/kakao/4/4_5603.wav|저는 중국 요리가 좋아요.|0
-kakao_nam/wavs/kakao/4/4_5604.wav|미안하지만 지금은 요리하느라 너무 바빠요.|0
-kakao_nam/wavs/kakao/4/4_5605.wav|저희 부모님은 두 분 다 요리사세요.|0
-kakao_nam/wavs/kakao/4/4_5606.wav|요새 스트레스를 많이 받아요.|0
-kakao_nam/wavs/kakao/4/4_5607.wav|상황을 요약해서 설명해 줄래?|0
-kakao_nam/wavs/kakao/4/4_5608.wav|저는 유치원에서 한글을 배웠어요.|0
-kakao_nam/wavs/kakao/4/4_5609.wav|한국 사회는 유교에 바탕을 두고 있다.|0
-kakao_nam/wavs/kakao/4/4_5610.wav|올 여름은 칠십 년대 패션이 다시 유행하고 있어요.|0
-kakao_nam/wavs/kakao/4/4_5611.wav|한국에서의 유학 생활은 어때요?|0
-kakao_nam/wavs/kakao/4/4_5612.wav|우리 대학에는 외국인 유학생을 위한 한국어 강좌가 마련되어 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5613.wav|이 문제는 많은 학생들이 틀리는 유형입니다.|0
-kakao_nam/wavs/kakao/4/4_5614.wav|떨어뜨리지 않게 유의하세요.|0
-kakao_nam/wavs/kakao/4/4_5615.wav|몸매를 유지하는 비결이 뭔가요?|0
-kakao_nam/wavs/kakao/4/4_5616.wav|의사 말로는 저한테 남은 시간이 육 개월이래요.|0
-kakao_nam/wavs/kakao/4/4_5617.wav|사람의 육체는 언젠가 죽지만, 정신은 영원한 거예요.|0
-kakao_nam/wavs/kakao/4/4_5618.wav|육체적 고통은 얼마든지 이겨 낼 수 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5619.wav|군대는 육군과 공군, 해군으로 이루어진다.|0
-kakao_nam/wavs/kakao/4/4_5620.wav|마라톤은 육상의 꽃이다.|0
-kakao_nam/wavs/kakao/4/4_5621.wav|일 분은 왜 백 초가 아니고 육십 초일까?|0
-kakao_nam/wavs/kakao/4/4_5622.wav|유머는 스트레스를 해소하는 좋은 방법입니다.|0
-kakao_nam/wavs/kakao/4/4_5623.wav|부산은 국제 영화 축제로 유명해요.|0
-kakao_nam/wavs/kakao/4/4_5624.wav|올해는 유난히 봄이 늦어요.|0
-kakao_nam/wavs/kakao/4/4_5625.wav|유능한 인재를 뽑는 것보다 더 중요한 일은 없어요.|0
-kakao_nam/wavs/kakao/4/4_5626.wav|우리는 유럽 시장에 진출할 계획입니다.|0
-kakao_nam/wavs/kakao/4/4_5627.wav|깨진 유리 조각에 손가락을 벴어요.|0
-kakao_nam/wavs/kakao/4/4_5628.wav|아드님이 친구들과 야구를 하다 유리창을 깼어요.|0
-kakao_nam/wavs/kakao/4/4_5629.wav|일찍 신청하는 사람이 유리할 거야.|0
-kakao_nam/wavs/kakao/4/4_5630.wav|이 두 소설은 줄거리가 유사해요.|0
-kakao_nam/wavs/kakao/4/4_5631.wav|올해 유월은 유난히 쌀쌀해요.|0
-kakao_nam/wavs/nam_h/12/wavs/0001009.wav|고개를 움직여 봐.|2
-kakao_nam/wavs/nam_h/12/wavs/0001010.wav|팔이 안 움직여.|2
-kakao_nam/wavs/nam_h/12/wavs/0001011.wav|오늘은 운동하기에 아주 좋은 날씨였다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001012.wav|저는 매일 운동하러 헬스 클럽에 다녀요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001013.wav|버스를 운전할 수 있으세요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001014.wav|비 오는 날 빨리 운전하면 매우 위험하다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001015.wav|그는 엉뚱한 질문으로 사람들을 곧잘 웃겼다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001016.wav|그 사람 정말 웃겨.|2
-kakao_nam/wavs/nam_h/12/wavs/0001017.wav|그는 머리를 뒤로 젖히고 웃었다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001018.wav|아기가 나를 보고 웃었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001019.wav|그들은 도시 전체를 보기 위해 산꼭대기로 올라갔다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001020.wav|그 사람은 자기 부모를 끔찍이 위해요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001021.wav|누구나 오래 살길 원한다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001022.wav|뭘 원해?|2
-kakao_nam/wavs/nam_h/12/wavs/0001023.wav|나는 새해에는 담배를 끊겠다고 아들 녀석과 약속했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001024.wav|시험을 잘 보면 아빠가 새 컴퓨터를 사 주시겠다고 나한테 약속하셨어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001025.wav|그는 전국 방방곡곡을 여행했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001026.wav|기차를 타고 유럽 전역을 여행했어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001027.wav|창문 열어도 될까요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001028.wav|첨부하신 파일을 못 열겠어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001029.wav|두드려라, 그러면 열릴 것이다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001030.wav|2002년 월드컵이 한국과 일본에서 열렸다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001031.wav|아버지는 한국어를 연구하는 데 평생을 바치셨다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001032.wav|제 일은 고대 문자에 대해 연구하는 거예요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001033.wav|내일은 제일 중요한 장면을 연습할 거야.|2
-kakao_nam/wavs/nam_h/12/wavs/0001034.wav|그 선수가 연습하는 걸 보려고 사람들이 모여 들었어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001035.wav|우리 부모님은 저한테 너무 많은 것을 요구하세요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001036.wav|내가 환불을 요구하자 그들은 영수증을 보여 달라고 했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001037.wav|김치찌개 요리하다 손가락을 베었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001038.wav|제 아내는 요리하는 걸 좋아해요.|2
-kakao_nam/wavs/kakao/4/4_5598.wav|법률 용어를 보면 머리가 아파요.|0
-kakao_nam/wavs/kakao/4/4_5599.wav|걔 보기보다 용감하던데.|0
-kakao_nam/wavs/kakao/4/4_5600.wav|그 애에게 데이트 신청할 용기가 없어요.|0
-kakao_nam/wavs/kakao/4/4_5601.wav|제발 이번 한 번만 용서해 주세요.|0
-kakao_nam/wavs/kakao/4/4_5602.wav|엄마, 저 용돈 좀 올려 주시면 안 돼요?|0
-kakao_nam/wavs/kakao/4/4_5603.wav|저는 중국 요리가 좋아요.|0
-kakao_nam/wavs/kakao/4/4_5604.wav|미안하지만 지금은 요리하느라 너무 바빠요.|0
-kakao_nam/wavs/kakao/4/4_5605.wav|저희 부모님은 두 분 다 요리사세요.|0
-kakao_nam/wavs/kakao/4/4_5606.wav|요새 스트레스를 많이 받아요.|0
-kakao_nam/wavs/kakao/4/4_5607.wav|상황을 요약해서 설명해 줄래?|0
-kakao_nam/wavs/kakao/4/4_5608.wav|저는 유치원에서 한글을 배웠어요.|0
-kakao_nam/wavs/kakao/4/4_5609.wav|한국 사회는 유교에 바탕을 두고 있다.|0
-kakao_nam/wavs/kakao/4/4_5610.wav|올 여름은 칠십 년대 패션이 다시 유행하고 있어요.|0
-kakao_nam/wavs/kakao/4/4_5611.wav|한국에서의 유학 생활은 어때요?|0
-kakao_nam/wavs/kakao/4/4_5612.wav|우리 대학에는 외국인 유학생을 위한 한국어 강좌가 마련되어 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5613.wav|이 문제는 많은 학생들이 틀리는 유형입니다.|0
-kakao_nam/wavs/kakao/4/4_5614.wav|떨어뜨리지 않게 유의하세요.|0
-kakao_nam/wavs/kakao/4/4_5615.wav|몸매를 유지하는 비결이 뭔가요?|0
-kakao_nam/wavs/kakao/4/4_5616.wav|의사 말로는 저한테 남은 시간이 육 개월이래요.|0
-kakao_nam/wavs/kakao/4/4_5617.wav|사람의 육체는 언젠가 죽지만, 정신은 영원한 거예요.|0
-kakao_nam/wavs/kakao/4/4_5618.wav|육체적 고통은 얼마든지 이겨 낼 수 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5619.wav|군대는 육군과 공군, 해군으로 이루어진다.|0
-kakao_nam/wavs/kakao/4/4_5620.wav|마라톤은 육상의 꽃이다.|0
-kakao_nam/wavs/kakao/4/4_5621.wav|일 분은 왜 백 초가 아니고 육십 초일까?|0
-kakao_nam/wavs/kakao/4/4_5622.wav|유머는 스트레스를 해소하는 좋은 방법입니다.|0
-kakao_nam/wavs/kakao/4/4_5623.wav|부산은 국제 영화 축제로 유명해요.|0
-kakao_nam/wavs/kakao/4/4_5624.wav|올해는 유난히 봄이 늦어요.|0
-kakao_nam/wavs/kakao/4/4_5625.wav|유능한 인재를 뽑는 것보다 더 중요한 일은 없어요.|0
-kakao_nam/wavs/kakao/4/4_5626.wav|우리는 유럽 시장에 진출할 계획입니다.|0
-kakao_nam/wavs/kakao/4/4_5627.wav|깨진 유리 조각에 손가락을 벴어요.|0
-kakao_nam/wavs/kakao/4/4_5628.wav|아드님이 친구들과 야구를 하다 유리창을 깼어요.|0
-kakao_nam/wavs/kakao/4/4_5629.wav|일찍 신청하는 사람이 유리할 거야.|0
-kakao_nam/wavs/kakao/4/4_5630.wav|이 두 소설은 줄거리가 유사해요.|0
-kakao_nam/wavs/kakao/4/4_5631.wav|올해 유월은 유난히 쌀쌀해요.|0
-kakao_nam/wavs/nam_h/12/wavs/0001009.wav|고개를 움직여 봐.|2
-kakao_nam/wavs/nam_h/12/wavs/0001010.wav|팔이 안 움직여.|2
-kakao_nam/wavs/nam_h/12/wavs/0001011.wav|오늘은 운동하기에 아주 좋은 날씨였다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001012.wav|저는 매일 운동하러 헬스 클럽에 다녀요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001013.wav|버스를 운전할 수 있으세요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001014.wav|비 오는 날 빨리 운전하면 매우 위험하다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001015.wav|그는 엉뚱한 질문으로 사람들을 곧잘 웃겼다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001016.wav|그 사람 정말 웃겨.|2
-kakao_nam/wavs/nam_h/12/wavs/0001017.wav|그는 머리를 뒤로 젖히고 웃었다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001018.wav|아기가 나를 보고 웃었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001019.wav|그들은 도시 전체를 보기 위해 산꼭대기로 올라갔다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001020.wav|그 사람은 자기 부모를 끔찍이 위해요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001021.wav|누구나 오래 살길 원한다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001022.wav|뭘 원해?|2
-kakao_nam/wavs/nam_h/12/wavs/0001023.wav|나는 새해에는 담배를 끊겠다고 아들 녀석과 약속했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001024.wav|시험을 잘 보면 아빠가 새 컴퓨터를 사 주시겠다고 나한테 약속하셨어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001025.wav|그는 전국 방방곡곡을 여행했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001026.wav|기차를 타고 유럽 전역을 여행했어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001027.wav|창문 열어도 될까요?|2
-kakao_nam/wavs/nam_h/12/wavs/0001028.wav|첨부하신 파일을 못 열겠어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001029.wav|두드려라, 그러면 열릴 것이다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001030.wav|2002년 월드컵이 한국과 일본에서 열렸다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001031.wav|아버지는 한국어를 연구하는 데 평생을 바치셨다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001032.wav|제 일은 고대 문자에 대해 연구하는 거예요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001033.wav|내일은 제일 중요한 장면을 연습할 거야.|2
-kakao_nam/wavs/nam_h/12/wavs/0001034.wav|그 선수가 연습하는 걸 보려고 사람들이 모여 들었어요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001035.wav|우리 부모님은 저한테 너무 많은 것을 요구하세요.|2
-kakao_nam/wavs/nam_h/12/wavs/0001036.wav|내가 환불을 요구하자 그들은 영수증을 보여 달라고 했다.|2
-kakao_nam/wavs/nam_h/12/wavs/0001037.wav|김치찌개 요리하다 손가락을 베었어.|2
-kakao_nam/wavs/nam_h/12/wavs/0001038.wav|제 아내는 요리하는 걸 좋아해요.|2
-kakao_nam/wavs/kakao/4/4_5598.wav|법률 용어를 보면 머리가 아파요.|0
-kakao_nam/wavs/kakao/4/4_5599.wav|걔 보기보다 용감하던데.|0
-kakao_nam/wavs/kakao/4/4_5600.wav|그 애에게 데이트 신청할 용기가 없어요.|0
-kakao_nam/wavs/kakao/4/4_5601.wav|제발 이번 한 번만 용서해 주세요.|0
-kakao_nam/wavs/kakao/4/4_5602.wav|엄마, 저 용돈 좀 올려 주시면 안 돼요?|0
-kakao_nam/wavs/kakao/4/4_5603.wav|저는 중국 요리가 좋아요.|0
-kakao_nam/wavs/kakao/4/4_5604.wav|미안하지만 지금은 요리하느라 너무 바빠요.|0
-kakao_nam/wavs/kakao/4/4_5605.wav|저희 부모님은 두 분 다 요리사세요.|0
-kakao_nam/wavs/kakao/4/4_5606.wav|요새 스트레스를 많이 받아요.|0
-kakao_nam/wavs/kakao/4/4_5607.wav|상황을 요약해서 설명해 줄래?|0
-kakao_nam/wavs/kakao/4/4_5608.wav|저는 유치원에서 한글을 배웠어요.|0
-kakao_nam/wavs/kakao/4/4_5609.wav|한국 사회는 유교에 바탕을 두고 있다.|0
-kakao_nam/wavs/kakao/4/4_5610.wav|올 여름은 칠십 년대 패션이 다시 유행하고 있어요.|0
-kakao_nam/wavs/kakao/4/4_5611.wav|한국에서의 유학 생활은 어때요?|0
-kakao_nam/wavs/kakao/4/4_5612.wav|우리 대학에는 외국인 유학생을 위한 한국어 강좌가 마련되어 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5613.wav|이 문제는 많은 학생들이 틀리는 유형입니다.|0
-kakao_nam/wavs/kakao/4/4_5614.wav|떨어뜨리지 않게 유의하세요.|0
-kakao_nam/wavs/kakao/4/4_5615.wav|몸매를 유지하는 비결이 뭔가요?|0
-kakao_nam/wavs/kakao/4/4_5616.wav|의사 말로는 저한테 남은 시간이 육 개월이래요.|0
-kakao_nam/wavs/kakao/4/4_5617.wav|사람의 육체는 언젠가 죽지만, 정신은 영원한 거예요.|0
-kakao_nam/wavs/kakao/4/4_5618.wav|육체적 고통은 얼마든지 이겨 낼 수 있습니다.|0
-kakao_nam/wavs/kakao/4/4_5619.wav|군대는 육군과 공군, 해군으로 이루어진다.|0
-kakao_nam/wavs/kakao/4/4_5620.wav|마라톤은 육상의 꽃이다.|0
-kakao_nam/wavs/kakao/4/4_5621.wav|일 분은 왜 백 초가 아니고 육십 초일까?|0
-kakao_nam/wavs/kakao/4/4_5622.wav|유머는 스트레스를 해소하는 좋은 방법입니다.|0
-kakao_nam/wavs/kakao/4/4_5623.wav|부산은 국제 영화 축제로 유명해요.|0
-kakao_nam/wavs/kakao/4/4_5624.wav|올해는 유난히 봄이 늦어요.|0
-kakao_nam/wavs/kakao/4/4_5625.wav|유능한 인재를 뽑는 것보다 더 중요한 일은 없어요.|0
-kakao_nam/wavs/kakao/4/4_5626.wav|우리는 유럽 시장에 진출할 계획입니다.|0
-kakao_nam/wavs/kakao/4/4_5627.wav|깨진 유리 조각에 손가락을 벴어요.|0
-kakao_nam/wavs/kakao/4/4_5628.wav|아드님이 친구들과 야구를 하다 유리창을 깼어요.|0
-kakao_nam/wavs/kakao/4/4_5629.wav|일찍 신청하는 사람이 유리할 거야.|0
-kakao_nam/wavs/kakao/4/4_5630.wav|이 두 소설은 줄거리가 유사해요.|0
-kakao_nam/wavs/kakao/4/4_5631.wav|올해 유월은 유난히 쌀쌀해요.|0
+multi_speaker/wavs/nam_l_g/10/0000177.wav|육 성으로 만들재료가 없어서 육 성 찍고 스킬강화 할려고요|4
+multi_speaker/wavs/nam_l_g/10/0000178.wav|아 모험이용 나머진 나중에하면 될거같으니 삭제된 댓글입니다|4
+multi_speaker/wavs/nam_l_g/10/0000179.wav|비석 깬다고 꼭 풍딜러 안 데리고 가도 타이오가 깨 줍니다|4
+multi_speaker/wavs/nam_l_g/10/0000180.wav|위에 답글 처럼 만들고 가면 충분히 깨실수 있을 것 같아요|4
+multi_speaker/wavs/nam_l_g/10/0000181.wav|강림이 목적이라면 타이오 딜러로 타이오 키우는게 맞는 거죠|4
+multi_speaker/wavs/nam_l_g/10/0000184.wav|솔직히출시전까지만 해도 이백 정도겠지 하고 있었는데 맞아요|4
+multi_speaker/wavs/nam_l_g/10/0000185.wav|조합은 초기에 리더스킬에 캐릭터를 맞춰서 하시는게 좋습니다|4
+multi_speaker/wavs/nam_l_g/10/0000186.wav|일렉만 좀 단단하게 키우시고 루로 정봉관리만 잘하면 될듯어|4
+multi_speaker/wavs/nam_l_g/10/0000188.wav|딜러부터 하는게 좋은거같지만 루 도 등강 해주시면 좋을 듯|4
+multi_speaker/wavs/nam_l_g/10/0000190.wav|그리고 랭크낮은게 문제가 아니었다면 랭크는 왜 보라하신건지|4
+multi_speaker/wavs/nam_l_g/10/0000191.wav|다른 애들두요 데카인은 사야 풀강 친구 있는 데 가능할까요|4
+multi_speaker/wavs/nam_l_g/10/0000193.wav|토템으로 라무 루비 정도로 리더 효과 받는 것 도 좋다네요|4
+multi_speaker/wavs/nam_l_g/10/0000194.wav|애들 한 테 물속성아니면 받는 피해감소하는 버프 있을 걸요|4
+multi_speaker/wavs/nam_l_g/10/0000195.wav|시작 한 지 얼마 안된거같은데 초반은 딜러 힐러 위주입니다|4
+multi_speaker/wavs/nam_l_g/10/0000196.wav|코델덱은 이안덱과 다르게 막판에 코델빼고 다 죽이셔야 돼요|4
+multi_speaker/wavs/nam_l_g/10/0000197.wav|근데 이 신큐 기준이 아레나 상위권 한 테만 솔직히 해당함|4
+multi_speaker/wavs/nam_l_g/10/0000199.wav|뽑기는 지금 한 창 진핸중인 모리안 클로드 확업 뽑기하세요|4
+multi_speaker/wavs/nam_l_g/10/0000200.wav|리셋 인내심 가지고 더 하실 수 있는 것 아니라면 시작해도|4
+multi_speaker/wavs/nam_l_g/10/0000201.wav|퇴근하고 해볼까 하는데 오 만원으로 어떤걸 하는게 좋을까요|4
+multi_speaker/wavs/nam_l_g/10/0000202.wav|영웅칸 늘릴 필요없음 뽑기는 신케나올 때 뽑아야 하지않나요|4
+multi_speaker/wavs/nam_l_g/10/0000203.wav|칠 줄 이 줄은 구 강 오 줄은 십 이 강하니까 딱 십 육|4
+multi_speaker/wavs/nam_l_g/10/0000204.wav|나머지는 하나하나 마음에 드시는 거 골라서 키우시면 됩니다|4
+multi_speaker/wavs/nam_l_g/10/0000205.wav|아레나는 루 라무 시드 삼 명이 좋음 와 아무 것 도 없다|4
+multi_speaker/wavs/nam_l_g/10/0000206.wav|지금덱에서 키울만 한 건 일렉 클로드 루비 카렌 리파 정도|4
+multi_speaker/wavs/nam_l_g/10/0000207.wav|탱은 무조건 오 지원형은 삼 사 딜러는 육 이 일반적이에요|4
+multi_speaker/wavs/nam_l_g/10/0000208.wav|아하 혹시 지금 리파 빼고 미나 아니면 자클린 껴도 되나요|4
+multi_speaker/wavs/nam_l_g/10/0000209.wav|뽑기로 나오는 건 될수있으면 육 별 찍고 백 퍼센트로 해요|4
+multi_speaker/wavs/nam_l_g/10/0000210.wav|그러므로 초반 코델리아 키우는 것 은 극구 말리고 싶습니다|4
+multi_speaker/wavs/nam_l_g/10/0000211.wav|나도 십 삼 일차인가 그런데 이천 수정씩 삼 번정도 했으니|4
+multi_speaker/wavs/nam_l_g/10/0000213.wav|그럼연 이 이 개된 것 이고 언제든 페북으로도접속가능하지요|4
+multi_speaker/wavs/nam_l_g/10/0000214.wav|루로하면 시간은 더 걸려도 이 라에서 안정적으로 넘어갑니다|4
+multi_speaker/wavs/nam_l_g/10/0000222.wav|대충 찾아봤는데 루가 없어도되고 있어도 나중에 먹을 수있다|4
+multi_speaker/wavs/nam_l_g/10/0000223.wav|바람속성 딜러 루비까지 땜질용 결국 전캐릭 다 있어야 해요|4
+multi_speaker/wavs/nam_l_g/10/0000224.wav|루는 강림 아레나 고루 쓰이는 힐러고 아몬도 마찬가지입니다|4
+multi_speaker/wavs/nam_l_g/10/0000225.wav|아니면 재설치나 재로그인 재로그인하려면 재설치해야하지않아요|4
+multi_speaker/wavs/nam_l_g/10/0000226.wav|체방도 중요 타이오삼 스를 방어안해도 버티시면 오토가능할듯|4
+multi_speaker/wavs/nam_l_g/10/0000227.wav|모리안 애매하게 스작해봐야 쓸데없고 풀스작 가능시 뽑으세요|4
+multi_speaker/wavs/nam_l_g/10/0000228.wav|루 모리안 루 모리안 말고 다른거 나오면 계속하는게 낫나요|4
+multi_speaker/wavs/nam_l_g/10/0000229.wav|그러니 왠만하면 은 이번 기회에 모리안을 얻으시는게 좋아요|4
+multi_speaker/wavs/nam_l_g/10/0000230.wav|안 뜬다라는게 아니라 전후 체감하기가 힘들어서 포기할까봐여|4
+multi_speaker/wavs/nam_l_g/10/0000231.wav|신시아 닉스 아몬 모리안 한 정 확률업 아닐땐 안나온다고요|4
+multi_speaker/wavs/nam_l_g/10/0000232.wav|죽으면 더 키우셈 루비 없으면 추회 아무필요 없음 그냥 퓨|4
+multi_speaker/wavs/nam_l_g/10/0000233.wav|아벨도좋던데 일렉 오 강 신시아 등강 어케영웅이 사백 개나|4
+multi_speaker/wavs/nam_l_g/10/0000234.wav|사 성강림은 데카인 싱클클리어를 목표로 해주시는게 좋습니다|4
+multi_speaker/wavs/nam_l_g/10/0000236.wav|별루 아까운마음없을 듯요 스작 때 문에 시드를 쓰는 건데요|4
+multi_speaker/wavs/nam_l_g/10/0000237.wav|사 성강림 깨실정도면 스알 알 강림캐는 자동사냥 가능하고요|4
+multi_speaker/wavs/nam_l_g/10/0000238.wav|수정은 웬만하면 스테미나나 던전티켓만 사용하셈 아 그런가요|4
+multi_speaker/wavs/nam_l_g/10/0000239.wav|그렇게 좋지는 않을 수도 패키지 포함 여부는 잘 모르겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000240.wav|신시아 맞으시면 침묵일 때 반격 칠십 오 퍼센트 라서 갠츈|4
+multi_speaker/wavs/nam_l_g/10/0000241.wav|혹시 나중에 사용하시게 되면 후기 한 번 부탁드려도 될까요|4
+multi_speaker/wavs/nam_l_g/10/0000242.wav|결제 한 게다안들어옴 티켓 수정 스태물약 삭제된 댓글입니다|4
+multi_speaker/wavs/nam_l_g/10/0000243.wav|모리안 루 클로드 일렉 탱 둘중하나 우선선택 키우면 됩니다|4
+multi_speaker/wavs/nam_l_g/10/0000244.wav|캐서 별사 까지 맞춘다강림캐 하나 잡고 맞춰서 준비 한 다|4
+multi_speaker/wavs/nam_l_g/10/0000245.wav|칼리 시드도 일렉필요없고 아몬으로 수월하게 깨는게 가능해요|4
+multi_speaker/wavs/nam_l_g/10/0000246.wav|일단 사 성강림 하기 전에 해야할 게 너무 많아 보이는데요|4
+multi_speaker/wavs/nam_l_g/10/0000247.wav|길드 던전 일일 삼 회 꾸준히 하면 포인트는 금방 쌓입니다|4
+multi_speaker/wavs/nam_l_g/10/0000248.wav|이 클로드니까 그냥깨네 감사여 아몬 필요없음 넹 알겠습니다|4
+multi_speaker/wavs/nam_l_g/10/0000249.wav|그럼되게 애들이 엄총 약하다는 건데그러면 죽는게 당연할수도|4
+multi_speaker/wavs/nam_l_g/10/0000250.wav|공략글 찾아보시고 계속 해보시면 자기에게 맞는 길이 있어요|4
+multi_speaker/wavs/nam_l_g/10/0000251.wav|모리안 루 아몬 시드 루 덱 깨다가 이안으로 넘어가야깄네요|4
+multi_speaker/wavs/nam_l_g/10/0000252.wav|카렌뽑아서 신강림 강림깨서 얻는 육 성해서 등강하는 겁니다|4
+multi_speaker/wavs/nam_l_g/10/0000253.wav|그럼 가끔 룬효과 적용 이라고 뜨는 건 어떤데 뜨는 건가요|4
+multi_speaker/wavs/nam_l_g/10/0000254.wav|그냥 편하게 치피올리고 부옵을 연반 끌어오는게 나을 거에요|4
+multi_speaker/wavs/nam_l_g/10/0000255.wav|근데 이안 아군보호 때 문에 트롤링될수도 있어서 모르겠어요|4
+multi_speaker/wavs/nam_l_g/10/0000256.wav|을 보고 주력으로 쓸지 판단하시는 것 도 괜찮을 것 같네요|4
+multi_speaker/wavs/nam_l_g/10/0000257.wav|레베카 많이 나오길 바래요 마르두크 메리 메릴 삼 탑입니다|4
+multi_speaker/wavs/nam_l_g/10/0000258.wav|그리고 육십 특성정도는 찍어두는게 좋음 방어력은 잘 모르겠|4
+multi_speaker/wavs/nam_l_g/10/0000259.wav|삼 번남앗으면 그만두기 너무아깝 그럼 모리안만 뽑아야겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000260.wav|한 돌이든 진화든 그냥 씀 제 머리속이여 불러오기 안되나요|4
+multi_speaker/wavs/nam_l_g/10/0000261.wav|있긴 한 데 매주 길던 올클이 안되욥 헛 넹 조언감사합니다|4
+multi_speaker/wavs/nam_l_g/10/0000262.wav|그 때 밖에 있는 화면 클락하거나 취소화면 미연동으로 가능|4
+multi_speaker/wavs/nam_l_g/10/0000263.wav|다키우면 재료로 써도되공따요 크앙 만큼의 효율은 안나는 듯|4
+multi_speaker/wavs/nam_l_g/10/0000266.wav|그게 싫다면 게임하지 마시던가 단기간에 강해질거면 현질하세요|4
+multi_speaker/wavs/nam_l_g/10/0000267.wav|그리고 오 명이 다 살아 있을 경우 전복날 가능성이 있습니다|4
+multi_speaker/wavs/nam_l_g/10/0000268.wav|내가올해들었던 개그중젤웃겻은 한 시간 빨리깨려면 뭐키워야해요|4
+multi_speaker/wavs/nam_l_g/10/0000269.wav|그리고 매일 성장던전 골드던전 오 판씩 도시는 건 필수입니다|4
+multi_speaker/wavs/nam_l_g/10/0000270.wav|기존쓸모가 적었던 캐릭들을 마냥 쓰레기취급했던걸로 보여집니다|4
+multi_speaker/wavs/nam_l_g/10/0000335.wav|루비만있었더라면 루비가 없어도 고스펙 친구코델은 잘 버팁니다|4
+multi_speaker/wavs/nam_l_g/10/0000336.wav|근대 고민이였던게 타요 빼고 시드 크로드 여기서 또 고민이라|4
+multi_speaker/wavs/nam_l_g/10/0000337.wav|추천해주신 덱으로 시간단축을 좀 하고 싶은데 방법이 없을까요|4
+multi_speaker/wavs/nam_l_g/10/0000338.wav|발차기하는 소녀가 루비라면 서 방금 떴는데 삭제된 댓글입니다|4
+multi_speaker/wavs/nam_l_g/10/0000339.wav|일단은 육십 찍어져 있는 아몬을 등강하는 쪽으로 해봐야겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000340.wav|전지금 코델 루비 라무 아몬 풍속 암거나 욜케 가는 중 아하|4
+multi_speaker/wavs/nam_l_g/10/0000341.wav|그리고 저는 신캐고 뭐고간에 그냥 로만 채우려하고 싶다니까요|4
+multi_speaker/wavs/nam_l_g/10/0000342.wav|이 것 저 것 건들여놓으면 죽도밥도안됨 하나잡고키우는 거추천|4
+multi_speaker/wavs/nam_l_g/10/0000343.wav|저는 일렉없이도 모든강림 다 아몬으로 클리어 잘하고 있습니다|4
+multi_speaker/wavs/nam_l_g/10/0000344.wav|덕분에 타이오 라무 카렌 일렉 클로드 친구로 클리어 했습니다|4
+multi_speaker/wavs/nam_l_g/10/0000345.wav|저도 진짜고민되씀 일단 클로드키우다가 월요일부터 이안키웁시다|4
+multi_speaker/wavs/nam_l_g/10/0000346.wav|일 성강림은 사 성영웅이랑 경험치몬 수급이 용이 한 편이고요|4
+multi_speaker/wavs/nam_l_g/10/0000347.wav|근데 룬만 잘 캐면 육 등강 아니여도 딜차이는 크게 안 나요|4
+multi_speaker/wavs/nam_l_g/10/0000401.wav|써보진못해서요 일단 은신에 중독을 걸고 풀스작하면 꽤 아픕니다|4
+multi_speaker/wavs/nam_l_g/10/0000402.wav|시간 싸움일듯 한 데헬퍼만 잘 쓰면 크앙도가능 외람된 말씀인데|4
+multi_speaker/wavs/nam_l_g/10/0000403.wav|루가 있으시니 싱클은 헬퍼 모리안 데리고 가면 가능할거 같아요|4
+multi_speaker/wavs/nam_l_g/10/0000404.wav|근데 윗님 말씀처럼 속성별 딜러 필요하긴 함 부럽다 아니평가 좀|4
+multi_speaker/wavs/nam_l_g/10/0000405.wav|두번짜 칼리 때 쓰알 탱이 없어서 급하게 오 등강 달고 썼어요|4
+multi_speaker/wavs/nam_l_g/10/0000414.wav|본인은 이 시간만에 성공 이런 벌써 계정 연동했는데 어케하나요|4
+multi_speaker/wavs/nam_l_g/10/0000415.wav|아몬아니고 딴거였어도 삼 개 남았어연 먹어야함 조언 감사합니다|4
+multi_speaker/wavs/nam_l_g/10/0000416.wav|루는 어차피 확정이니 윗분말처럼 아몬정도 들고 가시면 되겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000417.wav|상위권도 안삼이게문제저 다른거 다 재처두고 재일문제가 이 번임|4
+multi_speaker/wavs/nam_l_g/10/0000418.wav|리세는 컴으로 하는게 시간 이십 배단축됌 지금 루 확업아닌가요|4
+multi_speaker/wavs/nam_l_g/10/0000419.wav|등강재료 없음 다음 타자 키우시고 휘장 없는데 우찌키우시겠어요|4
+multi_speaker/wavs/nam_l_g/10/0000420.wav|또 확률업 오면 그 때 키우면서 성장 업적도 하시는게 좋을 듯|4
+multi_speaker/wavs/nam_l_g/10/0000421.wav|아이디 계속 삭제하고 새계정 다시파고 그걸반복하시는 것 입니다|4
+multi_speaker/wavs/nam_l_g/10/0000422.wav|너무 열심히 키우심 이런걸보고 전문용어로 오버스펙 이라고 하죠|4
+multi_speaker/wavs/nam_l_g/10/0000423.wav|반격을 여러번 해서 아마 패시브 때 문이었나봐요답변 감사합니다|4
+multi_speaker/wavs/nam_l_g/10/0000427.wav|해야지 이미얻었내 그럼 걍멈춰 스작 욕심 없으시다면 버티기 일|4
+multi_speaker/wavs/nam_l_g/10/0000440.wav|코델이 약해서 버티면서 잡아야 하기 때 문에 일 일 진행을 하고|4
+multi_speaker/wavs/nam_l_g/10/0000441.wav|가능할 것 같은데 그 전에 잡으면 문제가 되지않아서 가능할라나요|4
+multi_speaker/wavs/nam_l_g/10/0000442.wav|삼 등강인데 방어력이 왜그럼룬에문제가있는 거임 방어력 올려볼게영|4
+multi_speaker/wavs/nam_l_g/10/0000447.wav|카렌 카렌 카렌이지라 근데 루없으면 그냥 루 기다리는게 낫지않음|4
+multi_speaker/wavs/nam_l_g/10/0000448.wav|새로운 아디로 지금 핸드폰에 있는 연동안된 계정을 살릴수 있나요|4
+multi_speaker/wavs/nam_l_g/10/0000449.wav|한 지얼마안됐는데 사백 개 뽑기에 쓰고 영웅창 오십 개 늘렸어요|4
+multi_speaker/wavs/nam_l_g/10/0000450.wav|이덱을 가지고도 조합을 못맞춘다면 의미없음 못깨실 스펙이 아닌데|4
+multi_speaker/wavs/nam_l_g/10/0000451.wav|아몬있는 사람들걍오토러깨던데 클로드만탱탱하게 해주면될듯요 오토쓰|4
+multi_speaker/wavs/nam_l_g/10/0000452.wav|그만큼 쉽다는 거고아몬에 친구 크앙 데리고 가도 괜찮을 거같아요|4
+multi_speaker/wavs/nam_l_g/10/0000453.wav|저번 타이오 때 뉴비분들 일 시간 클하고 난리난 분들 많으십니다|4
+multi_speaker/wavs/nam_l_g/10/0000454.wav|일렉 모리안 리파 루 루 가시면 될듯 리파 이 등강으로 가능해요|4
+multi_speaker/wavs/nam_l_g/10/0000455.wav|강림영웅이라고 스페셜던전중에 강림이란곳에서 드랍하는 것 들있어요|4
+multi_speaker/wavs/nam_l_g/10/0000461.wav|클로드랑 일렉은 아몬 사 등강이나오 등강 해주고 나서 키우시고요|4
+multi_speaker/wavs/nam_l_g/10/0000462.wav|모리안 루 리파 탱 아몬 일렉 클로드 완성시켜서 시드오면 얻어요|4
+multi_speaker/wavs/nam_l_g/10/0000463.wav|라무도 필수인데 라무는 백색기사단패키지로 구매하시는게 가장좋아요|4
+multi_speaker/wavs/nam_l_g/10/0000465.wav|랭크야 좀 만 돌면 금방 업하는 거라서굳이 상관 있을까 싶은데요|4
+multi_speaker/wavs/nam_l_g/10/0000466.wav|요즘 영웅 풀이 넓어져서 전부 재료하셔도 괜찮을 거라 생각합니다|4
+multi_speaker/wavs/nam_l_g/10/0000467.wav|루비 하나 한 돌이랑 등강하는데 얼마나 걸린다고 접기로 했습니다|4
+multi_speaker/wavs/nam_l_g/10/0000474.wav|베르단디까지 육십 찍으려면 아무리 빨라도 막차타시고 나 과금말곤|4
+multi_speaker/wavs/nam_l_g/10/0000475.wav|클로드 라무 루 모리안 클로드헬퍼로 무난하게 클리어가능해보입니다|4
+multi_speaker/wavs/nam_l_g/10/0000476.wav|나도 루없찐이거든요 루없으면 강림하기 힘듬 루랑 뭐먹어야 좋아요|4
+multi_speaker/wavs/nam_l_g/10/0000477.wav|여기 던전은 그냥 딴딴함 오 마리로도 못깨는데 삼 명으로 깨져요|4
+multi_speaker/wavs/nam_l_g/10/0000478.wav|길드없으시면 저희길드로 오세오 많이 알려드릴게오 구 렙길드랍니다|4
+multi_speaker/wavs/nam_l_g/10/0000479.wav|그리고 등급강화에 가셔서 그런듯한계돌파는 한계돌파 하는 칸있어요|4
+multi_speaker/wavs/nam_l_g/10/0000480.wav|이건 저도 잘 안하는데 십 오 강이 더럽게 많은 자원이 들어가요|4
+multi_speaker/wavs/nam_l_g/10/0000481.wav|왜 그래요 처음부터 천 이백 삼십 사 순으로 키우셔도 괜찮으실듯|4
+multi_speaker/wavs/nam_l_g/10/0000482.wav|시드 타이오정도만 가지고있어도 길던양학가능해서 휘장 금방모읍니다|4
+multi_speaker/wavs/nam_l_g/10/0000483.wav|타요가 갓갓인가봐요 빛은 크앙부터 키움되겠군요 삭제된 댓글입니다|4
+multi_speaker/wavs/nam_l_g/10/0000484.wav|레나는 타이오 카인 모리안 아몬 루 타이오 일 개라두이씀 편해요|4
+multi_speaker/wavs/nam_l_g/10/0000485.wav|힐러 한 개로는 힘들지싶은데 그럼 헬퍼로 루 데려가면 가능할까요|4
+multi_speaker/wavs/nam_l_g/10/0000486.wav|강림 사 성 던전 중에서도 필수로 키우셔야하는 영웅들이 있습니다|4
+multi_speaker/wavs/nam_l_g/10/0000487.wav|나클을 다시 다운 받는 다 게임 지우고 계정변경하고 안되더라고요|4
+multi_speaker/wavs/nam_l_g/10/0000491.wav|대충 반피 강약중강약 쿵쿵따쿵쿵따 길드전도적용 삭제된 댓글입니다|4
+multi_speaker/wavs/nam_l_g/10/0000492.wav|상황마다 다르긴 한 데 힐러두명 넣어놓으면 좀 더 오래살아남아요|4
+multi_speaker/wavs/nam_l_g/10/0000493.wav|아몬만 키우시고 헬퍼쌘타이오 대려가면 지금바로 크앙은 깨시겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000494.wav|아니면 남은 오 일동안 보상받는 거에서 루 나오시면 시작하심돼요|4
+multi_speaker/wavs/nam_l_g/10/0000495.wav|라무로 가도 괜찮겠네욥 루비 시드 라무 이안 코델 이안이 없어요|4
+multi_speaker/wavs/nam_l_g/10/0000496.wav|아몬 모리안 시드루 클로드 물론클로드는 사 등강하고 친구 클로드|4
+multi_speaker/wavs/nam_l_g/10/0000497.wav|안쓰는 것 게임 시작 초창기에 궁금해서 해봤는데 정수만 날립니다|4
+multi_speaker/wavs/nam_l_g/10/0000498.wav|카인도 아레나에서 나름 괜찮구 그닥이라생각하면 다시돌려 별로네요|4
+multi_speaker/wavs/nam_l_g/10/0000499.wav|모리안 루 리파 일렉 신시아 불덱으로 레이나 깰거같은데 못깨나요|4
+multi_speaker/wavs/nam_l_g/10/0000500.wav|이 라 처음에 아몬 이 스 쓰면 구슬 쌓일 일이 별로 없더라고요|4
+multi_speaker/wavs/nam_l_g/10/0000501.wav|개인적으로 메리랑 레베카 스킬구성이 스토리 진행에 수월하실거에요|4
+multi_speaker/wavs/nam_l_g/10/0000502.wav|친구따오 쓸 때 삼 까지 밖에 못 봤는 뎅 십 이 까지올라가던데|4
+multi_speaker/wavs/nam_l_g/10/0000503.wav|캐릭터들에는 레이나 뜨는데 코델 은 삼 등강에 레이나가 안뜨네요|4
+multi_speaker/wavs/nam_l_g/10/0000504.wav|아몬 회피룬아니라 그냥 피대지로 대충 채웠는데 룬작 안해도대나요|4
+multi_speaker/wavs/nam_l_g/10/0000505.wav|죽지안고버티면 힐해가면서 데미안만죽이면 크앙 혼자남으면 쉬워져요|4
+multi_speaker/wavs/nam_l_g/10/0000512.wav|조합은되는데 딱봐도 룬작하고 딜부족할듯 룬 최소 몇강 해야할까요|4
+multi_speaker/wavs/nam_l_g/10/0000513.wav|님아 기본 뽑기에서 뽑을 수 있는 애들을 그냥확률업이라고 하고요|4
+multi_speaker/wavs/nam_l_g/10/0000518.wav|아하 그래서 물덱 가는 거구나 크앙이 정답이군요 조언 감사합니다|4
+multi_speaker/wavs/nam_l_g/10/0000521.wav|뽑 클시루라에 따오면 걍깸 오 클로드 시드 루 라무 따요 순으로|4
+multi_speaker/wavs/nam_l_g/10/0000522.wav|곧 시드니까 리파랑 일렉먼저 등강시키는 것 도나쁘지않을 거같네요|4
+multi_speaker/wavs/nam_l_g/10/0000523.wav|모리안 루 일렉 이 세개만 잘키워두면 칼리 시드는 먹고 들어가요|4
+multi_speaker/wavs/nam_l_g/10/0000524.wav|위에분말처럼 코델도좋지만 길드전하는 길드시면 이안뽑는게 더좋아요|4
+multi_speaker/wavs/nam_l_g/10/0000525.wav|클로드 데이모스 있으면 아슈요 시도는 안해봤지만 충분히 가능할듯|4
+multi_speaker/wavs/nam_l_g/10/0000527.wav|게임안에 다 적혀있는데 먼솔 아 글쿤 무조건 코델을 키우시면 돼요|4
+multi_speaker/wavs/nam_l_g/10/0000528.wav|다른거 이 모리 크앙 루 시드 가능 루만 등강 좀 더 하면 되겠죠|4
+multi_speaker/wavs/nam_l_g/10/0000529.wav|가 모리안이면 더욱 스무스 모리안 확업만보고했는데 루 꼭 챙기세요|4
+multi_speaker/wavs/nam_l_g/10/0000530.wav|시작하자마자 첫 삼 스에 불굴무시뜨면서 부활무시까지 해서 잡습니다|4
+multi_speaker/wavs/nam_l_g/10/0000532.wav|반격 보호를 뺄지 아니면 윗분처럼 다른 힐러 한 테 주는게 나을지|4
+multi_speaker/wavs/nam_l_g/10/0000534.wav|공략시간보다 안전성 위주루 아몬은 파괴각인 안터지면 힘들 수 있다|4
+multi_speaker/wavs/nam_l_g/10/0000540.wav|요샌 일 시간 삼십 분정도면 스테미너 올인돼서 금방 끝나 아쉽네요|4
+multi_speaker/wavs/nam_l_g/10/0000561.wav|제가 말 한 대로 해도 힐러 거의 안죽고 딜러만죽음 넵 감사합니다|4
+multi_speaker/wavs/nam_l_g/10/0000562.wav|육 성룬 나오면 잘 가려서 위에 언급 한 캐릭들 먼저 체워 주세요|4
+multi_speaker/wavs/nam_l_g/10/0000564.wav|난이도가 많이 어려워요그리고 키우라는 이야기는 무조건 육십 입니다|4
+multi_speaker/wavs/nam_l_g/10/0000565.wav|탱은 길드전하는 길드 들어가셔서 주화로 이안사시는 거 추천드립니다|4
+multi_speaker/wavs/nam_l_g/10/0000566.wav|상점에서 칠 번이상 뽑으면 선택권 주는데 거기서 루 뽑으시면 돼요|4
+multi_speaker/wavs/nam_l_g/10/0000567.wav|저도 싱클은 삼 번하면 일 이 개 나오는데 크앙은 엄청 안나오네요|4
+multi_speaker/wavs/nam_l_g/10/0000568.wav|렌타랑 써도 나쁘지않을 듯 칼리를 지금 제가 얻을 수 가 있을까요|4
+multi_speaker/wavs/nam_l_g/10/0000569.wav|신규유저 이천 수정으로 루 베르단디 확정획득이 가능하기 때 문 아|4
+multi_speaker/wavs/nam_l_g/10/0000570.wav|강림 뺑뺑 간지나게 타이오오 성 크앙오 성 깡 강화 체력낮으십니다|4
+multi_speaker/wavs/nam_l_g/10/0000571.wav|그리고 타이오 강림 깨셔서 타이오 키우시면 급 딜러가 캐리할거에요|4
+multi_speaker/wavs/nam_l_g/10/0000572.wav|턴이 꼬여서 전복나는 거 코델 루비 친구 데리고 가도 전복 안나요|4
+multi_speaker/wavs/nam_l_g/10/0000573.wav|사야만 있어두 피통 십 만 남을 때 원콤내던데 사야 키운거 없으심|4
+multi_speaker/wavs/nam_l_g/10/0000574.wav|모리안 아몬 클로드 카렌 자클린 에드윈 선택왠만하면 루뽑고 하시지|4
+multi_speaker/wavs/nam_l_g/10/0000588.wav|루뽑 십 회채워서 도받구영 루 아몬 육십 루 아몬 육십 이후에는요|4
+multi_speaker/wavs/nam_l_g/10/0000590.wav|클로드 일렉일렉 아몬아몬 클로드 개인적으론 아몬 클로드 감사합니다|4
+multi_speaker/wavs/nam_l_g/10/0000591.wav|아 그리고 레베카는 육 성 오십 렙만찍고 더이상 건드리지 않습니다|4
+multi_speaker/wavs/nam_l_g/10/0000592.wav|클로드 성장하는 군주 클로드승리하고 싶다 에드윈 클로드받아야겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000593.wav|순간 방어력증가 별삼 공격력감소삼 개 일케했는데 도전해봐도 될까요|4
+multi_speaker/wavs/nam_l_g/10/0000594.wav|싱클도 일 마리 먹었는데 이상하게 패치 후 싱클 육 구 로 잘먹음|4
+multi_speaker/wavs/nam_l_g/10/0000595.wav|우선 월정액이 당연 효율이 좋고 이십 오 일 오천 오백 원 입니다|4
+multi_speaker/wavs/nam_l_g/10/0000596.wav|타이오 시간이 너무 오래 걸리는 대 루비 키우면 많이 단축 되겠죠|4
+multi_speaker/wavs/nam_l_g/10/0000597.wav|라무 패시브 턴 종료마다 아군 십 퍼센트 회복 때 문에있어야 해요|4
+multi_speaker/wavs/nam_l_g/10/0000598.wav|그 지금 상태로는 주는 랜덤 쓰알에서 루만주면 바로 고하면 됩니다|4
+multi_speaker/wavs/nam_l_g/10/0000599.wav|대부분 패시브를 읽고 스킬 하나하나 체크하면 서 읽어보시면 좋아요|4
+multi_speaker/wavs/nam_l_g/10/0000600.wav|칼리가 운의 요소가 좌우짓는게 많아서 그나마 안정적으로 가는 건데|4
+multi_speaker/wavs/nam_l_g/10/0000601.wav|깨실듯요 네 보스 불하고 암속 흡수로 바뀜 헬퍼 타요로 조질수있다|4
+multi_speaker/wavs/nam_l_g/10/0000602.wav|그래도 불덱 리더랑 염화 때 문에 아예 안쓰이는 건 아니긴 한 데|4
+multi_speaker/wavs/nam_l_g/10/0000603.wav|룬던 이벤트라지금 빠방하게 돌려놓고쌓아놓으면 나중에도움 많이될낀데|4
+multi_speaker/wavs/nam_l_g/10/0000604.wav|아몬 루 라무 친구크앙 친구 크앙없어서 아몬 데리고 갓는데 깻네요|4
+multi_speaker/wavs/nam_l_g/10/0000605.wav|클로드 시드 아몬 루 타요 저는 등강이낮아 이조합 수동으로 했네요|4
+multi_speaker/wavs/nam_l_g/10/0000606.wav|니키타는 베르단디 카렌 토끼 데이모스 친구베르단디로 가면 깨십니다|4
+multi_speaker/wavs/nam_l_g/10/0000607.wav|도발 염화 걸리면 때 리셈 그전까진 방어하다가 도발염화걸이면 쳐요|4
+multi_speaker/wavs/nam_l_g/10/0000608.wav|선택권 뽑는 다면 모리안스강 애드윈 명함인데 모리안스강이 나을 듯|4
+multi_speaker/wavs/nam_l_g/10/0000609.wav|정상 룬셋팅이라면 못 깰 스펙은 아닌데 혹시 헬퍼모리안 대꼬가시나|4
+multi_speaker/wavs/nam_l_g/10/0000610.wav|상태를 정확하게 체크해보진 않았지만 이 경우를 생각 하지 못했네요|4
+multi_speaker/wavs/nam_l_g/10/0000614.wav|자 첫째 어느정도의 과금을 즐기실 유저라면 지금 시작하셔도 됩니다|4
+multi_speaker/wavs/nam_l_g/10/0000615.wav|그리고 보석이 모이고 있는데 지금 뽑기들중 뽑아볼만 한 게 있나요|4
+multi_speaker/wavs/nam_l_g/10/0000616.wav|공격력 삼십 퍼센트가 아닌 데미지 삼십 퍼센트 증가라 엄청 큰거죠|4
+multi_speaker/wavs/nam_l_g/10/0000640.wav|오 저두 곧 육십 특찍고 삼 등강하면 님이랑 비슷해지는데 서로 맞추|4
+multi_speaker/wavs/nam_l_g/10/0000641.wav|저는 지금 아레나모리안 아몬 리파 일렉 루 이렇게 가는 대 갠찮나요|4
+multi_speaker/wavs/nam_l_g/10/0000642.wav|근데 노등강이라 오토가 좀 위험스하긴 한 데 수동으론 전혀문제없어요|4
+multi_speaker/wavs/nam_l_g/10/0000643.wav|리더 지정은 팀편집에 일 번덱에 첫번째 영웅이 이스트힐님 대표리더이|4
+multi_speaker/wavs/nam_l_g/10/0000644.wav|삼 힐러 들고가셔셔 무제 한 으로 버티면서 때 리는 방법이 있습니다|4
+multi_speaker/wavs/nam_l_g/10/0000645.wav|거기 클릭하시면 매주 월요일이면 목요일 열리는 던전정보를 볼수있어요|4
+multi_speaker/wavs/nam_l_g/10/0000646.wav|삼 스 단일방무부불이 유일무이함 오 좋긴 좋군요 불덱 핵심딜러니까요|4
+multi_speaker/wavs/nam_l_g/10/0000649.wav|글구 코델은 일 번 아님 오 번으로 보내셔야 옆 친구들이 덜 맞아요|4
+multi_speaker/wavs/nam_l_g/10/0000650.wav|그럼 첫리세는 아몬 모리안 둘중 아무거나 일 개만 만와도 스탑할까요|4
+multi_speaker/wavs/nam_l_g/10/0000651.wav|헬퍼를 데리고 가실거면 아레나 특성 아닌사람으로 골라가시면 될거에요|4
+multi_speaker/wavs/nam_l_g/10/0000652.wav|맨 하는 이야기가 그 소리사 그소리라 말투매력조지네 말투 괘얺았나요|4
+multi_speaker/wavs/nam_l_g/10/0000653.wav|빠르다 타임어텍 하는 것 도 좋지만 나왔냐 안나왔냐가 더 중요하겠죠|4
+multi_speaker/wavs/nam_l_g/10/0000654.wav|나머진 쏘쏘 루등강 아몬등강 크앙 따요 육성 시드는 불가능 한 가요|4
+multi_speaker/wavs/nam_l_g/10/0000655.wav|클로드 아몬 루 키우면 라무끼고 헬퍼타이오 대려가서 크앙은 깨겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000656.wav|아레나 살펴보거나 보스 랭커들 살펴보면 답나옴 삼 삭제된 댓글입니다|4
+multi_speaker/wavs/nam_l_g/10/0000657.wav|친구가 육 별에 룬 십 이 강정도 모리안이면 클리어 어렵지 않을 듯|4
+multi_speaker/wavs/nam_l_g/10/0000658.wav|확정권으로 모리안 뽑은건데클로드 뽑아보려고 올인박는 건 미친짓이겠죠|4
+multi_speaker/wavs/nam_l_g/10/0000659.wav|일렉 루 강림던전 필수 무조건 육십 하시고 색칠 공부 하시면 됩니다|4
+multi_speaker/wavs/nam_l_g/10/0000660.wav|제가 시작 한 지 얼마않돼서그러는데 카렌하고 루하고 함께써도 되나요|4
+multi_speaker/wavs/nam_l_g/10/0000661.wav|코델친추구해서 타이오클리어 한 다 저같은 뉴비가 클리어가능 한 가요|4
+multi_speaker/wavs/nam_l_g/10/0000665.wav|보통 루가 강림에서 더 필요하기에 공속 보다는 다른 옵션을 넣습니다|4
+multi_speaker/wavs/nam_l_g/10/0000679.wav|굳이 강림버프 안찍어도 클 가능하니 아레나 오십 특성은 공으로 가요|4
+multi_speaker/wavs/nam_l_g/10/0000681.wav|성능을 줄이고 좀 싸게 많이 만들어주면 좋았을 텐데 확실히 아쉽네요|4
+multi_speaker/wavs/nam_l_g/10/0000683.wav|크앙도 클로드 헬퍼쓰면 가능할텐데 오래걸릴듯 그럼 누구 키워야할까요|4
+multi_speaker/wavs/nam_l_g/10/0000684.wav|지금 오신건 행운 오픈부터 지금까지중에서 현재 리세하기 제일좋은시기|4
+multi_speaker/wavs/nam_l_g/10/0000685.wav|등강 재료 길드던전해봐야 하루삼십 개정돈데 한 참걸리는게 정상인거죠|4
+multi_speaker/wavs/nam_l_g/10/0000686.wav|추가 회복 십 오 이상 맞춰야함 십 팔 루비있으면 십 삼 도가능해요|4
+multi_speaker/wavs/nam_l_g/10/0000687.wav|체력회복시 피해면역 실드가 패시브로 있어서요 업글해도 안 올라가나요|4
+multi_speaker/wavs/nam_l_g/10/0000693.wav|좋은 영웅들이 있나요|4
+multi_speaker/wavs/nam_l_g/10/0000695.wav|이걸로 크앙가능할까요|4
+multi_speaker/wavs/nam_l_g/10/0000696.wav|시간 어떻게 줄이나요|4
+multi_speaker/wavs/nam_l_g/10/0000697.wav|조언 좀 부탁드립니다|4
+multi_speaker/wavs/nam_l_g/10/0000698.wav|부탁 좀 드리겠습니다|4
+multi_speaker/wavs/nam_l_g/10/0000699.wav|셋중에 머가 갠차나요|4
+multi_speaker/wavs/nam_l_g/10/0000700.wav|가망이 없어 보입니다|4
+multi_speaker/wavs/nam_l_g/10/0000701.wav|모두 주말 잘보내세요|4
+multi_speaker/wavs/nam_l_g/10/0000702.wav|고수님들 도움 주세요|4
+multi_speaker/wavs/nam_l_g/10/0000703.wav|원래 호환이 안되나요|4
+multi_speaker/wavs/nam_l_g/10/0000704.wav|아니면 계속 뽑을까요|4
+multi_speaker/wavs/nam_l_g/10/0000705.wav|첫페이지만 올려봅니다|4
+multi_speaker/wavs/nam_l_g/10/0000709.wav|마르둨 하나 나오네요|4
+multi_speaker/wavs/nam_l_g/10/0000712.wav|시드가 멀티던전인가요|4
+multi_speaker/wavs/nam_l_g/10/0000713.wav|누구 뽑는게 좋을까요|4
+multi_speaker/wavs/nam_l_g/10/0000714.wav|어딜 보완해야 할까요|4
+multi_speaker/wavs/nam_l_g/10/0000715.wav|좀 많이 나온거같은데|4
+multi_speaker/wavs/nam_l_g/10/0000716.wav|처음 주는 카인이고요|4
+multi_speaker/wavs/nam_l_g/10/0000717.wav|그냥 스테절반이나해요|4
+multi_speaker/wavs/nam_l_g/10/0000718.wav|다들 어떻게 쓰시나요|4
+multi_speaker/wavs/nam_l_g/10/0000719.wav|얻는 건지 모르겠어요|4
+multi_speaker/wavs/nam_l_g/10/0000720.wav|이거 뭐 복구안되나요|4
+multi_speaker/wavs/nam_l_g/10/0000723.wav|칼리는 당연히 못잡고|4
+multi_speaker/wavs/nam_l_g/10/0000724.wav|조언 좀 부탁드릴게요|4
+multi_speaker/wavs/nam_l_g/10/0000725.wav|이게지금끼고있는 건데|4
+multi_speaker/wavs/nam_l_g/10/0000726.wav|아직 한 번두안햇는데|4
+multi_speaker/wavs/nam_l_g/10/0000727.wav|보유 은 별로 없네요|4
+multi_speaker/wavs/nam_l_g/10/0000728.wav|리파가 없는데 될까요|4
+multi_speaker/wavs/nam_l_g/10/0000729.wav|자세히 좀 알려주세요|4
+multi_speaker/wavs/nam_l_g/10/0000730.wav|참여가 아예 안되던데|4
+multi_speaker/wavs/nam_l_g/10/0000731.wav|코델 고등강분 없나요|4
+multi_speaker/wavs/nam_l_g/10/0000732.wav|많은 조언부탁드립니다|4
+multi_speaker/wavs/nam_l_g/10/0000733.wav|라무 없음 코델 없음|4
+multi_speaker/wavs/nam_l_g/10/0000734.wav|조합짜는 것 도어렵네요|4
+multi_speaker/wavs/nam_l_g/10/0000735.wav|애들 룬도 맞춰야 깨나|4
+multi_speaker/wavs/nam_l_g/10/0000736.wav|지금 상황은 이렇습니다|4
+multi_speaker/wavs/nam_l_g/10/0000737.wav|이두개 어떻게 생겼나요|4
+multi_speaker/wavs/nam_l_g/10/0000738.wav|지금 덱상태는 이렇고요|4
+multi_speaker/wavs/nam_l_g/10/0000739.wav|이안이 더 좋아보이는데|4
+multi_speaker/wavs/nam_l_g/10/0000741.wav|결장돌리면 많이 쎄갰죠|4
+multi_speaker/wavs/nam_l_g/10/0000742.wav|영웅선택 좀 부탁드려요|4
+multi_speaker/wavs/nam_l_g/10/0000743.wav|이거 보상 들어온건가요|4
+multi_speaker/wavs/nam_l_g/10/0000744.wav|루를 코델이랑 붙일까요|4
+multi_speaker/wavs/nam_l_g/10/0000745.wav|누굴 좀 더 보완할까요|4
+multi_speaker/wavs/nam_l_g/10/0000746.wav|베르단디를 키워야할까요|4
+multi_speaker/wavs/nam_l_g/10/0000747.wav|룬 갈갈이 넘 힘드네요|4
+multi_speaker/wavs/nam_l_g/10/0000748.wav|현재 갖고있는 덱이고요|4
+multi_speaker/wavs/nam_l_g/10/0000749.wav|덱은 어떻게 짜야할까요|4
+multi_speaker/wavs/nam_l_g/10/0000750.wav|받았는데 키우면 되나요|4
+multi_speaker/wavs/nam_l_g/10/0000751.wav|뭘 해야할지 모르겠어요|4
+multi_speaker/wavs/nam_l_g/10/0000752.wav|카인 루 뭐 올려야해요|4
+multi_speaker/wavs/nam_l_g/10/0000753.wav|크앙 좀 깨보고싶습니다|4
+multi_speaker/wavs/nam_l_g/10/0000754.wav|루를 안들고 시작했네요|4
+multi_speaker/wavs/nam_l_g/10/0000755.wav|게임을 실행할수가없네요|4
+multi_speaker/wavs/nam_l_g/10/0000756.wav|스작 재료 이 개있어요|4
+multi_speaker/wavs/nam_l_g/10/0000757.wav|리세해야하는 계정인가요|4
+multi_speaker/wavs/nam_l_g/10/0000758.wav|어떻게 하는게 좋읔까요|4
+multi_speaker/wavs/nam_l_g/10/0000759.wav|조언 좀 구하고 싶어요|4
+multi_speaker/wavs/nam_l_g/10/0000760.wav|크앙 한 번깨보구싶어요|4
+multi_speaker/wavs/nam_l_g/10/0000761.wav|이덱으로 시작하면 돼요|4
+multi_speaker/wavs/nam_l_g/10/0000762.wav|룬칸늘리는 법 아시나요|4
+multi_speaker/wavs/nam_l_g/10/0000763.wav|에픽세븐 겨냥 한 건지|4
+multi_speaker/wavs/nam_l_g/10/0000764.wav|삼 일차 된 뉴비입니다|4
+multi_speaker/wavs/nam_l_g/10/0000765.wav|크앙 깰 수 있을 까요|4
+multi_speaker/wavs/nam_l_g/10/0000766.wav|아님 지금 다시 리세를|4
+multi_speaker/wavs/nam_l_g/10/0000767.wav|루오십 이 렙을 할까요|4
+multi_speaker/wavs/nam_l_g/10/0000768.wav|시드 너무 잡고 싶어요|4
+multi_speaker/wavs/nam_l_g/10/0000769.wav|수정은 이십 번뽑았어요|4
+multi_speaker/wavs/nam_l_g/10/0000770.wav|무었이 제일 시급할까요|4
+multi_speaker/wavs/nam_l_g/10/0000771.wav|적 타이오 시드둘남음일|4
+multi_speaker/wavs/nam_l_g/10/0000772.wav|룬은 생반방 끼고있어요|4
+multi_speaker/wavs/nam_l_g/10/0000773.wav|갑자기 왠 이벤트 보상|4
+multi_speaker/wavs/nam_l_g/10/0000774.wav|오 성만 남기고 가나요|4
+multi_speaker/wavs/nam_l_g/10/0000775.wav|이뿐게임이 보이더라고요|4
+multi_speaker/wavs/nam_l_g/10/0000776.wav|뭘 먼저 키워야 할까요|4
+multi_speaker/wavs/nam_l_g/10/0000777.wav|코델은 더 안 나왔고요|4
+multi_speaker/wavs/nam_l_g/10/0000778.wav|이안 코델로도 꺄지나요|4
+multi_speaker/wavs/nam_l_g/10/0000779.wav|어떻게 처리해야 하나요|4
+multi_speaker/wavs/nam_l_g/10/0000780.wav|우리 딸 두부 자랑 좀|4
+multi_speaker/wavs/nam_l_g/10/0000781.wav|시드에서 일렉이 좋나요|4
+multi_speaker/wavs/nam_l_g/10/0000782.wav|타이오 육 등강 했고요|4
+multi_speaker/wavs/nam_l_g/10/0000783.wav|일주일정도 된 뉴빕니다|4
+multi_speaker/wavs/nam_l_g/10/0000784.wav|아니먼 리세마라해야되나요|4
+multi_speaker/wavs/nam_l_g/10/0000785.wav|뭘 로 대체가능 한 가유|4
+multi_speaker/wavs/nam_l_g/10/0000786.wav|룬은 아직 강화를 안해서|4
+multi_speaker/wavs/nam_l_g/10/0000787.wav|특성은 뭐 찍어야 하나요|4
+multi_speaker/wavs/nam_l_g/10/0000788.wav|이 힐러힐러가 고민입니다|4
+multi_speaker/wavs/nam_l_g/10/0000789.wav|고인물 행님들 부탁합니다|4
+multi_speaker/wavs/nam_l_g/10/0000790.wav|지금이라도 리세마라할까요|4
+multi_speaker/wavs/nam_l_g/10/0000791.wav|알려주시면 감사하겠습니다|4
+multi_speaker/wavs/nam_l_g/10/0000792.wav|던전도그렇고 너무힘들어요|4
+multi_speaker/wavs/nam_l_g/10/0000793.wav|진화재료들이 너무부족해서|4
+multi_speaker/wavs/nam_l_g/10/0000794.wav|오늘 클로드까지 나왔고요|4
+multi_speaker/wavs/nam_l_g/10/0000795.wav|첨이라그런데 가르쳐주세요|4
+multi_speaker/wavs/nam_l_g/10/0000796.wav|루비는 친구로 대로갈게요|4
+multi_speaker/wavs/nam_l_g/10/0000797.wav|십 일차 루 루비도 없고|4
+multi_speaker/wavs/nam_l_g/10/0000799.wav|캐릭터들이 이렇게 있는데|4
+multi_speaker/wavs/nam_l_g/10/0000805.wav|버프효과가 뭔지궁금합니다|4
+multi_speaker/wavs/nam_l_g/10/0000806.wav|사 마리있어도 안 뜨길래|4
+multi_speaker/wavs/nam_l_g/10/0000807.wav|지금 영웅 보유상황인데요|4
+multi_speaker/wavs/nam_l_g/10/0000808.wav|그 데니마루 닮은 타오스|4
+multi_speaker/wavs/nam_l_g/10/0000809.wav|칠 일밖에안된 뉴비입니다|4
+multi_speaker/wavs/nam_l_g/10/0000810.wav|원래 이렇게 하는 건가요|4
+multi_speaker/wavs/nam_l_g/10/0000811.wav|글구 리세를 계속 할까요|4
+multi_speaker/wavs/nam_l_g/10/0000812.wav|방금 시작 한 늅늅이에요|4
+multi_speaker/wavs/nam_l_g/10/0000813.wav|들어가는데 를 못찾겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000814.wav|셋팅 어떻게 들 하시나요|4
+multi_speaker/wavs/nam_l_g/10/0000815.wav|스펙 어느정도 되야하나요|4
+multi_speaker/wavs/nam_l_g/10/0000816.wav|캐릭은 이거밖에 없는데요|4
+multi_speaker/wavs/nam_l_g/10/0000817.wav|영심없지만 루일 등강짜리|4
+multi_speaker/wavs/nam_l_g/10/0000818.wav|이 천개쓰면 선택권인가요|4
+multi_speaker/wavs/nam_l_g/10/0000819.wav|지금 덱상태 괜찮은건가요|4
+multi_speaker/wavs/nam_l_g/10/0000820.wav|모리난특성 좀 알려주세요|4
+multi_speaker/wavs/nam_l_g/10/0000821.wav|둘중 키우라면 뭐키울거임|4
+multi_speaker/wavs/nam_l_g/10/0000822.wav|현재 이렇게 가지고있는데|4
+multi_speaker/wavs/nam_l_g/10/0000823.wav|삼 시간전에 시작했습니다|4
+multi_speaker/wavs/nam_l_g/10/0000824.wav|으니면 참고 더 모을까요|4
+multi_speaker/wavs/nam_l_g/10/0000825.wav|친구 루비 델꼬가서 하는데|4
+multi_speaker/wavs/nam_l_g/10/0000826.wav|이제 시작 한 나린이입니다|4
+multi_speaker/wavs/nam_l_g/10/0000827.wav|아슈레이 키워서 넣어볼가요|4
+multi_speaker/wavs/nam_l_g/10/0000828.wav|기간이 정해져 있는 건가요|4
+multi_speaker/wavs/nam_l_g/10/0000829.wav|스작 순서 좀 알려주시고요|4
+multi_speaker/wavs/nam_l_g/10/0000830.wav|지금은 어떤걸로 시작할까요|4
+multi_speaker/wavs/nam_l_g/10/0000831.wav|그래도 꼭필요 한 게 있다|4
+multi_speaker/wavs/nam_l_g/10/0000832.wav|이번 주는 길드전이 없나요|4
+multi_speaker/wavs/nam_l_g/10/0000833.wav|면 코델 친구도 구해봅니다|4
+multi_speaker/wavs/nam_l_g/10/0000837.wav|데이모스를 쭉 키우면될가요|4
+multi_speaker/wavs/nam_l_g/10/0000838.wav|뽑기권 누구 받아야 하나요|4
+multi_speaker/wavs/nam_l_g/10/0000839.wav|지금 루 망치들고 있는 애|4
+multi_speaker/wavs/nam_l_g/10/0000840.wav|무과금은어떻게 살아야하나요|4
+multi_speaker/wavs/nam_l_g/10/0000842.wav|소환패 어떤걸로 써야되나요|4
+multi_speaker/wavs/nam_l_g/10/0000843.wav|빡고수님들 도움 좀 주세요|4
+multi_speaker/wavs/nam_l_g/10/0000844.wav|아님 제가 운이 좋은거에요|4
+multi_speaker/wavs/nam_l_g/10/0000845.wav|면 그 것 도 얘기해주세요|4
+multi_speaker/wavs/nam_l_g/10/0000846.wav|이번엔 그냥 넘겨야 할까요|4
+multi_speaker/wavs/nam_l_g/10/0000847.wav|새로 가입 한 나린이입니다|4
+multi_speaker/wavs/nam_l_g/10/0000851.wav|현재 보유중인 영웅들입니다|4
+multi_speaker/wavs/nam_l_g/10/0000853.wav|자동반복돌려놓으면 멈춰있고|4
+multi_speaker/wavs/nam_l_g/10/0000854.wav|나클해보려는 뎅 하위 맛점|4
+multi_speaker/wavs/nam_l_g/10/0000855.wav|이 주정도 한 나린이입니다|4
+multi_speaker/wavs/nam_l_g/10/0000856.wav|그리고 아레나 데려갈만하냐|4
+multi_speaker/wavs/nam_l_g/10/0000857.wav|아레나는 크리스탈삼 이네요|4
+multi_speaker/wavs/nam_l_g/10/0000858.wav|아이폰과 갤럭시를 쓰는데요|4
+multi_speaker/wavs/nam_l_g/10/0000859.wav|불쌍 한 뉴비를 구해주십셔|4
+multi_speaker/wavs/nam_l_g/10/0000860.wav|이제 아몬 소환권에도 뜨나요|4
+multi_speaker/wavs/nam_l_g/10/0000861.wav|한 돌재료로 갈아엎어도되나요|4
+multi_speaker/wavs/nam_l_g/10/0000862.wav|카인클로드모리안고해도 되나요|4
+multi_speaker/wavs/nam_l_g/10/0000863.wav|아직 모르는게 너무 많습니다|4
+multi_speaker/wavs/nam_l_g/10/0000864.wav|힐러라곤 라무 달랑 하나인데|4
+multi_speaker/wavs/nam_l_g/10/0000865.wav|두개있는데 어디부터 해야할지|4
+multi_speaker/wavs/nam_l_g/10/0000866.wav|전 육 등강베단 리더되있슴다|4
+multi_speaker/wavs/nam_l_g/10/0000867.wav|만약 키운다면 스킬 머올리죠|4
+multi_speaker/wavs/nam_l_g/10/0000873.wav|길드전에서도 적용되는 건가요|4
+multi_speaker/wavs/nam_l_g/10/0000874.wav|뭐부터 키워야할지 고민입니다|4
+multi_speaker/wavs/nam_l_g/10/0000875.wav|젤 쎈게 모리안사 등강인데요|4
+multi_speaker/wavs/nam_l_g/10/0000876.wav|루 코델 두마리정도면 되나요|4
+multi_speaker/wavs/nam_l_g/10/0000877.wav|본체 스킬 일 일 일 입니다|4
+multi_speaker/wavs/nam_l_g/10/0000878.wav|녹스로 리세하면 빨리할수있다|4
+multi_speaker/wavs/nam_l_g/10/0000879.wav|새로운 계정 파서 해야하나요|4
+multi_speaker/wavs/nam_l_g/10/0000880.wav|이정도로 시작해도 좋은건가요|4
+multi_speaker/wavs/nam_l_g/10/0000881.wav|아군타오오적 타이오에 반격삼|4
+multi_speaker/wavs/nam_l_g/10/0000882.wav|곧 나올 시드 준비 중입니다|4
+multi_speaker/wavs/nam_l_g/10/0000883.wav|뭘 우선적으로 키워야 할까요|4
+multi_speaker/wavs/nam_l_g/10/0000884.wav|이 라운드도 오토 못넘기네요|4
+multi_speaker/wavs/nam_l_g/10/0000885.wav|잡고시픔 어떻게 해야 하나요|4
+multi_speaker/wavs/nam_l_g/10/0000886.wav|첫 쓰알뽑 그리고 십뽑 두번|4
+multi_speaker/wavs/nam_l_g/10/0000887.wav|어떤거 먼저 스강해야 하나요|4
+multi_speaker/wavs/nam_l_g/10/0000888.wav|앞으로 의 진로가 궁금합니다|4
+multi_speaker/wavs/nam_l_g/10/0000889.wav|시작 한 지 얼마안되었습니다|4
+multi_speaker/wavs/nam_l_g/10/0000890.wav|과금러님들은 어떤걸사는 거죠|4
+multi_speaker/wavs/nam_l_g/10/0000891.wav|리더부터 어떻게 하는게 좋아요|4
+multi_speaker/wavs/nam_l_g/10/0000892.wav|나린이가 코델작 하는 중입니다|4
+multi_speaker/wavs/nam_l_g/10/0000893.wav|재캐릭으로 사 상강림깰수있나요|4
+multi_speaker/wavs/nam_l_g/10/0000894.wav|루확업 기다리는게 더 힘들겠쥬|4
+multi_speaker/wavs/nam_l_g/10/0000895.wav|그리고 어떤거부터 키우면될까요|4
+multi_speaker/wavs/nam_l_g/10/0000896.wav|아몬은 룬을 머끼는게 나을까요|4
+multi_speaker/wavs/nam_l_g/10/0000897.wav|이캐릭은 아레나만쓴다고했습니다|4
+multi_speaker/wavs/nam_l_g/10/0000898.wav|현질은 정액제만 하고 있습니다|4
+multi_speaker/wavs/nam_l_g/10/0000899.wav|해주시오 이거 키워도 되 형들|4
+multi_speaker/wavs/nam_l_g/10/0000900.wav|오 등강하려면 삼 장칠요하던데|4
+multi_speaker/wavs/nam_l_g/10/0000901.wav|모리안 넣으려는데 누굴 뺄까요|4
+multi_speaker/wavs/nam_l_g/10/0000902.wav|이거 어떻게 해야 연결 되나요|4
+multi_speaker/wavs/nam_l_g/10/0000903.wav|무었을 해야 가장 효율적일까요|4
+multi_speaker/wavs/nam_l_g/10/0000904.wav|딴걸올릴지아몬도 올려야하는 디|4
+multi_speaker/wavs/nam_l_g/10/0000905.wav|어떤걸 우선적으로 키워야될까요|4
+multi_speaker/wavs/nam_l_g/10/0000906.wav|키울만 한 거 추천 부탁드려요|4
+multi_speaker/wavs/nam_l_g/10/0000907.wav|고수님들 조언 좀 부탁드릴게요|4
+multi_speaker/wavs/nam_l_g/10/0000908.wav|아래는 현재 코델 스탯 입니다|4
+multi_speaker/wavs/nam_l_g/10/0000909.wav|추가회복 때 문에 못도는 건지|4
+multi_speaker/wavs/nam_l_g/10/0000910.wav|데미안 공격력이 왜자꾸올라가죠|4
+multi_speaker/wavs/nam_l_g/10/0000911.wav|어떤 조합으로 가는게 좋을까요|4
+multi_speaker/wavs/nam_l_g/10/0000912.wav|보석은 어디다 쓰는게 좋은가요|4
+multi_speaker/wavs/nam_l_g/10/0000913.wav|강림에서 좋은놈으로 키우고픈데|4
+multi_speaker/wavs/nam_l_g/10/0000914.wav|뭐키워야할지 알려주실수 있나요|4
+multi_speaker/wavs/nam_l_g/10/0000915.wav|이안 짱짱 사 일차 뉴비입니다|4
+multi_speaker/wavs/nam_l_g/10/0000916.wav|답해주시면 정말 감사하겠습니다|4
+multi_speaker/wavs/nam_l_g/10/0000917.wav|별오 개짜리 루 말하는 건가요|4
+multi_speaker/wavs/nam_l_g/10/0000918.wav|이렇게 있는데 머선택해야하나요|4
+multi_speaker/wavs/nam_l_g/10/0000919.wav|싱클은 스작 뭐부터 해야되나요|4
+multi_speaker/wavs/nam_l_g/10/0000920.wav|뭐 부터 키워 주는게 좋을까요|4
+multi_speaker/wavs/nam_l_g/10/0000921.wav|그렇다고 뜰지안뜰지도 모르지만|4
+multi_speaker/wavs/nam_l_g/10/0000922.wav|렙업은 무지개몬 없으면 힘들고|4
+multi_speaker/wavs/nam_l_g/10/0000923.wav|점검 전에 크앙 돌고 있었는데|4
+multi_speaker/wavs/nam_l_g/10/0000925.wav|루루랑 루시드랑 많이차이나나요|4
+multi_speaker/wavs/nam_l_g/10/0000926.wav|그리고 어떤걸 키우면 좋을까요|4
+multi_speaker/wavs/nam_l_g/10/0000927.wav|어떻게 헤쳐나가야할지모르겠어요|4
+multi_speaker/wavs/nam_l_g/10/0000928.wav|이 덱으론 죽어도 불가능이겠죠|4
+multi_speaker/wavs/nam_l_g/10/0000929.wav|탱커는 일렉부터 키워야 하나요|4
+multi_speaker/wavs/nam_l_g/10/0000930.wav|짜증 아몬 룬이랑 특성 뭔가요|4
+multi_speaker/wavs/nam_l_g/10/0000931.wav|일주일 좀 넘게 한 나린입니다|4
+multi_speaker/wavs/nam_l_g/10/0000932.wav|사 성등강림을 깨보고 싶습니다|4
+multi_speaker/wavs/nam_l_g/10/0000933.wav|모리안 클로드 에드윈은 있는데|4
+multi_speaker/wavs/nam_l_g/10/0000934.wav|골드딸린데 어디서 자동돌리나요|4
+multi_speaker/wavs/nam_l_g/10/0000935.wav|아레나에서 요즘 꽤 잘나가던데|4
+multi_speaker/wavs/nam_l_g/10/0000936.wav|선택권있는 걸로 정말초보인데요|4
+multi_speaker/wavs/nam_l_g/10/0000937.wav|아레나덱 모험덱 좀 알려주세요|4
+multi_speaker/wavs/nam_l_g/10/0000938.wav|강림 몇주 못깬다고 우는 거임|4
+multi_speaker/wavs/nam_l_g/10/0000939.wav|친구루비넣고 오토돌림 클될까요|4
+multi_speaker/wavs/nam_l_g/10/0000940.wav|레벨은 앵간 한 데 모랸옶찐이당|4
+multi_speaker/wavs/nam_l_g/10/0000941.wav|행님덜 강림용인데 연공이 좋나요|4
+multi_speaker/wavs/nam_l_g/10/0000942.wav|진짜 도와주실수있는 분 구합니다|4
+multi_speaker/wavs/nam_l_g/10/0000943.wav|아몬 루비 라무로 오토 가능해요|4
+multi_speaker/wavs/nam_l_g/10/0000944.wav|방캐하나키운다면 앞으로 진로상담|4
+multi_speaker/wavs/nam_l_g/10/0000945.wav|에서 아름답게 라고하는 거같은데|4
+multi_speaker/wavs/nam_l_g/10/0000946.wav|모리안 클로드중 추천부탁드립니다|4
+multi_speaker/wavs/nam_l_g/10/0000947.wav|그리고 공속 빠를수록 좋은건가요|4
+multi_speaker/wavs/nam_l_g/10/0000948.wav|전투력은 서서히 올리고 있습니다|4
+multi_speaker/wavs/nam_l_g/10/0000949.wav|현재 전투력은 삼 만팔 천입니다|4
+multi_speaker/wavs/nam_l_g/10/0000950.wav|루가 없는데 루가 꼭 필요하나요|4
+multi_speaker/wavs/nam_l_g/10/0000951.wav|특성 속성피해감소 겁나 쪼들리네|4
+multi_speaker/wavs/nam_l_g/10/0000952.wav|더 빠르게 할 방법같은거 없겠죠|4
+multi_speaker/wavs/nam_l_g/10/0000953.wav|삼 일전에 시작 한 늅이 입니다|4
+multi_speaker/wavs/nam_l_g/10/0000954.wav|지금은 갤럭시로 폰겜하고 있어요|4
+multi_speaker/wavs/nam_l_g/10/0000955.wav|그리고 수정수급은 어찌해야할까요|4
+multi_speaker/wavs/nam_l_g/10/0000956.wav|제목대로 추천 좀 부탁드려봅니다|4
+multi_speaker/wavs/nam_l_g/10/0000957.wav|일 스만 찍어도 결장 돌릴수있다|4
+multi_speaker/wavs/nam_l_g/10/0000958.wav|모리안 클로드 중에 뭐 뽑을까요|4
+multi_speaker/wavs/nam_l_g/10/0000959.wav|형님들 키울거 웬만큼 키웠습니다|4
+multi_speaker/wavs/nam_l_g/10/0000960.wav|타이오는 스작 하나도 안되있어요|4
+multi_speaker/wavs/nam_l_g/10/0000961.wav|일 스 이 스 삼 스 어떤 걸로|4
+multi_speaker/wavs/nam_l_g/10/0000962.wav|아슈레이 뽑았는데 쓸가치 있나요|4
+multi_speaker/wavs/nam_l_g/10/0000963.wav|이번에 신캐도 모리안대체불가능임|4
+multi_speaker/wavs/nam_l_g/10/0000964.wav|강림 어디가면 획득할 수 있나요|4
+multi_speaker/wavs/nam_l_g/10/0000965.wav|이 라운드에서 넘어가질 못하네요|4
+multi_speaker/wavs/nam_l_g/10/0000966.wav|누구를 데려가야하는지 여쭤봅니다|4
+multi_speaker/wavs/nam_l_g/10/0000967.wav|각각 오십 렙 영웅특성 뭐하나요|4
+multi_speaker/wavs/nam_l_g/10/0000968.wav|아니면 덱에 힐러를 이 명넣나요|4
+multi_speaker/wavs/nam_l_g/10/0000969.wav|아무리 해봐도 도저히 못깨겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000970.wav|어떻게 키워야할지 감이안잡힙니다|4
+multi_speaker/wavs/nam_l_g/10/0000971.wav|어떤계정이 그나마 키울만 할까요|4
+multi_speaker/wavs/nam_l_g/10/0000972.wav|여태껏하면 서 한 가지 깨달은거|4
+multi_speaker/wavs/nam_l_g/10/0000973.wav|필요하다면 얼마나 맞추면 될까요|4
+multi_speaker/wavs/nam_l_g/10/0000974.wav|이 라 때 코델 한 번 죽더라고요|4
+multi_speaker/wavs/nam_l_g/10/0000975.wav|추가 회복 옵션 챙기기도 어려네요|4
+multi_speaker/wavs/nam_l_g/10/0000976.wav|칼리 공락법이랑 덱 좀 맞춰주세요|4
+multi_speaker/wavs/nam_l_g/10/0000977.wav|강림과멀티는 언제부터 하면 되나요|4
+multi_speaker/wavs/nam_l_g/10/0000978.wav|시작 한 지 몇일 안된 늅늅인데요|4
+multi_speaker/wavs/nam_l_g/10/0000979.wav|이번 크앙은 제 스펙으론 안되겠죠|4
+multi_speaker/wavs/nam_l_g/10/0000980.wav|뭔가 클로드 뽑고싶은데 뽑아볼까요|4
+multi_speaker/wavs/nam_l_g/10/0000981.wav|아님 크앙 입장료 하나 날린건가요|4
+multi_speaker/wavs/nam_l_g/10/0000982.wav|아님 루 나올 때 까지 리세해야대|4
+multi_speaker/wavs/nam_l_g/10/0000983.wav|스작은 육 성으로 가는게 좋을까요|4
+multi_speaker/wavs/nam_l_g/10/0000984.wav|덱구성도 못해서 강림도 못 돌아요|4
+multi_speaker/wavs/nam_l_g/10/0000985.wav|아아디 적어주시면 제가 걸겠습니다|4
+multi_speaker/wavs/nam_l_g/10/0000986.wav|아니면 그냥 그대로 쭉 이어갈까요|4
+multi_speaker/wavs/nam_l_g/10/0000987.wav|폰으로 하는 리세에 한계를 느끼며|4
+multi_speaker/wavs/nam_l_g/10/0000988.wav|코델친구를 구하면 깰 수 있을까요|4
+multi_speaker/wavs/nam_l_g/10/0000989.wav|돈동돈돈돈 누구를 뽑는게 나을까요|4
+multi_speaker/wavs/nam_l_g/10/0000990.wav|아니면 헬퍼 코델로 가능 한 가요|4
+multi_speaker/wavs/nam_l_g/10/0000991.wav|시작 한 지 일주일 정도된 초보입니다|4
+multi_speaker/wavs/nam_l_g/10/0000992.wav|시드랑 강림 차이점 좀 알려쥬세요|4
+multi_speaker/wavs/nam_l_g/10/0000993.wav|당장 뭐부터 해야되는지 알려주세요|4
+multi_speaker/wavs/nam_l_g/10/0000994.wav|덱을 어떻게 짜야할 지 모르겠네요|4
+multi_speaker/wavs/nam_l_g/10/0000995.wav|보통 힐러들처럼 생생방으로 가나요|4
+multi_speaker/wavs/nam_l_g/10/0000996.wav|즐겁게 시작하고 싶어 부탁드립니다|4
+multi_speaker/wavs/nam_l_g/10/0000997.wav|아직도 공략글등을 봐도 헷갈리네요|4
+multi_speaker/wavs/nam_l_g/10/0000998.wav|폰바꿔서새로설치했는데 안불러와져요|4
+multi_speaker/wavs/nam_l_g/10/0000999.wav|요거 두개 그냥 놔두고 존버하나요|4
