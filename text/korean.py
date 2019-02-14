@@ -4,7 +4,7 @@ import re
 import os
 import ast
 import json
-from jamo import hangul_to_jamo, h2j, j2h
+from jamo import hangul_to_jamo, h2j, j2h, hcj_to_jamo, is_hcj
 from jamo.jamo import _jamo_char_to_hcj
 
 from .ko_dictionary import english_dictionary, etc_dictionary
@@ -180,6 +180,7 @@ def tokenize(text, as_id=False, symbol_type=1, debug=False):
 
     text = normalize(text)
     pre_tokens = list(hangul_to_jamo(text))
+    pre_tokens = [hcj_to_jamo(_, "lead") if is_hcj(_) else _ for _ in pre_tokens]
     tokens = []
 
     if symbol_type == 1:
