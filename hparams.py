@@ -52,8 +52,8 @@ def create_hparams(hparams_string=None, verbose=False):
         encoder_embedding_dim = 512,
 
         # Speaker embedding parameters
-        n_speakers = 3,
-        speaker_embedding_dim=12,
+        n_speakers = 5,
+        speaker_embedding_dim=16,
 
         # Prosody embedding parameters
         prosody_n_convolutions = 6,
