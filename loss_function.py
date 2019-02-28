@@ -1,9 +1,9 @@
 from torch import nn
 
 
-class Tacotron2Loss(nn.Module):
+class MelToMelLoss(nn.Module):
     def __init__(self):
-        super(Tacotron2Loss, self).__init__()
+        super(MelToMelLoss, self).__init__()
 
     def forward(self, model_output, targets):
         mel_target, gate_target = targets[0], targets[1]

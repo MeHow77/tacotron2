@@ -12,11 +12,10 @@ from torch.utils.data import DataLoader
 
 from fp16_optimizer import FP16_Optimizer
 
-from model import Tacotron2
-from model_old import Tacotron2 as Tacotron2_old
-from data_utils import TextMelLoader, TextMelCollate
-from loss_function import Tacotron2Loss
-from logger import Tacotron2Logger
+from model import MelToMel
+from data_utils import MelLoader, MelCollate
+from loss_function import MelToMelLoss
+from logger import MelToMelLogger
 from hparams import create_hparams
 
 
@@ -53,9 +52,9 @@ def init_distributed(hparams, n_gpus, rank, group_name):
 
 def prepare_dataloaders(hparams):
     # Get data, data loaders and collate function ready
-    trainset = TextMelLoader(hparams.training_files, hparams)
-    valset = TextMelLoader(hparams.validation_files, hparams)
-    collate_fn = TextMelCollate(hparams.n_frames_per_step)
+    trainset = MelLoader(hparams.training_files, hparams)
+    valset = MelLoader(hparams.validation_files, hparams)
+    collate_fn = MelCollate(hparams.n_frames_per_step)
 
     train_sampler = DistributedSampler(trainset) \
         if hparams.distributed_run else None
@@ -72,7 +71,7 @@ def prepare_directories_and_logger(output_directory, log_directory, rank):
         if not os.path.isdir(output_directory):
             os.makedirs(output_directory)
             os.chmod(output_directory, 0o775)
-        logger = Tacotron2Logger(os.path.join(output_directory, log_directory))
+        logger = MelToMelLogger(os.path.join(output_directory, log_directory))
     else:
         logger = None
     return logger
@@ -80,7 +79,7 @@ def prepare_directories_and_logger(output_directory, log_directory, rank):
 
 def load_model(hparams):
     print('loading old_model:',hparams.text_cleaners == ['korean_cleaners'])
-    model =Tacotron2_old(hparams).cuda() if hparams.text_cleaners == ['korean_cleaners']  else Tacotron2(hparams).cuda()
+    model =  MelToMel(hparams).cuda()
     if hparams.fp16_run:
         model = batchnorm_to_float(model.half())
         model.decoder.attention_layer.score_mask_value = float(finfo('float16').min)
@@ -179,7 +178,7 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
     if hparams.distributed_run:
         model = apply_gradient_allreduce(model)
 
-    criterion = Tacotron2Loss()
+    criterion = MelToMelLoss()
 
     logger = prepare_directories_and_logger(
         output_directory, log_directory, rank)

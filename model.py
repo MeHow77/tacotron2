@@ -158,17 +158,17 @@ class Encoder(nn.Module):
         convolutions = []
         for _ in range(hparams.encoder_n_convolutions):
             conv_layer = nn.Sequential(
-                ConvNorm(hparams.encoder_embedding_dim,
-                         hparams.encoder_embedding_dim,
+                ConvNorm(self.n_symbols,
+                         self.n_symbols,
                          kernel_size=hparams.encoder_kernel_size, stride=1,
                          padding=int((hparams.encoder_kernel_size - 1) / 2),
                          dilation=1, w_init_gain='relu'),
-                nn.BatchNorm1d(hparams.encoder_embedding_dim))
+                nn.BatchNorm1d(self.n_symbols))
             convolutions.append(conv_layer)
         self.convolutions = nn.ModuleList(convolutions)
 
-        self.lstm = nn.LSTM(hparams.encoder_embedding_dim,
-                            int(hparams.encoder_embedding_dim / 2), 1,
+        self.lstm = nn.LSTM(self.n_symbols,
+                            int(self.n_symbols / 2), 1,
                             batch_first=True, bidirectional=True)
 
     def forward(self, x, input_lengths):
@@ -207,7 +207,7 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
         self.n_mel_channels = hparams.n_mel_channels
         self.n_frames_per_step = hparams.n_frames_per_step
-        self.encoder_embedding_dim = hparams.encoder_embedding_dim
+        self.n_symbols = self.n_symbols
         self.attention_rnn_dim = hparams.attention_rnn_dim
         self.decoder_rnn_dim = hparams.decoder_rnn_dim
         self.prenet_dim = hparams.prenet_dim
@@ -221,24 +221,24 @@ class Decoder(nn.Module):
             [hparams.prenet_dim, hparams.prenet_dim])
 
         self.attention_rnn = nn.LSTMCell(
-            hparams.prenet_dim + hparams.encoder_embedding_dim,
+            hparams.prenet_dim + self.n_symbols,
             hparams.attention_rnn_dim)
 
         self.attention_layer = Attention(
-            hparams.attention_rnn_dim, hparams.encoder_embedding_dim,
+            hparams.attention_rnn_dim, self.n_symbols,
             hparams.attention_dim, hparams.attention_location_n_filters,
             hparams.attention_location_kernel_size)
 
         self.decoder_rnn = nn.LSTMCell(
-            hparams.attention_rnn_dim + hparams.encoder_embedding_dim,
+            hparams.attention_rnn_dim + self.n_symbols,
             hparams.decoder_rnn_dim, 1)
 
         self.linear_projection = LinearNorm(
-            hparams.decoder_rnn_dim + hparams.encoder_embedding_dim,
+            hparams.decoder_rnn_dim + self.n_symbols,
             hparams.n_mel_channels * hparams.n_frames_per_step)
 
         self.gate_layer = LinearNorm(
-            hparams.decoder_rnn_dim + hparams.encoder_embedding_dim, 1,
+            hparams.decoder_rnn_dim + self.n_symbols, 1,
             bias=True, w_init_gain='sigmoid')
 
     def get_go_frame(self, memory):
@@ -283,7 +283,7 @@ class Decoder(nn.Module):
         self.attention_weights_cum = Variable(memory.data.new(
             B, MAX_TIME).zero_())
         self.attention_context = Variable(memory.data.new(
-            B, self.encoder_embedding_dim).zero_())
+            B, self.n_symbols).zero_())
 
         self.memory = memory
         self.processed_memory = self.attention_layer.memory_layer(memory)
@@ -459,35 +459,27 @@ class Decoder(nn.Module):
         return mel_outputs, gate_outputs, alignments
 
 
-class Tacotron2(nn.Module):
+class MelToMel(nn.Module):
     def __init__(self, hparams):
-        super(Tacotron2, self).__init__()
+        super(MelToMel, self).__init__()
         self.mask_padding = hparams.mask_padding
         self.fp16_run = hparams.fp16_run
         self.n_mel_channels = hparams.n_mel_channels
         self.n_frames_per_step = hparams.n_frames_per_step
-        self.embedding = nn.Embedding(
-            hparams.n_symbols, hparams.symbols_embedding_dim)
-        std = sqrt(2.0 / (hparams.n_symbols + hparams.symbols_embedding_dim))
-        val = sqrt(3.0) * std  # uniform bounds for std
-        self.embedding.weight.data.uniform_(-val, val)
-        self.encoder = Encoder(hparams)
         self.decoder = Decoder(hparams)
         self.postnet = Postnet(hparams)
 
     def parse_batch(self, batch):
-        text_padded, input_lengths, mel_padded, gate_padded, \
-            output_lengths = batch
-        text_padded = to_gpu(text_padded).long()
-        input_lengths = to_gpu(input_lengths).long()
-        max_len = torch.max(input_lengths.data).item()
-        mel_padded = to_gpu(mel_padded).float()
+        source_mel_padded, input_lengths, target_mel_padded, gate_padded, \
+        output_lengths = batch
+        max_len = list(source_mel_padded.shape)[2]
+        target_mel_padded = to_gpu(target_mel_padded).float()
         gate_padded = to_gpu(gate_padded).float()
         output_lengths = to_gpu(output_lengths).long()
 
         return (
-            (text_padded, input_lengths, mel_padded, max_len, output_lengths),
-            (mel_padded, gate_padded))
+            (source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths),
+            (target_mel_padded, gate_padded))
 
     def parse_input(self, inputs):
         inputs = fp32_to_fp16(inputs) if self.fp16_run else inputs
@@ -507,16 +499,11 @@ class Tacotron2(nn.Module):
         return outputs
 
     def forward(self, inputs):
-        inputs, input_lengths, targets, max_len, \
-            output_lengths = self.parse_input(inputs)
+        source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths = self.parse_input(inputs)
         input_lengths, output_lengths = input_lengths.data, output_lengths.data
 
-        embedded_inputs = self.embedding(inputs).transpose(1, 2)
-
-        encoder_outputs = self.encoder(embedded_inputs, input_lengths)
-
         mel_outputs, gate_outputs, alignments = self.decoder(
-            encoder_outputs, targets, memory_lengths=input_lengths)
+            source_mel_padded, target_mel_padded, memory_lengths=input_lengths)
 
         mel_outputs_postnet = self.postnet(mel_outputs)
         mel_outputs_postnet = mel_outputs + mel_outputs_postnet
@@ -527,10 +514,8 @@ class Tacotron2(nn.Module):
 
     def inference(self, inputs):
         inputs = self.parse_input(inputs)
-        embedded_inputs = self.embedding(inputs).transpose(1, 2)
-        encoder_outputs = self.encoder.inference(embedded_inputs)
         mel_outputs, gate_outputs, alignments = self.decoder.inference(
-            encoder_outputs)
+            inputs)
 
         mel_outputs_postnet = self.postnet(mel_outputs)
         mel_outputs_postnet = mel_outputs + mel_outputs_postnet
