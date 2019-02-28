@@ -19,7 +19,7 @@ def preprocess_audio(file_list, silence_audio_size, prefix = ''):
 
         for i, r in enumerate(R):
             wav_file = r.split('|')[0]
-            data, sampling_rate = librosa.core.load(wav_file, sr)
+            data, sampling_rate = librosa.core.load(os.path.join(prefix,wav_file), sr)
             data = data / np.abs(data).max() *0.999
             data_= librosa.effects.trim(data, top_db= trim_top_db, frame_length=trim_fft_size, hop_length=trim_hop_size)[0]
             data_ = data_*max_wav_value
