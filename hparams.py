@@ -7,7 +7,7 @@ def create_hparams(hparams_string=None, verbose=False):
         ################################
         # Experiment Parameters        #
         ################################
-        epochs=500,
+        epochs=270,
         iters_per_checkpoint=5000,
         seed=1234,
         dynamic_loss_scaling=True,
@@ -23,8 +23,8 @@ def create_hparams(hparams_string=None, verbose=False):
         # Data Parameters             #
         ################################
         load_mel_from_disk=False,
-        training_files='filelists/nam-h_train_filelist.txt',
-        validation_files='filelists/nam-h_val_filelist.txt',
+        training_files='filelists/vc_train.txt',
+        validation_files='filelists/vc_val.txt',
         text_cleaners=['korean_cleaners'], # english_cleaners, korean_cleaners
         sort_by_length=False,
 

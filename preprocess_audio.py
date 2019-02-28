@@ -9,7 +9,7 @@ trim_fft_size = 1024
 trim_hop_size = 256
 trim_top_db = 23
 
-def preprocess_audio(file_list, silence_audio_size):
+def preprocess_audio(file_list, silence_audio_size, prefix = ''):
     for F in file_list:
         f = open(F)
         R = f.readlines()
@@ -33,13 +33,18 @@ if __name__ == "__main__":
     """
     usage
     python preprocess_audio.py -f=filelists/nam-h_test_filelist.txt,filelists/nam-h_train_filelist.txt,filelists/nam-h_val_filelist.txt -s=3
+    python preprocess_audio.py -f=kakao/metadata.csv -s=3 -p=kakao/wavs
+    python preprocess_audio.py -f=nam-h/metadata.csv -s=3 -p=nam-h/wavs
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', '--file_list', type=str,
                         help='file list to preprocess')
     parser.add_argument('-s', '--silence_mel_padding', type=int, default=0,
                         help='silence audio size is hop_length * silence mel padding')
+    parser.add_argument('-p', '--prefix', type=int, default=0,
+                        help='data source path to prefix')
     args = parser.parse_args()
     file_list = args.file_list.split(',')
     silence_audio_size = trim_hop_size * args.silence_mel_padding
-    preprocess_audio(file_list, silence_audio_size)
+    prefix = args.prefix
+    preprocess_audio(file_list, silence_audio_size, prefix)
