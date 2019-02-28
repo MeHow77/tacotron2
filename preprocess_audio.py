@@ -2,6 +2,7 @@ from scipy.io.wavfile import write
 import librosa
 import numpy as np
 import argparse
+import os
 
 sr = 22050
 max_wav_value=32768.0
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     """
     usage
     python preprocess_audio.py -f=filelists/nam-h_test_filelist.txt,filelists/nam-h_train_filelist.txt,filelists/nam-h_val_filelist.txt -s=3
-    python preprocess_audio.py -f=kakao/metadata.csv -s=3 -p=kakao/wavs
+    python preprocess_audio.py -f=kss/metadata.csv -s=3 -p=kss/wavs
     python preprocess_audio.py -f=nam-h/metadata.csv -s=3 -p=nam-h/wavs
     """
     parser = argparse.ArgumentParser()
