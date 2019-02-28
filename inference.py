@@ -23,7 +23,18 @@ def plot_data(data, index, output_dir="", figsize=(16, 4)):
                         interpolation='none')
     plt.savefig(os.path.join(output_dir, 'sentence_{}.png'.format(index)))
 
-def generate_mels(hparams, checkpoint_path, sentences, cleaner, silence_mel_padding, output_dir=""):
+def get_mel(stft, filename, hparams):
+    audio, sampling_rate = load_wav_to_torch(filename)
+    if sampling_rate != hparams.sampling_rate:
+        raise ValueError("{} SR doesn't match target {} SR".format(
+            sampling_rate, hparams.sampling_rate))
+    audio_norm = audio / hparams.max_wav_value
+    audio_norm = audio_norm.unsqueeze(0)
+    audio_norm = torch.autograd.Variable(audio_norm, requires_grad=False)
+    melspec = stft.mel_spectrogram(audio_norm)
+    return melspec
+
+def generate_mels(hparams, checkpoint_path, audio_paths, silence_mel_padding, stft, output_dir=""):
     model = load_model(hparams)
     try:
         model = model.module
@@ -32,12 +43,11 @@ def generate_mels(hparams, checkpoint_path, sentences, cleaner, silence_mel_padd
     model.load_state_dict({k.replace('module.', ''): v for k, v in torch.load(checkpoint_path)['state_dict'].items()})
     _ = model.eval()
     output_mels = []
-    for i, s in enumerate(sentences):
-        sequence = np.array(text_to_sequence(s, cleaner))[None, :]
-        sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
+    for i, a in enumerate(audio_paths):
+        source_mel = get_mel(stft, a, hparams).cuda()
         stime = time.time()
-        _, mel_outputs_postnet, _, alignments = model.inference(sequence)
-        plot_data((mel_outputs_postnet.data.cpu().numpy()[0],
+        _, mel_outputs_postnet, _, alignments = model.inference(source_mel)
+        plot_data((source_mel.data.cpu().numpy()[0], mel_outputs_postnet.data.cpu().numpy()[0],
                    alignments.data.cpu().numpy()[0].T), i, output_dir)
         inf_time = time.time() - stime
         print("{}th sentence, Infenrece time: {:.2f}s, len_mel: {}".format(i, inf_time, mel_outputs_postnet.size(2)))
@@ -63,10 +73,10 @@ def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir="", ref_level_db = 0, m
         print(str)
         write(os.path.join(output_dir,"sentence_{}.wav".format(i)), hparams.sampling_rate, waveform)
 
-def run(hparams, checkpoint_path, sentence_path, clenaer, silence_mel_padding, output_dir):
-    f = open(sentence_path, 'r')
-    sentences = [x.strip() for x in f.readlines()]
-    print('All sentences to infer:',sentences)
+def run(hparams, checkpoint_path, audio_path_file, silence_mel_padding, output_dir):
+    f = open(audio_path_file, 'r')
+    audio_paths = [x.strip() for x in f.readlines()]
+    print('All sentences to infer:',audio_paths)
     f.close()
 
     stft = TacotronSTFT(
@@ -74,22 +84,21 @@ def run(hparams, checkpoint_path, sentence_path, clenaer, silence_mel_padding, o
         hparams.n_mel_channels, hparams.sampling_rate, hparams.mel_fmin,
         hparams.mel_fmax)
 
-    mels = generate_mels(hparams, checkpoint_path, sentences, clenaer, silence_mel_padding, output_dir)
+    mels = generate_mels(hparams, checkpoint_path, audio_paths, silence_mel_padding, stft, output_dir)
     mels_to_wavs_GL(hparams, mels, stft, output_dir)
     pass
 
 if __name__ == '__main__':
     """
     usage
-    python inference.py -o=synthesis/80000 -c=nam_h_ep8/checkpoint_80000 -s=test.txt --silence_mel_padding=3
-    python inference.py -o=synthesis -c=tacotron2_statedict.pt -s=test.txt --silence_mel_padding=3
+    python inference.py -o=synthesis/80000 -c=nam_h_ep8/checkpoint_80000 -a=test.txt --silence_mel_padding=3
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--output_directory', type=str,
                         help='directory to save wave and fig')
     parser.add_argument('-c', '--checkpoint_path', type=str, default=None,
                         required=True, help='checkpoint path')
-    parser.add_argument('-s', '--sentence_path', type=str, default=None,
+    parser.add_argument('-a', '--audio_path_file', type=str, default=None,
                         required=True, help='sentence path')
     parser.add_argument('--silence_mel_padding', type=int, default=0,
                         help='silence audio size is hop_length * silence mel padding')
@@ -106,7 +115,7 @@ if __name__ == '__main__':
     torch.backends.cudnn.enabled = hparams.cudnn_enabled
     torch.backends.cudnn.benchmark = hparams.cudnn_benchmark
 
-    run(hparams, args.checkpoint_path, args.sentence_path, hparams.text_cleaners, args.silence_mel_padding ,args.output_directory)
+    run(hparams, args.checkpoint_path, args.audio_path_file, args.silence_mel_padding ,args.output_directory)
 
 
 

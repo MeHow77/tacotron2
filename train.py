@@ -251,6 +251,10 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
 
 
 if __name__ == '__main__':
+    """
+    usage
+    python train.py --output_directory=vc --log_directory=logdir
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--output_directory', type=str,
                         help='directory to save checkpoints')
