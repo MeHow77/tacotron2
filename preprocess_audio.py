@@ -41,7 +41,7 @@ if __name__ == "__main__":
                         help='file list to preprocess')
     parser.add_argument('-s', '--silence_mel_padding', type=int, default=0,
                         help='silence audio size is hop_length * silence mel padding')
-    parser.add_argument('-p', '--prefix', type=int, default=0,
+    parser.add_argument('-p', '--prefix', type=str,
                         help='data source path to prefix')
     args = parser.parse_args()
     file_list = args.file_list.split(',')
