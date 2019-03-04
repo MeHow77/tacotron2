@@ -207,7 +207,7 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
         self.n_mel_channels = hparams.n_mel_channels
         self.n_frames_per_step = hparams.n_frames_per_step
-        self.n_symbols = self.n_symbols
+        self.n_symbols = hparams.n_symbols
         self.attention_rnn_dim = hparams.attention_rnn_dim
         self.decoder_rnn_dim = hparams.decoder_rnn_dim
         self.prenet_dim = hparams.prenet_dim
@@ -397,7 +397,7 @@ class Decoder(nn.Module):
         gate_outputs: gate outputs from the decoder
         alignments: sequence of attention weights from the decoder
         """
-
+        memory = memory.transpose(1,2) #memory must be [self.batch_size, output_lengths, mel_dim], so make [self.batch_size, mel_dim, output_lengths] to [self.batch_size, output_lengths, mel_dim]
         decoder_input = self.get_go_frame(memory).unsqueeze(0)
         decoder_inputs = self.parse_decoder_inputs(decoder_inputs)
         decoder_inputs = torch.cat((decoder_input, decoder_inputs), dim=0)
@@ -473,8 +473,10 @@ class MelToMel(nn.Module):
         source_mel_padded, input_lengths, target_mel_padded, gate_padded, \
         output_lengths = batch
         max_len = list(source_mel_padded.shape)[2]
+        source_mel_padded = to_gpu(source_mel_padded).float()
         target_mel_padded = to_gpu(target_mel_padded).float()
         gate_padded = to_gpu(gate_padded).float()
+        input_lengths = to_gpu(input_lengths).long()
         output_lengths = to_gpu(output_lengths).long()
 
         return (
@@ -500,7 +502,7 @@ class MelToMel(nn.Module):
 
     def forward(self, inputs):
         source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths = self.parse_input(inputs)
-        input_lengths, output_lengths = input_lengths.data, output_lengths.data
+        output_lengths = output_lengths.data
 
         mel_outputs, gate_outputs, alignments = self.decoder(
             source_mel_padded, target_mel_padded, memory_lengths=input_lengths)
