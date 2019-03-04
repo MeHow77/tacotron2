@@ -94,7 +94,7 @@ if __name__ == '__main__':
     python inference.py -o=synthesis/80000 -c=nam_h_ep8/checkpoint_80000 -a=test.txt --silence_mel_padding=3
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('-o', '--output_directory', type=str,
+    parser.add_argument('-o', '--output_directory', type=str, default='',
                         help='directory to save wave and fig')
     parser.add_argument('-c', '--checkpoint_path', type=str, default=None,
                         required=True, help='checkpoint path')
