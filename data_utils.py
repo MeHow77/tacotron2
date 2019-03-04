@@ -79,8 +79,7 @@ class MelCollate():
         # Right zero-pad all one-hot text sequences to max input length
         # Right zero-pad mel-spec
         num_mels = batch[0][1].size(0)
-        input_lengths = [x[0].size(1) for x in batch]
-        max_source_len = max(input_lengths)
+        max_source_len = max([x[0].size(1) for x in batch])
         if max_source_len % self.n_frames_per_step != 0:
             max_source_len += self.n_frames_per_step - max_source_len % self.n_frames_per_step
             assert max_source_len % self.n_frames_per_step == 0
@@ -100,6 +99,7 @@ class MelCollate():
         gate_padded = torch.FloatTensor(len(batch), max_target_len)
         gate_padded.zero_()
         output_lengths = torch.LongTensor(len(batch))
+        input_lengths = torch.LongTensor(len(batch))
         for i in range(len(batch)):
             source_mel = batch[i][0]
             target_mel = batch[i][1]
@@ -107,6 +107,7 @@ class MelCollate():
             target_mel_padded[i, :, :target_mel.size(1)] = target_mel
             gate_padded[i, target_mel.size(1)-1:] = 1
             output_lengths[i] = target_mel.size(1)
+            input_lengths[i] = source_mel.size(1)
 
         return source_mel_padded, input_lengths, target_mel_padded, gate_padded, \
             output_lengths
