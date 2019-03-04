@@ -207,7 +207,7 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
         self.n_mel_channels = hparams.n_mel_channels
         self.n_frames_per_step = hparams.n_frames_per_step
-        self.n_symbols = hparams.n_symbols
+        self.input_dim = hparams.decoder_rnn_dim
         self.attention_rnn_dim = hparams.attention_rnn_dim
         self.decoder_rnn_dim = hparams.decoder_rnn_dim
         self.prenet_dim = hparams.prenet_dim
@@ -221,24 +221,24 @@ class Decoder(nn.Module):
             [hparams.prenet_dim, hparams.prenet_dim])
 
         self.attention_rnn = nn.LSTMCell(
-            hparams.prenet_dim + self.n_symbols,
+            hparams.prenet_dim + self.input_dim,
             hparams.attention_rnn_dim)
 
         self.attention_layer = Attention(
-            hparams.attention_rnn_dim, self.n_symbols,
+            hparams.attention_rnn_dim, self.input_dim,
             hparams.attention_dim, hparams.attention_location_n_filters,
             hparams.attention_location_kernel_size)
 
         self.decoder_rnn = nn.LSTMCell(
-            hparams.attention_rnn_dim + self.n_symbols,
+            hparams.attention_rnn_dim + self.input_dim,
             hparams.decoder_rnn_dim, 1)
 
         self.linear_projection = LinearNorm(
-            hparams.decoder_rnn_dim + self.n_symbols,
+            hparams.decoder_rnn_dim + self.input_dim,
             hparams.n_mel_channels * hparams.n_frames_per_step)
 
         self.gate_layer = LinearNorm(
-            hparams.decoder_rnn_dim + self.n_symbols, 1,
+            hparams.decoder_rnn_dim + self.input_dim, 1,
             bias=True, w_init_gain='sigmoid')
 
     def get_go_frame(self, memory):
@@ -283,7 +283,7 @@ class Decoder(nn.Module):
         self.attention_weights_cum = Variable(memory.data.new(
             B, MAX_TIME).zero_())
         self.attention_context = Variable(memory.data.new(
-            B, self.n_symbols).zero_())
+            B, self.n_mel_channels).zero_())
 
         self.memory = memory
         self.processed_memory = self.attention_layer.memory_layer(memory)
@@ -469,6 +469,12 @@ class MelToMel(nn.Module):
         self.n_frames_per_step = hparams.n_frames_per_step
         self.decoder = Decoder(hparams)
         self.postnet = Postnet(hparams)
+        self.prenet = Prenet(
+            hparams.n_mel_channels * hparams.n_frames_per_step,
+            [hparams.prenet_dim, hparams.prenet_dim])
+        self.lstm = nn.LSTM(hparams.prenet_dim,
+                            hparams.decoder_rnn_dim, 1,
+                            batch_first=True)
 
     def parse_batch(self, batch):
         source_mel_padded, input_lengths, target_mel_padded, gate_padded, \
@@ -505,6 +511,8 @@ class MelToMel(nn.Module):
         source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths = self.parse_input(inputs)
         output_lengths = output_lengths.data
 
+        source_mel_padded = self.prenet(source_mel_padded)
+        source_mel_padded = self.lstm(source_mel_padded)
         mel_outputs, gate_outputs, alignments = self.decoder(
             source_mel_padded, target_mel_padded, memory_lengths=input_lengths)
 
@@ -516,9 +524,11 @@ class MelToMel(nn.Module):
             output_lengths)
 
     def inference(self, inputs):
-        inputs = self.parse_input(inputs)
+        source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths = self.parse_input(inputs)
+        source_mel_padded = self.prenet(source_mel_padded)
+        source_mel_padded = self.lstm(source_mel_padded)
         mel_outputs, gate_outputs, alignments = self.decoder.inference(
-            inputs)
+            (source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths))
 
         mel_outputs_postnet = self.postnet(mel_outputs)
         mel_outputs_postnet = mel_outputs + mel_outputs_postnet
