@@ -253,7 +253,7 @@ class Decoder(nn.Module):
         """
         B = memory.size(0)
         decoder_input = Variable(memory.data.new(
-            B, self.n_mel_channels * self.n_frames_per_step).zero_())
+            B, self.input_dim * self.n_frames_per_step).zero_())
         return decoder_input
 
     def initialize_decoder_states(self, memory, mask):
@@ -397,11 +397,17 @@ class Decoder(nn.Module):
         gate_outputs: gate outputs from the decoder
         alignments: sequence of attention weights from the decoder
         """
-        memory = memory.transpose(1,2) #memory must be [self.batch_size, output_lengths, mel_dim], so make [self.batch_size, mel_dim, output_lengths] to [self.batch_size, output_lengths, mel_dim]
+        print(memory.shape)
+        #memory = memory.transpose(1,2) #memory must be [self.batch_size, output_lengths, dim], so make [self.batch_size, mel_dim, output_lengths] to [self.batch_size, output_lengths, dim]
         decoder_input = self.get_go_frame(memory).unsqueeze(0)
+        print(decoder_input.shape)
+        print(decoder_inputs.shape)
         decoder_inputs = self.parse_decoder_inputs(decoder_inputs)
+        print(decoder_inputs.shape)
         decoder_inputs = torch.cat((decoder_input, decoder_inputs), dim=0)
+        print(decoder_inputs.shape)
         decoder_inputs = self.prenet(decoder_inputs)
+        print(decoder_inputs.shape)
 
         self.initialize_decoder_states(
             memory, mask=~get_mask_from_lengths(memory_lengths))
@@ -432,7 +438,7 @@ class Decoder(nn.Module):
         gate_outputs: gate outputs from the decoder
         alignments: sequence of attention weights from the decoder
         """
-        memory = memory.transpose(1, 2)  # memory must be [self.batch_size, output_lengths, mel_dim], so make [self.batch_size, mel_dim, output_lengths] to [self.batch_size, output_lengths, mel_dim]
+        #memory = memory.transpose(1, 2)  # memory must be [self.batch_size, output_lengths, mel_dim], so make [self.batch_size, mel_dim, output_lengths] to [self.batch_size, output_lengths, mel_dim]
         decoder_input = self.get_go_frame(memory)
 
         self.initialize_decoder_states(memory, mask=None)
@@ -510,9 +516,10 @@ class MelToMel(nn.Module):
     def forward(self, inputs):
         source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths = self.parse_input(inputs)
         output_lengths = output_lengths.data
-
+        source_mel_shape = list(source_mel_padded.shape)
+        source_mel_padded = source_mel_padded.transpose(1, 2)
         source_mel_padded = self.prenet(source_mel_padded)
-        source_mel_padded = self.lstm(source_mel_padded)
+        source_mel_padded, _ = self.lstm(source_mel_padded)
         mel_outputs, gate_outputs, alignments = self.decoder(
             source_mel_padded, target_mel_padded, memory_lengths=input_lengths)
 
@@ -525,6 +532,7 @@ class MelToMel(nn.Module):
 
     def inference(self, inputs):
         source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths = self.parse_input(inputs)
+        source_mel_padded = source_mel_padded.transpose(1, 2)
         source_mel_padded = self.prenet(source_mel_padded)
         source_mel_padded = self.lstm(source_mel_padded)
         mel_outputs, gate_outputs, alignments = self.decoder.inference(
