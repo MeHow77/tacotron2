@@ -8,7 +8,7 @@ def create_hparams(hparams_string=None, verbose=False):
         # Experiment Parameters        #
         ################################
         epochs=270,
-        iters_per_checkpoint=5000,
+        iters_per_checkpoint=500,
         seed=1234,
         dynamic_loss_scaling=True,
         fp16_run=False,
@@ -50,6 +50,10 @@ def create_hparams(hparams_string=None, verbose=False):
         # encoder_kernel_size=5,
         # encoder_n_convolutions=3,
         # encoder_embedding_dim=512,
+
+        # source mel prenet parameters
+        mel_fc_dim = 256,
+        mel_rnn_dim = 1024,
 
         # Decoder parameters
         n_frames_per_step=1,  # currently only 1 is supported

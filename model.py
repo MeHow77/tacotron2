@@ -207,7 +207,7 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
         self.n_mel_channels = hparams.n_mel_channels
         self.n_frames_per_step = hparams.n_frames_per_step
-        self.input_dim = hparams.decoder_rnn_dim
+        self.mel_rnn_dim = hparams.mel_rnn_dim
         self.attention_rnn_dim = hparams.attention_rnn_dim
         self.decoder_rnn_dim = hparams.decoder_rnn_dim
         self.prenet_dim = hparams.prenet_dim
@@ -221,24 +221,24 @@ class Decoder(nn.Module):
             [hparams.prenet_dim, hparams.prenet_dim])
 
         self.attention_rnn = nn.LSTMCell(
-            hparams.prenet_dim + self.input_dim,
+            hparams.prenet_dim + self.mel_rnn_dim,
             hparams.attention_rnn_dim)
 
         self.attention_layer = Attention(
-            hparams.attention_rnn_dim, self.input_dim,
+            hparams.attention_rnn_dim, self.mel_rnn_dim,
             hparams.attention_dim, hparams.attention_location_n_filters,
             hparams.attention_location_kernel_size)
 
         self.decoder_rnn = nn.LSTMCell(
-            hparams.attention_rnn_dim + self.input_dim,
+            hparams.attention_rnn_dim + self.mel_rnn_dim,
             hparams.decoder_rnn_dim, 1)
 
         self.linear_projection = LinearNorm(
-            hparams.decoder_rnn_dim + self.input_dim,
+            hparams.decoder_rnn_dim + self.mel_rnn_dim,
             hparams.n_mel_channels * hparams.n_frames_per_step)
 
         self.gate_layer = LinearNorm(
-            hparams.decoder_rnn_dim + self.input_dim, 1,
+            hparams.decoder_rnn_dim + self.mel_rnn_dim, 1,
             bias=True, w_init_gain='sigmoid')
 
     def get_go_frame(self, memory):
@@ -253,7 +253,7 @@ class Decoder(nn.Module):
         """
         B = memory.size(0)
         decoder_input = Variable(memory.data.new(
-            B, self.input_dim * self.n_frames_per_step).zero_())
+            B, self.n_mel_channels * self.n_frames_per_step).zero_())
         return decoder_input
 
     def initialize_decoder_states(self, memory, mask):
@@ -283,7 +283,7 @@ class Decoder(nn.Module):
         self.attention_weights_cum = Variable(memory.data.new(
             B, MAX_TIME).zero_())
         self.attention_context = Variable(memory.data.new(
-            B, self.n_mel_channels).zero_())
+            B, self.mel_rnn_dim).zero_())
 
         self.memory = memory
         self.processed_memory = self.attention_layer.memory_layer(memory)
@@ -397,17 +397,11 @@ class Decoder(nn.Module):
         gate_outputs: gate outputs from the decoder
         alignments: sequence of attention weights from the decoder
         """
-        print(memory.shape)
         #memory = memory.transpose(1,2) #memory must be [self.batch_size, output_lengths, dim], so make [self.batch_size, mel_dim, output_lengths] to [self.batch_size, output_lengths, dim]
         decoder_input = self.get_go_frame(memory).unsqueeze(0)
-        print(decoder_input.shape)
-        print(decoder_inputs.shape)
         decoder_inputs = self.parse_decoder_inputs(decoder_inputs)
-        print(decoder_inputs.shape)
         decoder_inputs = torch.cat((decoder_input, decoder_inputs), dim=0)
-        print(decoder_inputs.shape)
         decoder_inputs = self.prenet(decoder_inputs)
-        print(decoder_inputs.shape)
 
         self.initialize_decoder_states(
             memory, mask=~get_mask_from_lengths(memory_lengths))
@@ -472,14 +466,16 @@ class MelToMel(nn.Module):
         self.mask_padding = hparams.mask_padding
         self.fp16_run = hparams.fp16_run
         self.n_mel_channels = hparams.n_mel_channels
+        self.mel_fc_dim = hparams.mel_fc_dim
+        self.mel_rnn_dim = hparams.mel_rnn_dim
         self.n_frames_per_step = hparams.n_frames_per_step
         self.decoder = Decoder(hparams)
         self.postnet = Postnet(hparams)
         self.prenet = Prenet(
             hparams.n_mel_channels * hparams.n_frames_per_step,
-            [hparams.prenet_dim, hparams.prenet_dim])
-        self.lstm = nn.LSTM(hparams.prenet_dim,
-                            hparams.decoder_rnn_dim, 1,
+            [hparams.mel_fc_dim, hparams.mel_fc_dim])
+        self.lstm = nn.LSTM(hparams.mel_fc_dim,
+                            hparams.mel_rnn_dim, 1,
                             batch_first=True)
 
     def parse_batch(self, batch):
