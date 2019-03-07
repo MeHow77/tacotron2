@@ -527,12 +527,11 @@ class MelToMel(nn.Module):
             output_lengths)
 
     def inference(self, inputs):
-        source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths = self.parse_input(inputs)
+        source_mel_padded = self.parse_input(inputs)
         source_mel_padded = source_mel_padded.transpose(1, 2)
         source_mel_padded = self.prenet(source_mel_padded)
-        source_mel_padded = self.lstm(source_mel_padded)
-        mel_outputs, gate_outputs, alignments = self.decoder.inference(
-            (source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths))
+        source_mel_padded , _= self.lstm(source_mel_padded)
+        mel_outputs, gate_outputs, alignments = self.decoder.inference(source_mel_padded)
 
         mel_outputs_postnet = self.postnet(mel_outputs)
         mel_outputs_postnet = mel_outputs + mel_outputs_postnet
