@@ -22,8 +22,7 @@ def plot_data(data, index, output_dir="", figsize=(16, 4)):
     plt.savefig(os.path.join(output_dir, 'sentence_{}.png'.format(index)))
 
 def get_mel(filename):
-    melspec = np.load(filename)
-    print(melspec.shape)
+    melspec = torch.from_numpy(np.load(filename))
     return melspec
 
 def generate_mels(hparams, checkpoint_path, mel_paths, silence_mel_padding, stft, output_dir=""):
@@ -85,7 +84,7 @@ def run(hparams, checkpoint_path, audio_path_file, silence_mel_padding, output_d
 if __name__ == '__main__':
     """
     usage
-    python inference.py -o=synthesis/80000 -c=nam_h_ep8/checkpoint_80000 -a=test.txt --silence_mel_padding=3
+    python mtm_inference.py -o=sts_output -c=vc2/checkpoint_35000 -m=mtm_test.txt
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--output_directory', type=str, default='',
@@ -94,7 +93,7 @@ if __name__ == '__main__':
                         required=True, help='checkpoint path')
     parser.add_argument('-m', '--mel_path_file', type=str, default=None,
                         required=True, help='melspectrogram paths')
-    parser.add_argument('--silence_mel_padding', type=int, default=0,
+    parser.add_argument('--silence_mel_padding', type=int, default=1,
                         help='silence audio size is hop_length * silence mel padding')
     parser.add_argument('--hparams', type=str,
                         required=False, help='comma separated name=value pairs')
@@ -109,7 +108,4 @@ if __name__ == '__main__':
     torch.backends.cudnn.enabled = hparams.cudnn_enabled
     torch.backends.cudnn.benchmark = hparams.cudnn_benchmark
 
-    run(hparams, args.checkpoint_path, args.audio_path_file, args.silence_mel_padding ,args.output_directory)
-
-
-
+    run(hparams, args.checkpoint_path, args.mel_path_file, args.silence_mel_padding ,args.output_directory)
