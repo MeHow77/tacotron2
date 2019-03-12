@@ -46,6 +46,7 @@ def generate_mels(hparams, checkpoint_path, mel_paths, silence_mel_padding, stft
     return output_mels
 
 def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir="", ref_level_db = 0, magnitude_power=1.5):
+    map = []
     for i, mel in enumerate(mels):
         stime = time.time()
         mel_decompress = mel_denormalize(mel)
@@ -64,7 +65,14 @@ def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir="", ref_level_db = 0, m
         str = "{}th sentence, audio length: {:.2f} sec,  mel_to_wave time: {:.2f}".format(i, len_audio, dec_time)
         print(str)
         write(os.path.join(output_dir,"sentence_{}.wav".format(i)), hparams.sampling_rate, waveform)
-        np.save(os.path.join(output_dir, "mel_{}.npy".format(i)), mel_decompress)
+        mel = torch.clamp(mel, -4, 4)
+        mel = mel.squeeze(0).transpose(0,1).data.cpu().numpy()
+        mel_path = os.path.join(output_dir, "mel_{}.npy".format(i))
+        np.save(mel_path, mel)
+        map.append("|{}|\n".format(mel_path))
+    f = open(os.path.join(output_dir,'map.txt'),'w',encoding='utf-8')
+    f.writelines(map)
+    f.close()
 
 def run(hparams, checkpoint_path, audio_path_file, silence_mel_padding, output_dir):
     f = open(audio_path_file, 'r')
