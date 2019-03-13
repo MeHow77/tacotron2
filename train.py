@@ -78,7 +78,6 @@ def prepare_directories_and_logger(output_directory, log_directory, rank):
 
 
 def load_model(hparams):
-    print('loading old_model:',hparams.text_cleaners == ['korean_cleaners'])
     model =  MelToMel(hparams).cuda()
     if hparams.fp16_run:
         model = batchnorm_to_float(model.half())
