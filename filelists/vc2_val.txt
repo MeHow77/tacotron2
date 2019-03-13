@@ -1,0 +1,64 @@
+park_inference/mels/mel_4451.npy|에이 기분이다..|park_m2m/mels/mel-4451.npy|에이 기분이다.
+park_inference/mels/mel_4452.npy|두 개 두 개 해..|park_m2m/mels/mel-4452.npy|두 개 두 개 해.
+park_inference/mels/mel_4453.npy|두 개 여기다 꽂아줄게..|park_m2m/mels/mel-4453.npy|두 개 여기다 꽂아줄게.
+park_inference/mels/mel_4454.npy|보너스. 하도 사람들이 뭐라 그래서 더 주는거야 임마..|park_m2m/mels/mel-4454.npy|보너스. 하도 사람들이 뭐라 그래서 더 주는거야 임마.
+park_inference/mels/mel_4455.npy|열심히 해. 나태해지지말.|park_m2m/mels/mel-4455.npy|열심히 해. 나태해지지말
+park_inference/mels/mel_4456.npy|그러면은 최저임금 안 안 줘도 돼..|park_m2m/mels/mel-4456.npy|그러면은 최저임금 안 안 줘도 돼.
+park_inference/mels/mel_4457.npy|악덕 업주래..|park_m2m/mels/mel-4457.npy|악덕 업주래.
+park_inference/mels/mel_4458.npy|그러면 무민이 입장으로써 달라는 거지?.|park_m2m/mels/mel-4458.npy|그러면 무민이 입장으로써 달라는 거지?
+park_inference/mels/mel_4459.npy|고용하면서 짜게 굴고 그러면 안 돼..|park_m2m/mels/mel-4459.npy|고용하면서 짜게 굴고 그러면 안 돼.
+park_inference/mels/mel_4460.npy|자 아유 기분이다..|park_m2m/mels/mel-4460.npy|자 아유 기분이다.
+park_inference/mels/mel_4461.npy|장난 아니죠 지금.|park_m2m/mels/mel-4461.npy|장난 아니죠 지금
+park_inference/mels/mel_4462.npy|괜찮죠? 이 정도면.|park_m2m/mels/mel-4462.npy|괜찮죠? 이 정도면
+park_inference/mels/mel_4463.npy|많이 줬다..|park_m2m/mels/mel-4463.npy|많이 줬다.
+park_inference/mels/mel_4464.npy|짜 많이 줬다 내.|park_m2m/mels/mel-4464.npy|짜 많이 줬다 내
+park_inference/mels/mel_4465.npy|이 사람들이 증말.|park_m2m/mels/mel-4465.npy|이 사람들이 증말
+park_inference/mels/mel_4466.npy|장난 아니지?.|park_m2m/mels/mel-4466.npy|장난 아니지?
+park_inference/mels/mel_4467.npy|줬어 줬어..|park_m2m/mels/mel-4467.npy|줬어 줬어.
+park_inference/mels/mel_4468.npy|봐야지 이제 그 준비하고..|park_m2m/mels/mel-4468.npy|봐야지 이제 그 준비하고.
+park_inference/mels/mel_4469.npy|아이 저 그 약간 먹을 거랑 약간 좀 정리해 갖고.|park_m2m/mels/mel-4469.npy|아이 저 그 약간 먹을 거랑 약간 좀 정리해 갖고
+park_inference/mels/mel_4470.npy|이따가 뺏는 거 아니.|park_m2m/mels/mel-4470.npy|이따가 뺏는 거 아니
+park_inference/mels/mel_4471.npy|들고 있나 안 들고 있나 한번 봐 봐..|park_m2m/mels/mel-4471.npy|들고 있나 안 들고 있나 한번 봐 봐.
+park_inference/mels/mel_4472.npy|여러분 제가 웃겨요?.|park_m2m/mels/mel-4472.npy|여러분 제가 웃겨요?
+park_inference/mels/mel_4473.npy|난 진지한데?.|park_m2m/mels/mel-4473.npy|난 진지한데?
+park_inference/mels/mel_4474.npy|무민이 머리띠 사줘요. 머리띠?.|park_m2m/mels/mel-4474.npy|무민이 머리띠 사줘요. 머리띠?
+park_inference/mels/mel_4475.npy|머리띠도 있어?.|park_m2m/mels/mel-4475.npy|머리띠도 있어?
+park_inference/mels/mel_4476.npy|잠깐 짤렸다. 그.|park_m2m/mels/mel-4476.npy|잠깐 짤렸다. 그
+park_inference/mels/mel_4477.npy|뭐 하는 거야?.|park_m2m/mels/mel-4477.npy|뭐 하는 거야?
+park_inference/mels/mel_4478.npy|어 이제 봐야돼 이제 봐야 돼 이제 봐야 돼 여러분..|park_m2m/mels/mel-4478.npy|어 이제 봐야돼 이제 봐야 돼 이제 봐야 돼 여러분.
+park_inference/mels/mel_4479.npy|여러분 이제 축구 봐야 돼요 맞죠?.|park_m2m/mels/mel-4479.npy|여러분 이제 축구 봐야 돼요 맞죠?
+park_inference/mels/mel_4480.npy|아무튼 여러분.|park_m2m/mels/mel-4480.npy|아무튼 여러분
+park_inference/mels/mel_4481.npy|잘 응원합시다..|park_m2m/mels/mel-4481.npy|잘 응원합시다.
+park_inference/mels/mel_4482.npy|그러면 다음에 또 연락 하도록 할게요 안녕..|park_m2m/mels/mel-4482.npy|그러면 다음에 또 연락 하도록 할게요 안녕.
+park_inference/mels/mel_4483.npy|빨리 가야겠다 축구 빨리..|park_m2m/mels/mel-4483.npy|빨리 가야겠다 축구 빨리.
+park_inference/mels/mel_4484.npy|너 이천이년도에 나왔었니?.|park_m2m/mels/mel-4484.npy|너 이천이년도에 나왔었니?
+park_inference/mels/mel_4485.npy|전 이천이년도에 초등학교 육학년이었.|park_m2m/mels/mel-4485.npy|전 이천이년도에 초등학교 육학년이었
+park_inference/mels/mel_4486.npy|육학년이지..|park_m2m/mels/mel-4486.npy|육학년이지.
+park_inference/mels/mel_4487.npy|누가 자꾸 쳐다 보나 했더니 무민이 였구나?.|park_m2m/mels/mel-4487.npy|누가 자꾸 쳐다 보나 했더니 무민이 였구나?
+park_inference/mels/mel_4488.npy|항상 저랑 같이 방송하고 있는 친구예요..|park_m2m/mels/mel-4488.npy|항상 저랑 같이 방송하고 있는 친구예요.
+park_inference/mels/mel_4489.npy|무민이 출연료 주나요?.|park_m2m/mels/mel-4489.npy|무민이 출연료 주나요?
+park_inference/mels/mel_4490.npy|출연료 필요해?.|park_m2m/mels/mel-4490.npy|출연료 필요해?
+park_inference/mels/mel_4491.npy|종신 계약..|park_m2m/mels/mel-4491.npy|종신 계약.
+park_inference/mels/mel_4492.npy|종신 계약..|park_m2m/mels/mel-4492.npy|종신 계약.
+park_inference/mels/mel_4493.npy|많이 줬다..|park_m2m/mels/mel-4493.npy|많이 줬다.
+park_inference/mels/mel_4494.npy|많이 줬지..|park_m2m/mels/mel-4494.npy|많이 줬지.
+park_inference/mels/mel_4495.npy|좋았어 그럼 내가 어?.|park_m2m/mels/mel-4495.npy|좋았어 그럼 내가 어?
+park_inference/mels/mel_4496.npy|에이 기분이다..|park_m2m/mels/mel-4496.npy|에이 기분이다.
+park_inference/mels/mel_4497.npy|두 개 두 개 해..|park_m2m/mels/mel-4497.npy|두 개 두 개 해.
+park_inference/mels/mel_4498.npy|보너스. 하도 사람들이 뭐라 그래서.|park_m2m/mels/mel-4498.npy|보너스. 하도 사람들이 뭐라 그래서
+park_inference/mels/mel_4499.npy|더 주는거야 임마..|park_m2m/mels/mel-4499.npy|더 주는거야 임마.
+park_inference/mels/mel_4500.npy|열심히 해. 나태해지.|park_m2m/mels/mel-4500.npy|열심히 해. 나태해지
+park_inference/mels/mel_4501.npy|아니 숙식을 제공 하잖아 얘는.|park_m2m/mels/mel-4501.npy|아니 숙식을 제공 하잖아 얘는
+park_inference/mels/mel_4502.npy|악덕업주래..|park_m2m/mels/mel-4502.npy|악덕업주래.
+park_inference/mels/mel_4503.npy|그러면 무민이 입장으로.|park_m2m/mels/mel-4503.npy|그러면 무민이 입장으로
+park_inference/mels/mel_4504.npy|짜게 굴고 그러면 안.|park_m2m/mels/mel-4504.npy|짜게 굴고 그러면 안
+park_inference/mels/mel_4505.npy|장난 아니죠 지금?.|park_m2m/mels/mel-4505.npy|장난 아니죠 지금?
+park_inference/mels/mel_4506.npy|괜찮죠? 이 정도면.|park_m2m/mels/mel-4506.npy|괜찮죠? 이 정도면
+park_inference/mels/mel_4507.npy|이 사람들이 증말?.|park_m2m/mels/mel-4507.npy|이 사람들이 증말?
+park_inference/mels/mel_4508.npy|장난 아니지?.|park_m2m/mels/mel-4508.npy|장난 아니지?
+park_inference/mels/mel_4509.npy|안 뺏을게요..|park_m2m/mels/mel-4509.npy|안 뺏을게요.
+park_inference/mels/mel_4510.npy|들고 있나 안 들고 있나 한 번.|park_m2m/mels/mel-4510.npy|들고 있나 안 들고 있나 한 번
+park_inference/mels/mel_4511.npy|무민아 언니가 보고 싶.|park_m2m/mels/mel-4511.npy|무민아 언니가 보고 싶
+park_inference/mels/mel_4512.npy|무민이 머리.|park_m2m/mels/mel-4512.npy|무민이 머리
+park_inference/mels/mel_4513.npy|머리띠도 있어?.|park_m2m/mels/mel-4513.npy|머리띠도 있어?
+park_inference/mels/mel_4514.npy|그 정도면 됐지..|park_m2m/mels/mel-4514.npy|그 정도면 됐지.
