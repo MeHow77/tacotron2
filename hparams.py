@@ -22,9 +22,9 @@ def create_hparams(hparams_string=None, verbose=False):
         ################################
         # Data Parameters             #
         ################################
-        load_mel_from_disk=False,
-        training_files='filelists/vc_train.txt',
-        validation_files='filelists/vc_val.txt',
+        load_mel_from_disk=True,
+        training_files='filelists/vc2_train.txt',
+        validation_files='filelists/vc2_val.txt',
         text_cleaners=['korean_cleaners'], # english_cleaners, korean_cleaners
         sort_by_length=False,
 
