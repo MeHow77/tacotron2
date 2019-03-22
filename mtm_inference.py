@@ -22,7 +22,7 @@ def plot_data(data, index, output_dir="", figsize=(16, 4)):
     plt.savefig(os.path.join(output_dir, 'sentence_{}.png'.format(index)))
 
 def get_mel(filename):
-    melspec = torch.from_numpy(np.load(filename))
+    melspec = torch.from_numpy(np.load(filename)).unsqueeze(0)
     return melspec
 
 def generate_mels(hparams, checkpoint_path, mel_paths, silence_mel_padding, stft, output_dir=""):
