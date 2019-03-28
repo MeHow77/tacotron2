@@ -8,9 +8,9 @@ from utils import load_wav_to_torch, load_filepaths_and_text
 from text import text_to_sequence
 
 
-class MelLoader(torch.utils.data.Dataset):
+class TextMelLoader(torch.utils.data.Dataset):
     """
-        1) loads audio,text pairs
+        1) loads source(audio,text), target(audio) pairs
         2) normalizes text and converts them to sequences of one-hot vectors
         3) computes mel-spectrograms from audio files.
     """
@@ -27,12 +27,14 @@ class MelLoader(torch.utils.data.Dataset):
         random.seed(1234)
         random.shuffle(self.audiopaths_and_text)
 
-    def get_mel_mel_pair(self, audiopath_and_text):
+    def get_source_target_pair(self, audiopath_and_text):
         # separate filename and text
-        source_audiopath, target_audiopath = audiopath_and_text[0], audiopath_and_text[2]
+        source_audiopath, source_text, target_audiopath, target_text = audiopath_and_text
         source_mel = self.get_mel(source_audiopath) # []
+        source_text = self.get_text(source_text)
         target_mel = self.get_mel(target_audiopath) # []
-        return (source_mel, target_mel)
+        #target_text = self.get_text(target_text)
+        return (source_mel, target_mel, source_text)
 
     def get_mel(self, filename):
         if not self.load_mel_from_disk:
@@ -58,25 +60,33 @@ class MelLoader(torch.utils.data.Dataset):
         return text_norm
 
     def __getitem__(self, index):
-        return self.get_mel_mel_pair(self.audiopaths_and_text[index])
+        return self.get_source_target_pair(self.audiopaths_and_text[index])
 
     def __len__(self):
         return len(self.audiopaths_and_text)
 
 
-class MelCollate():
+class TextMelCollate():
     """ Zero-pads model inputs and targets based on number of frames per setep
     """
     def __init__(self, n_frames_per_step):
         self.n_frames_per_step = n_frames_per_step
 
     def __call__(self, batch):
-        """Collate's training batch from source mel-spectrogram and target mel-spectrogram
+        """Collate's training batch from source (mel-spectrogram,text) and target (mel-spectrogram)
         PARAMS
         ------
-        batch: [[source_mel_normalized, target_mel_normalized], ...]
+        batch: [[source_mel_normalized, target_mel_normalized, source_text, target_text], ...]
         """
         # Right zero-pad all one-hot text sequences to max input length
+        max_source_text_len = [len(x[2]) for x in batch]
+
+        source_text_padded = torch.LongTensor(len(batch), max_source_text_len).zero_()
+
+        for i, x in enumerate(batch):
+            source_text = x[2]
+            source_text_padded[i, :source_text.size(0)] = source_text
+
         # Right zero-pad mel-spec
         num_mels = batch[0][1].size(0)
         max_source_len = max([x[0].size(1) for x in batch])
@@ -99,15 +109,18 @@ class MelCollate():
         gate_padded = torch.FloatTensor(len(batch), max_target_len)
         gate_padded.zero_()
         output_lengths = torch.LongTensor(len(batch))
-        input_lengths = torch.LongTensor(len(batch))
+        source_mel_lengths = torch.LongTensor(len(batch))
+        source_text_lengths = torch.LongTensor(len(batch))
         for i in range(len(batch)):
             source_mel = batch[i][0]
             target_mel = batch[i][1]
+            source_text = batch[i][2]
             source_mel_padded[i, :, :source_mel.size(1)] = source_mel
             target_mel_padded[i, :, :target_mel.size(1)] = target_mel
             gate_padded[i, target_mel.size(1)-1:] = 1
             output_lengths[i] = target_mel.size(1)
-            input_lengths[i] = source_mel.size(1)
+            source_mel_lengths[i] = source_mel.size(1)
+            source_text_lengths[i] = source_text.size(1)
 
-        return source_mel_padded, input_lengths, target_mel_padded, gate_padded, \
-            output_lengths
+        return source_mel_padded, source_mel_lengths, target_mel_padded, gate_padded, \
+            output_lengths, source_text_padded, source_text_lengths

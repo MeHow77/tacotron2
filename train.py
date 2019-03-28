@@ -209,6 +209,8 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
 
             model.zero_grad()
             x, y = model.parse_batch(batch)
+            # x = (source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, source_text_padded, source_text_lengths)
+            # todo: processing source_text_padded, source_text_lengths
             y_pred = model(x)
 
             loss = criterion(y_pred, y)

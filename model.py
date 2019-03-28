@@ -350,7 +350,8 @@ class Decoder(nn.Module):
         gate_output: gate output energies
         attention_weights:
         """
-        cell_input = torch.cat((decoder_input, self.attention_context), -1)
+        ## -- start Attention related block
+        cell_input = torch.cat((decoder_input, self.attention_context), -1) # 왜 결합하는데?
         self.attention_hidden, self.attention_cell = self.attention_rnn(
             cell_input, (self.attention_hidden, self.attention_cell))
         self.attention_hidden = F.dropout(
@@ -370,6 +371,8 @@ class Decoder(nn.Module):
             (self.attention_hidden, self.attention_context), -1)
         self.decoder_hidden, self.decoder_cell = self.decoder_rnn(
             decoder_input, (self.decoder_hidden, self.decoder_cell))
+        ## -- end Attention related block
+
         self.decoder_hidden = F.dropout(
             self.decoder_hidden, self.p_decoder_dropout, self.training)
         self.decoder_cell = F.dropout(
@@ -459,6 +462,31 @@ class Decoder(nn.Module):
 
         return mel_outputs, gate_outputs, alignments
 
+class MelLinEncoder(nn.Module):
+    def __inint__(self, hparams):
+        self.n_mel_channels = hparams.n_mel_channels
+        self.mel_fc_dim = hparams.mel_fc_dim
+        self.mel_rnn_dim = hparams.mel_rnn_dim
+        self.prenet = Prenet(
+            hparams.n_mel_channels * hparams.n_frames_per_step,
+            [hparams.mel_fc_dim, hparams.mel_fc_dim])
+        self.lstm = nn.LSTM(hparams.mel_fc_dim,
+                            hparams.mel_rnn_dim, 1,
+                            batch_first=True)
+        self.attention_rnn = nn.LSTMCell(
+            hparams.prenet_dim + self.mel_rnn_dim,
+            hparams.attention_rnn_dim)
+
+        self.attention_layer = Attention(
+            hparams.attention_rnn_dim, self.mel_rnn_dim,
+            hparams.attention_dim, hparams.attention_location_n_filters,
+            hparams.attention_location_kernel_size)
+
+    def forward(self, linguistic, melspectrogram, linguistic_lengths, melspectrogram_lengths):
+        representation_x = self.prenet(melspectrogram)
+        sequential_representation_x, _ = self.lstm(representation_x)
+        return sequential_representation_x
+
 
 class MelToMel(nn.Module):
     def __init__(self, hparams):
@@ -466,30 +494,25 @@ class MelToMel(nn.Module):
         self.mask_padding = hparams.mask_padding
         self.fp16_run = hparams.fp16_run
         self.n_mel_channels = hparams.n_mel_channels
-        self.mel_fc_dim = hparams.mel_fc_dim
-        self.mel_rnn_dim = hparams.mel_rnn_dim
         self.n_frames_per_step = hparams.n_frames_per_step
+        self.encoder = MelLinEncoder(hparams)
         self.decoder = Decoder(hparams)
         self.postnet = Postnet(hparams)
-        self.prenet = Prenet(
-            hparams.n_mel_channels * hparams.n_frames_per_step,
-            [hparams.mel_fc_dim, hparams.mel_fc_dim])
-        self.lstm = nn.LSTM(hparams.mel_fc_dim,
-                            hparams.mel_rnn_dim, 1,
-                            batch_first=True)
 
     def parse_batch(self, batch):
         source_mel_padded, input_lengths, target_mel_padded, gate_padded, \
-        output_lengths = batch
+        output_lengths,  source_text_padded, source_text_lengths = batch
         max_len = list(source_mel_padded.shape)[2]
         source_mel_padded = to_gpu(source_mel_padded).float()
         target_mel_padded = to_gpu(target_mel_padded).float()
         gate_padded = to_gpu(gate_padded).float()
         input_lengths = to_gpu(input_lengths).long()
         output_lengths = to_gpu(output_lengths).long()
+        source_text_padded = to_gpu(source_text_padded).long()
+        source_text_lengths = to_gpu(source_text_lengths).long()
 
         return (
-            (source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths),
+            (source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, source_text_padded, source_text_lengths),
             (target_mel_padded, gate_padded))
 
     def parse_input(self, inputs):
@@ -510,14 +533,13 @@ class MelToMel(nn.Module):
         return outputs
 
     def forward(self, inputs):
-        source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths = self.parse_input(inputs)
+        source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, source_text_padded, source_text_lengths = self.parse_input(inputs)
         output_lengths = output_lengths.data
         source_mel_shape = list(source_mel_padded.shape)
         source_mel_padded = source_mel_padded.transpose(1, 2)
-        source_mel_padded = self.prenet(source_mel_padded)
-        source_mel_padded, _ = self.lstm(source_mel_padded)
+        encoded_feature =  self.encoder(source_mel_padded)
         mel_outputs, gate_outputs, alignments = self.decoder(
-            source_mel_padded, target_mel_padded, memory_lengths=input_lengths)
+            encoded_feature, target_mel_padded, memory_lengths=input_lengths)
 
         mel_outputs_postnet = self.postnet(mel_outputs)
         mel_outputs_postnet = mel_outputs + mel_outputs_postnet
@@ -529,9 +551,8 @@ class MelToMel(nn.Module):
     def inference(self, inputs):
         source_mel_padded = self.parse_input(inputs)
         source_mel_padded = source_mel_padded.transpose(1, 2)
-        source_mel_padded = self.prenet(source_mel_padded)
-        source_mel_padded , _= self.lstm(source_mel_padded)
-        mel_outputs, gate_outputs, alignments = self.decoder.inference(source_mel_padded)
+        encoded_feature = self.encoder(source_mel_padded)
+        mel_outputs, gate_outputs, alignments = self.decoder.inference(encoded_feature)
 
         mel_outputs_postnet = self.postnet(mel_outputs)
         mel_outputs_postnet = mel_outputs + mel_outputs_postnet
