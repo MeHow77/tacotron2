@@ -22,9 +22,9 @@ def create_hparams(hparams_string=None, verbose=False):
         ################################
         # Data Parameters             #
         ################################
-        load_mel_from_disk=True,
-        training_files='filelists/vc2_train.txt',
-        validation_files='filelists/vc2_val.txt',
+        load_mel_from_disk=False,
+        training_files='filelists/vc_train.txt',
+        validation_files='filelists/vc_val.txt',
         text_cleaners=['korean_cleaners'], # english_cleaners, korean_cleaners
         sort_by_length=False,
 
@@ -46,14 +46,17 @@ def create_hparams(hparams_string=None, verbose=False):
         n_symbols = 80, # set 80 if u use korean_cleaners. set 149 if u use english_cleaners
         symbols_embedding_dim=512,
 
-        # # Encoder parameters
-        # encoder_kernel_size=5,
-        # encoder_n_convolutions=3,
-        # encoder_embedding_dim=512,
+        # Linguistic feature parameters in text to mel model
+        encoder_kernel_size=5,
+        encoder_n_convolutions=3,
+        encoder_embedding_dim=512,
+        p_encoder_dropout = 0.1,
 
-        # source mel prenet parameters
+        # melspectrogram encoder parameters
         mel_fc_dim = 256,
         mel_rnn_dim = 1024,
+        encoder_attention_rnn_dim=1024,
+        encoder_rnn_dim = 1024,
 
         # Decoder parameters
         n_frames_per_step=1,  # currently only 1 is supported
@@ -84,7 +87,7 @@ def create_hparams(hparams_string=None, verbose=False):
         learning_rate=1e-3,
         weight_decay=1e-6,
         grad_clip_thresh=1.0,
-        batch_size=32,
+        batch_size=8,
         mask_padding=True  # set model's padded outputs to padded values
     )
 

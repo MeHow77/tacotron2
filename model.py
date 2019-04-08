@@ -207,7 +207,7 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
         self.n_mel_channels = hparams.n_mel_channels
         self.n_frames_per_step = hparams.n_frames_per_step
-        self.mel_rnn_dim = hparams.mel_rnn_dim
+        self.encoder_rnn_dim = hparams.encoder_rnn_dim
         self.attention_rnn_dim = hparams.attention_rnn_dim
         self.decoder_rnn_dim = hparams.decoder_rnn_dim
         self.prenet_dim = hparams.prenet_dim
@@ -221,24 +221,24 @@ class Decoder(nn.Module):
             [hparams.prenet_dim, hparams.prenet_dim])
 
         self.attention_rnn = nn.LSTMCell(
-            hparams.prenet_dim + self.mel_rnn_dim,
+            hparams.prenet_dim + self.encoder_rnn_dim,
             hparams.attention_rnn_dim)
 
         self.attention_layer = Attention(
-            hparams.attention_rnn_dim, self.mel_rnn_dim,
+            hparams.attention_rnn_dim, self.encoder_rnn_dim,
             hparams.attention_dim, hparams.attention_location_n_filters,
             hparams.attention_location_kernel_size)
 
         self.decoder_rnn = nn.LSTMCell(
-            hparams.attention_rnn_dim + self.mel_rnn_dim,
+            hparams.attention_rnn_dim + self.encoder_rnn_dim,
             hparams.decoder_rnn_dim, 1)
 
         self.linear_projection = LinearNorm(
-            hparams.decoder_rnn_dim + self.mel_rnn_dim,
+            hparams.decoder_rnn_dim + self.encoder_rnn_dim,
             hparams.n_mel_channels * hparams.n_frames_per_step)
 
         self.gate_layer = LinearNorm(
-            hparams.decoder_rnn_dim + self.mel_rnn_dim, 1,
+            hparams.decoder_rnn_dim + self.encoder_rnn_dim, 1,
             bias=True, w_init_gain='sigmoid')
 
     def get_go_frame(self, memory):
@@ -283,7 +283,7 @@ class Decoder(nn.Module):
         self.attention_weights_cum = Variable(memory.data.new(
             B, MAX_TIME).zero_())
         self.attention_context = Variable(memory.data.new(
-            B, self.mel_rnn_dim).zero_())
+            B, self.encoder_rnn_dim).zero_())
 
         self.memory = memory
         self.processed_memory = self.attention_layer.memory_layer(memory)
@@ -351,13 +351,20 @@ class Decoder(nn.Module):
         attention_weights:
         """
         ## -- start Attention related block
-        cell_input = torch.cat((decoder_input, self.attention_context), -1) # 왜 결합하는데?
-        self.attention_hidden, self.attention_cell = self.attention_rnn(
+        # s = output(final representation),
+        # a = attention context
+        # f(,) = additive rnn attention
+        #
+        cell_input = torch.cat((decoder_input, self.attention_context), -1)
+        # 왜 결합하는데? location based attention 이라서, attend(s_(i-1), a_(i-1)) -> W^T sigma(W^(1)s_(i-1),W^(2)a_(i-1)) 이니 W[s_(i-1),a_(i-1)] -> 해결
+        self.attention_hidden, self.attention_cell = self.attention_rnn( # additive attention rnn
             cell_input, (self.attention_hidden, self.attention_cell))
         self.attention_hidden = F.dropout(
             self.attention_hidden, self.p_attention_dropout, self.training)
+        # attention_hidden: f(,)
         self.attention_cell = F.dropout(
             self.attention_cell, self.p_attention_dropout, self.training)
+        # attention_cell: 다음 step 계산을 위해 유지되는 값
 
         attention_weights_cat = torch.cat(
             (self.attention_weights.unsqueeze(1),
@@ -462,30 +469,181 @@ class Decoder(nn.Module):
         return mel_outputs, gate_outputs, alignments
 
 class MelLinEncoder(nn.Module):
-    def __inint__(self, hparams):
+    def __init__(self, hparams):
+        super(MelLinEncoder, self).__init__()
         self.n_mel_channels = hparams.n_mel_channels
         self.mel_fc_dim = hparams.mel_fc_dim
         self.mel_rnn_dim = hparams.mel_rnn_dim
+        self.encoder_rnn_dim = hparams.encoder_rnn_dim
+        self.encoder_attention_rnn_dim = hparams.encoder_attention_rnn_dim
+        self.linguistic_feature_dim = hparams.encoder_embedding_dim
+
+        self.p_attention_dropout = hparams.p_attention_dropout
+        self.p_encoder_dropout = hparams.p_encoder_dropout
         self.prenet = Prenet(
             hparams.n_mel_channels * hparams.n_frames_per_step,
             [hparams.mel_fc_dim, hparams.mel_fc_dim])
-        self.lstm = nn.LSTM(hparams.mel_fc_dim,
-                            hparams.mel_rnn_dim, 1,
-                            batch_first=True)
-        self.attention_rnn = nn.LSTMCell(
-            hparams.prenet_dim + self.mel_rnn_dim,
-            hparams.attention_rnn_dim)
+
+        #cell_input = torch.cat((mel_input, self.attention_context), -1)
+        self.mel_rnn = nn.LSTMCell(
+            hparams.mel_fc_dim + self.linguistic_feature_dim,
+            hparams.mel_rnn_dim) # -> mel_rnn
 
         self.attention_layer = Attention(
-            hparams.attention_rnn_dim, self.mel_rnn_dim,
+            hparams.mel_rnn_dim, self.linguistic_feature_dim,
             hparams.attention_dim, hparams.attention_location_n_filters,
             hparams.attention_location_kernel_size)
 
+        # 차원 맞춰서 수정 ( encoder_input = torch.cat((self.attention_hidden, self.attention_context), -1)
+        self.encoder_rnn = nn.LSTMCell(
+            hparams.encoder_rnn_dim + self.linguistic_feature_dim,
+            hparams.encoder_rnn_dim)
+
+    def initialize_encoder_states(self, memory, mask):
+        B = memory.size(0)
+        MAX_TIME = memory.size(1)
+
+        self.attention_hidden = Variable(memory.data.new(
+            B, self.encoder_attention_rnn_dim).zero_())
+        self.attention_cell = Variable(memory.data.new(
+            B, self.encoder_attention_rnn_dim).zero_())
+
+        self.encoder_hidden = Variable(memory.data.new(
+            B, self.encoder_rnn_dim).zero_())
+        self.encoder_cell = Variable(memory.data.new(
+            B, self.encoder_rnn_dim).zero_())
+
+        self.attention_weights = Variable(memory.data.new(
+            B, MAX_TIME).zero_())
+        self.attention_weights_cum = Variable(memory.data.new(
+            B, MAX_TIME).zero_())
+        self.attention_context = Variable(memory.data.new(
+            B, self.linguistic_feature_dim).zero_())
+
+        #print('memory.type()', memory.type())
+        self.memory = memory
+        self.processed_memory = self.attention_layer.memory_layer(memory)
+        # 왜 한번 계산되고 치우는거지? -> 당연 다 만들어진 값이라 recursive 하게 게산될 필요가 없음.
+        # 따라서 한번 계산한 값을 계속 유지
+        self.mask = mask
+        pass
+
+    def parse_encoder_outputs(self, encoder_outputs, alignments):
+        """ Prepares decoder outputs for output
+        PARAMS
+        ------
+        encoder_outputs:
+        alignments:
+
+        RETURNS
+        -------
+        encoder_outputs:
+        alignments:
+        """
+        # (T_out, B) -> (B, T_out)
+        # print('torch.stack(alignments): ', torch.stack(alignments).shape)
+        alignments = torch.stack(alignments).transpose(0, 1)
+        # (T_out, B, encoder_rnn_dim) -> (B, T_out, encoder_rnn_dim)
+        # print('torch.stack(encoder_outputs): ', torch.stack(encoder_outputs).shape)
+        mel_outputs = torch.stack(encoder_outputs).transpose(0, 1).contiguous() # ?
+
+        return mel_outputs, alignments
+
+    def encode(self, mel_input):
+        """ Decoder step using stored states, attention and memory
+        PARAMS
+        ------
+        mel_input: melspectrogram vector at time t
+
+        RETURNS
+        self.encoder_hidden, self.attention_weights
+        -------
+
+        """
+        # print('mel_input: ', mel_input.shape, ' attention_context: ', self.attention_context.shape)
+        cell_input = torch.cat((mel_input, self.attention_context), -1)
+        # print('cell_input: ', cell_input.shape)
+        # 왜 결합하는데? location based attention 이라서, attend(s_(i-1), a_(i-1)) -> W^T sigma(W^(1)s_(i-1),W^(2)a_(i-1)) 이니 W[s_(i-1),a_(i-1)] -> 해결
+        # ? 위 생각은 좀 잘못 생각한 것 같음. 입력단부터 추가적인 정보를 하나 더가지고 시작해서 representation을 만들자는 접근으로 보임
+        self.attention_hidden, self.attention_cell = self.mel_rnn( # additive attention rnn
+            cell_input, (self.attention_hidden, self.attention_cell))
+        self.attention_hidden = F.dropout(
+            self.attention_hidden, self.p_attention_dropout, self.training)
+        self.attention_cell = F.dropout(
+            self.attention_cell, self.p_attention_dropout, self.training)
+        # attention_cell: 다음 step 계산을 위해 유지되는 값
+        # print('attention_hidden: ', self.attention_hidden.shape)
+        # print('attention_cell: ', self.attention_cell.shape)
+        attention_weights_cat = torch.cat(
+            (self.attention_weights.unsqueeze(1),
+             self.attention_weights_cum.unsqueeze(1)), dim=1)
+        self.attention_context, self.attention_weights = self.attention_layer(
+            self.attention_hidden, self.memory, self.processed_memory,
+            attention_weights_cat, self.mask)
+
+        self.attention_weights_cum += self.attention_weights
+        encoder_input = torch.cat(
+            (self.attention_hidden, self.attention_context), -1)
+        # print('attention_hidden: ', self.attention_hidden.shape)
+        # print('attention_context: ', self.attention_context.shape)
+        # print('encoder_input: ', encoder_input.shape)
+        self.encoder_hidden, self.encoder_cell = self.encoder_rnn(
+            encoder_input, (self.encoder_hidden, self.encoder_cell))
+        ## -- end Attention related block
+
+        self.encoder_hidden = F.dropout(
+            self.encoder_hidden, self.p_encoder_dropout, self.training)
+        self.encoder_cell = F.dropout(
+            self.encoder_cell, self.p_encoder_dropout, self.training)
+
+        return self.encoder_hidden, self.attention_weights
+
     def forward(self, linguistic, melspectrogram, linguistic_lengths, melspectrogram_lengths):
         representation_x = self.prenet(melspectrogram)
-        sequential_representation_x, _ = self.lstm(representation_x)
-        return sequential_representation_x
+        # pack_padded_sequence 적용 실패, attention output에 masking 적용해야 됨
 
+        self.initialize_encoder_states(
+            linguistic, mask=~get_mask_from_lengths(linguistic_lengths))
+
+        encoder_outputs, alignments = [], []
+
+        while len(encoder_outputs) < melspectrogram.size(1):
+            # matrix to vector,
+            # print('representation_x: ',representation_x.shape)
+            # print('encoder_outputs: ', encoder_outputs.shape)
+            # print('len(encoder_outputs): ', len(encoder_outputs))
+            encoder_input = representation_x[:,len(encoder_outputs),:]
+            #print('encoder_input: ', encoder_input.shape)
+            encoder_output, attention_weights = self.encode(encoder_input)
+            # print('encoder_outputs: ', encoder_output.shape)
+            encoder_outputs += [encoder_output.squeeze(1)]
+            alignments += [attention_weights]
+
+        # print('len: ', len(encoder_outputs))
+        encoder_outputs, alignments = self.parse_encoder_outputs(encoder_outputs, alignments)
+        #encoder_outputs, _ = nn.utils.rnn.pad_packed_sequence(encoder_outputs, batch_first=True)
+        # print('encoder_outputs: ', encoder_outputs.shape)
+        # print('alignments: ', alignments.shape)
+        return encoder_outputs, alignments
+
+    def inference(self, linguistic, melspectrogram):
+        representation_x = self.prenet(melspectrogram)
+
+        self.initialize_encoder_states(
+            linguistic, mask=None)
+
+        encoder_outputs, alignments = [], []
+        while len(encoder_outputs) < melspectrogram.size(1):
+            encoder_input = representation_x[:, len(encoder_outputs), :]
+            encoder_output, attention_weights = self.encode(encoder_input)
+            values, indices = torch.max(attention_weights, 1)
+            print('alignments', indices)
+            encoder_outputs += [encoder_output.squeeze(1)]
+            alignments += [attention_weights]
+
+        encoder_outputs, alignments = self.parse_encoder_outputs(encoder_outputs, alignments)
+        return encoder_outputs, alignments
+        pass
 
 class MelToMel(nn.Module):
     def __init__(self, hparams):
@@ -532,11 +690,11 @@ class MelToMel(nn.Module):
         return outputs
 
     def forward(self, inputs):
-        source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, source_text_padded, source_text_lengths = self.parse_input(inputs)
+        source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, linguistic_features, source_text_lengths = self.parse_input(inputs)
         output_lengths = output_lengths.data
         source_mel_shape = list(source_mel_padded.shape)
         source_mel_padded = source_mel_padded.transpose(1, 2)
-        encoded_feature =  self.encoder(source_mel_padded)
+        encoded_feature, mel_lin_alignments =  self.encoder(linguistic_features, source_mel_padded, source_text_lengths, input_lengths) #linguistic, melspectrogram, linguistic_lengths, melspectrogram_lengths
         mel_outputs, gate_outputs, alignments = self.decoder(
             encoded_feature, target_mel_padded, memory_lengths=input_lengths)
 
@@ -548,15 +706,15 @@ class MelToMel(nn.Module):
             output_lengths)
 
     def inference(self, inputs):
-        source_mel_padded = self.parse_input(inputs)
+        source_mel_padded, linguistic_features = self.parse_input(inputs)
         source_mel_padded = source_mel_padded.transpose(1, 2)
-        encoded_feature = self.encoder(source_mel_padded)
+        encoded_feature, mel_lin_alignments = self.encoder.inference(linguistic_features, source_mel_padded)
         mel_outputs, gate_outputs, alignments = self.decoder.inference(encoded_feature)
 
         mel_outputs_postnet = self.postnet(mel_outputs)
         mel_outputs_postnet = mel_outputs + mel_outputs_postnet
 
         outputs = self.parse_output(
-            [mel_outputs, mel_outputs_postnet, gate_outputs, alignments])
+            [mel_outputs, mel_outputs_postnet, gate_outputs, alignments, mel_lin_alignments])
 
         return outputs

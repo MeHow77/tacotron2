@@ -13,7 +13,8 @@ from torch.utils.data import DataLoader
 from fp16_optimizer import FP16_Optimizer
 
 from model import MelToMel
-from data_utils import MelLoader, MelCollate
+from text2mel import Tacotron2
+from data_utils import TextMelLoader, TextMelCollate
 from loss_function import MelToMelLoss
 from logger import MelToMelLogger
 from hparams import create_hparams
@@ -52,9 +53,9 @@ def init_distributed(hparams, n_gpus, rank, group_name):
 
 def prepare_dataloaders(hparams):
     # Get data, data loaders and collate function ready
-    trainset = MelLoader(hparams.training_files, hparams)
-    valset = MelLoader(hparams.validation_files, hparams)
-    collate_fn = MelCollate(hparams.n_frames_per_step)
+    trainset = TextMelLoader(hparams.training_files, hparams)
+    valset = TextMelLoader(hparams.validation_files, hparams)
+    collate_fn = TextMelCollate(hparams.n_frames_per_step)
 
     train_sampler = DistributedSampler(trainset) \
         if hparams.distributed_run else None
@@ -79,14 +80,17 @@ def prepare_directories_and_logger(output_directory, log_directory, rank):
 
 def load_model(hparams):
     model =  MelToMel(hparams).cuda()
+    ttm_model = Tacotron2(hparams).cuda()
     if hparams.fp16_run:
         model = batchnorm_to_float(model.half())
+        ttm_model = batchnorm_to_float(ttm_model.half())
         model.decoder.attention_layer.score_mask_value = float(finfo('float16').min)
+        ttm_model.decoder.attention_layer.score_mask_value = float(finfo('float16').min)
 
     if hparams.distributed_run:
         model = apply_gradient_allreduce(model)
 
-    return model
+    return model, ttm_model
 
 
 def warm_start_model(checkpoint_path, model):
@@ -109,6 +113,12 @@ def load_checkpoint(checkpoint_path, model, optimizer):
         checkpoint_path, iteration))
     return model, optimizer, learning_rate, iteration
 
+def load_ttm_checkpoint(ttm_checkpoint_path, ttm_model):
+    assert os.path.isfile(ttm_checkpoint_path)
+    print("Loading ttm checkpoint '{}'".format(ttm_checkpoint_path))
+    checkpoint_dict = torch.load(ttm_checkpoint_path, map_location='cpu')
+    ttm_model.load_state_dict(checkpoint_dict['state_dict'])
+    return ttm_model
 
 def save_checkpoint(model, optimizer, learning_rate, iteration, filepath):
     print("Saving model and optimizer state at iteration {} to {}".format(
@@ -119,10 +129,11 @@ def save_checkpoint(model, optimizer, learning_rate, iteration, filepath):
                 'learning_rate': learning_rate}, filepath)
 
 
-def validate(model, criterion, valset, iteration, batch_size, n_gpus,
+def validate(model, ttm_model, criterion, valset, iteration, batch_size, n_gpus,
              collate_fn, logger, distributed_run, rank):
     """Handles all the validation scoring and printing"""
     model.eval()
+    ttm_model.eval()
     with torch.no_grad():
         val_sampler = DistributedSampler(valset) if distributed_run else None
         val_loader = DataLoader(valset, sampler=val_sampler, num_workers=1,
@@ -132,6 +143,9 @@ def validate(model, criterion, valset, iteration, batch_size, n_gpus,
         val_loss = 0.0
         for i, batch in enumerate(val_loader):
             x, y = model.parse_batch(batch)
+            source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, source_text_padded, source_text_lengths = x
+            linguistic_features = ttm_model.liguistic_feature(source_text_padded)
+            x = (source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, linguistic_features, source_text_lengths)
             y_pred = model(x)
             loss = criterion(y_pred, y)
             if distributed_run:
@@ -147,7 +161,7 @@ def validate(model, criterion, valset, iteration, batch_size, n_gpus,
         logger.log_validation(reduced_val_loss, model, y, y_pred, iteration)
 
 
-def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
+def train(output_directory, log_directory, checkpoint_path, ttm_checkpoint_path, warm_start, n_gpus,
           rank, group_name, hparams):
     """Training and validation logging results to tensorboard and stdout
 
@@ -155,7 +169,8 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
     ------
     output_directory (string): directory to save checkpoints
     log_directory (string) directory to save tensorboard logs
-    checkpoint_path(string): checkpoint path
+    checkpoint_path(string): mel to mel checkpoint path
+    ttm_checkpoint_path(string): mel to mel
     n_gpus (int): number of gpus
     rank (int): rank of current gpu
     hparams (object): comma separated list of "name=value" pairs.
@@ -166,7 +181,7 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
     torch.manual_seed(hparams.seed)
     torch.cuda.manual_seed(hparams.seed)
 
-    model = load_model(hparams)
+    model, ttm_model = load_model(hparams)
     learning_rate = hparams.learning_rate
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate,
                                  weight_decay=hparams.weight_decay)
@@ -198,6 +213,7 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
             iteration += 1  # next iteration is iteration + 1
             epoch_offset = max(0, int(iteration / len(train_loader)))
 
+    _= ttm_model.eval()
     model.train()
     # ================ MAIN TRAINNIG LOOP! ===================
     for epoch in range(epoch_offset, hparams.epochs):
@@ -209,8 +225,10 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
 
             model.zero_grad()
             x, y = model.parse_batch(batch)
-            # x = (source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, source_text_padded, source_text_lengths)
-            # todo: processing source_text_padded, source_text_lengths
+            source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, source_text_padded, source_text_lengths = x
+            with torch.no_grad():
+                linguistic_features = ttm_model.liguistic_feature(source_text_padded)
+            x = (source_mel_padded, input_lengths, target_mel_padded, max_len, output_lengths, linguistic_features, source_text_lengths)
             y_pred = model(x)
 
             loss = criterion(y_pred, y)
@@ -239,7 +257,7 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
                     reduced_loss, grad_norm, learning_rate, duration, iteration)
 
             if not overflow and (iteration % hparams.iters_per_checkpoint == 0):
-                validate(model, criterion, valset, iteration,
+                validate(model, ttm_model, criterion, valset, iteration,
                          hparams.batch_size, n_gpus, collate_fn, logger,
                          hparams.distributed_run, rank)
                 if rank == 0:
@@ -262,7 +280,9 @@ if __name__ == '__main__':
     parser.add_argument('-l', '--log_directory', type=str,
                         help='directory to save tensorboard logs')
     parser.add_argument('-c', '--checkpoint_path', type=str, default=None,
-                        required=False, help='checkpoint path')
+                        required=False, help='mel to mel checkpoint path')
+    parser.add_argument('--ttm_checkpoint_path', type=str,
+                        required=True, help='Text to mel model checkpoint path')
     parser.add_argument('--warm_start', action='store_true',
                         help='load the model only (warm start)')
     parser.add_argument('--n_gpus', type=int, default=1,
@@ -286,5 +306,5 @@ if __name__ == '__main__':
     print("cuDNN Enabled:", hparams.cudnn_enabled)
     print("cuDNN Benchmark:", hparams.cudnn_benchmark)
 
-    train(args.output_directory, args.log_directory, args.checkpoint_path,
+    train(args.output_directory, args.log_directory, args.checkpoint_path, args.ttm_checkpoint_path,
           args.warm_start, args.n_gpus, args.rank, args.group_name, hparams)
