@@ -79,11 +79,20 @@ class TextMelCollate():
         batch: [[source_mel_normalized, target_mel_normalized, source_text, target_text], ...]
         """
         # Right zero-pad all one-hot text sequences to max input length
-        max_source_text_len = [len(x[2]) for x in batch]
+        # print('source_mel_normalized:', batch[0][0].shape)
+        # print('target_mel_normalized:', batch[0][1].shape)
+        # print('source_text:', batch[0][2].shape)
+
+        source_mel_lengths, ids_sorted_decreasing = torch.sort(
+            torch.LongTensor([x[0].size(1) for x in batch]),
+            dim=0, descending=True)
+        max_source_text_len = max([len(x[2]) for x in batch])
+        #print('max_source_text_len: ', max_source_text_len)
 
         source_text_padded = torch.LongTensor(len(batch), max_source_text_len).zero_()
 
-        for i, x in enumerate(batch):
+        for i in range(len(ids_sorted_decreasing)):
+            x = batch[ids_sorted_decreasing[i]]
             source_text = x[2]
             source_text_padded[i, :source_text.size(0)] = source_text
 
@@ -109,18 +118,20 @@ class TextMelCollate():
         gate_padded = torch.FloatTensor(len(batch), max_target_len)
         gate_padded.zero_()
         output_lengths = torch.LongTensor(len(batch))
-        source_mel_lengths = torch.LongTensor(len(batch))
+        #source_mel_lengths = torch.LongTensor(len(batch))
         source_text_lengths = torch.LongTensor(len(batch))
-        for i in range(len(batch)):
+        for j in range(len(batch)):
+            i = ids_sorted_decreasing[j]
             source_mel = batch[i][0]
             target_mel = batch[i][1]
             source_text = batch[i][2]
-            source_mel_padded[i, :, :source_mel.size(1)] = source_mel
-            target_mel_padded[i, :, :target_mel.size(1)] = target_mel
-            gate_padded[i, target_mel.size(1)-1:] = 1
-            output_lengths[i] = target_mel.size(1)
-            source_mel_lengths[i] = source_mel.size(1)
-            source_text_lengths[i] = source_text.size(1)
+            source_mel_padded[j, :, :source_mel.size(1)] = source_mel
+            target_mel_padded[j, :, :target_mel.size(1)] = target_mel
+            gate_padded[j, target_mel.size(1)-1:] = 1
+            output_lengths[j] = target_mel.size(1)
+            #source_mel_lengths[j] = source_mel.size(1)
+            source_text_lengths[j] = source_text.size(0)
+
 
         return source_mel_padded, source_mel_lengths, target_mel_padded, gate_padded, \
             output_lengths, source_text_padded, source_text_lengths
