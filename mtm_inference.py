@@ -21,8 +21,11 @@ def plot_data(data, index, output_dir="", figsize=(16, 4)):
                         interpolation='none')
     plt.savefig(os.path.join(output_dir, 'sentence_{}.png'.format(index)))
 
-def get_mel(filename):
-    melspec = torch.from_numpy(np.load(filename)).unsqueeze(0)
+def get_mel(filename, silence_mel_padding):
+    # print(np.load(filename).shape, np.load(filename).max(), np.load(filename).min())
+    # print((np.ones((1,80,silence_mel_padding),dtype=np.float32)*-4.0).shape)
+    melspec = torch.from_numpy(np.append(np.load(filename), np.ones((80,silence_mel_padding),dtype=np.float32)*-4.0, axis=1)).unsqueeze(0)
+    # print(melspec.shape)
     return melspec
 
 def generate_mels(hparams, checkpoint_path, mel_paths, silence_mel_padding, stft, output_dir=""):
@@ -35,7 +38,7 @@ def generate_mels(hparams, checkpoint_path, mel_paths, silence_mel_padding, stft
     _ = model.eval()
     output_mels = []
     for i, a in enumerate(mel_paths):
-        source_mel = get_mel(a).cuda()
+        source_mel = get_mel(a, silence_mel_padding).cuda()
         stime = time.time()
         _, mel_outputs_postnet, _, alignments = model.inference(source_mel)
         plot_data((source_mel.data.cpu().numpy()[0], mel_outputs_postnet.data.cpu().numpy()[0],
@@ -76,6 +79,7 @@ def mels_to_wavs_GL(hparams, mels, taco_stft, output_dir="", ref_level_db = 0, m
 
 def run(hparams, checkpoint_path, audio_path_file, silence_mel_padding, output_dir):
     f = open(audio_path_file, 'r')
+    os.makedirs(output_dir,exist_ok=True)
     mel_paths = [x.strip() for x in f.readlines()]
     print('All mel to infer:',mel_paths)
     f.close()
@@ -93,6 +97,7 @@ if __name__ == '__main__':
     """
     usage
     python mtm_inference.py -o=sts_output -c=vc2/checkpoint_35000 -m=mtm_test.txt
+    python mtm_inference.py -o=. -c=vc_cho_to_park_checkpoint -m=mtm_test.txt
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--output_directory', type=str, default='',
@@ -101,7 +106,7 @@ if __name__ == '__main__':
                         required=True, help='checkpoint path')
     parser.add_argument('-m', '--mel_path_file', type=str, default=None,
                         required=True, help='melspectrogram paths')
-    parser.add_argument('--silence_mel_padding', type=int, default=1,
+    parser.add_argument('--silence_mel_padding', type=int, default=3,
                         help='silence audio size is hop_length * silence mel padding')
     parser.add_argument('--hparams', type=str,
                         required=False, help='comma separated name=value pairs')
